@@ -1,0 +1,40 @@
+{
+  "mcu_time_domain": "shared Renode emulation",
+  "qemu_time_domain": "explicit instruction-count virtual clock, paired1ms paused-boundary advancement",
+  "gpio_connection": "main PA8 to motor TMR2 CH1 capture input",
+  "uart_connection": "main USART2 to motor USART2 via virtual576000baud",
+  "firmware_sha256": {
+    "main": "9bd702c8a076f29c0ac019cc7c8ea6c7afa52d13580fea04e977e3dce0a5d517",
+    "nozzle": "ae09264667ff4a72905706026b1591bdede91e1f250755319fec531328e54e2f",
+    "motor": "76b439293ab08207317007f5179243a0684c1b27668442781bcb2e201ff62661"
+  },
+  "nozzle_tmc_model": {
+    "selection": "autobaud",
+    "experimental": true,
+    "source": "nozzle-renode/experimental/tmc-native-replay/VirtualNozzleTmc2209Autobaud.cs",
+    "source_sha256": "905f96a12ffc9dc65a91aa429aaa664f33aca426ddbe0669ce799df6f7c64453",
+    "generated_sha256": "262a4c672aa10f021e9601ee24f2995d0ba549d09a22b72059cc6c9c751de8a9",
+    "transformation": "namespace and class identity only",
+    "gpio_sync_time_added": false,
+    "turnaround_tuned": false,
+    "firmware_changed": false
+  },
+  "motor_plant": "electromechanical-driver",
+  "motor_enable_wiring": {
+    "assumption": "mcu-control-only",
+    "physical_pcb_verified": false,
+    "supply_and_external_fault_gates_preserved": true
+  },
+  "clock_lockstep": true,
+  "passive_homing_gpio_edges": true,
+  "assumed_xy_diag_cable": {
+    "enabled": true,
+    "mapping": "motor PB5 -> main PA6; motor PB4 -> main PA15",
+    "inverting": false,
+    "physical_pcb_wiring_verified": false,
+    "source": "genuine motor GPIO outputs only; never geometric stop or firmware RAM writes"
+  },
+  "enable_net": "main PC13 to motor PB2, active-low; released input pull-high hypothesis",
+  "electrical_fault_inputs": "active-low X PA12, Y PB1, Z PC12",
+  "homing_state_modified": false
+}

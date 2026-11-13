@@ -1,0 +1,19 @@
+{
+  "selection": "synthetic-cartridge-4x",
+  "synthetic": true,
+  "hardware_transferable": false,
+  "pid_values_hardware_transferable": false,
+  "cartridge_power_multiplier": 4,
+  "nozzle_power_w": 240,
+  "bed_power_w": 800,
+  "heat_capacity_and_conductance_unchanged": true,
+  "clocks_firmware_guards_unchanged": true,
+  "purpose": "Faster virtual-only full native calibration; resulting PID values are synthetic and must not be applied to physical hardware.",
+  "original_model_nozzle_power_w": 60,
+  "original_model_bed_power_w": 200,
+  "heater_power_multipliers": {
+    "nozzle": 4,
+    "bed": 4
+  },
+  "physical_heater_ratings_verified": false
+}

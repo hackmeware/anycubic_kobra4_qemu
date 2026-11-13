@@ -1,0 +1,10 @@
+nvic: IRQControllers.NVIC @ sysbus 0xE000E000
+    systickFrequency: 8000000
+crm: AT32.AT32CRM @ sysbus 0x40021000
+    nvic: nvic
+    hextFrequency: 12000000
+adc: AT32.AT32ADC @ sysbus 0x40012400
+systemTests: AT32Tests.SystemTests @ sysbus 0x60000000
+    crm: crm
+    adc: adc
+    nvic: nvic

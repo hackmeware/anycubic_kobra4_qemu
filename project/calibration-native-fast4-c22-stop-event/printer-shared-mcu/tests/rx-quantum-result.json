@@ -1,0 +1,10 @@
+{
+  "default": {
+    "received_by_cpu": 43,
+    "wire_attempts": 64
+  },
+  "10us": {
+    "received_by_cpu": 64,
+    "wire_attempts": 64
+  }
+}

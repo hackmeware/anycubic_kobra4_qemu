@@ -1,0 +1,16 @@
+include @scripts/load.resc
+include @peripherals/GenericStepperElectromechanical.cs
+include @peripherals/GenericMotorDriver.cs
+machine LoadPlatformDescription @platforms/generic-electromechanical.repl
+machine LoadPlatformDescription @platforms/generic-driver.repl
+include @tests/GenericDriverTests.cs
+machine LoadPlatformDescriptionFromString "driverTests: AT32Tests.GenericDriverTests @ sysbus { driver: genericDriver; plant: electromechanicalPlant; gpioA: gpioA; gpioB: gpioB; gpioC: gpioC; tmr3: tmr3 }"
+sysbus.driverTests Run
+sysbus.driverTests BeginPhysicalGateTest
+emulation RunFor "0.00001"
+sysbus.driverTests EnablePhysicalDrive
+emulation RunFor "0.00001"
+sysbus.driverTests DisablePhysicalDrive
+emulation RunFor "0.00001"
+sysbus.driverTests CheckPhysicalDecay
+quit

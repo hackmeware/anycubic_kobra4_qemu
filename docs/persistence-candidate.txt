@@ -1,0 +1,65 @@
+Private persistent instance candidate: firmware-free integration milestone
+
+STATUS: 39 source/synthetic tests pass, including actual Linux unshare PID/user/
+network namespaces and the production supervisor/observer subprocess chain with
+synthetic writers. No QEMU, Renode, firmware, guest filesystem or print job has
+been run by this test suite. This is not yet a delivered working persistence claim.
+
+Integration
+- This directory contains a derived version1 tools/starter/start_diagnostic.py,
+  unchanged prepare_diagnostic.py, instance_disk.py and persistence_hooks.py.
+- Merge the explicit changes into the UI starter; do not overwrite UI changes.
+- All four modules must be together; preserve the supplied package's launcher
+  project/runtime/helper paths. Default without --instance remains snapshot=on.
+- Opt-in: append --instance /absolute/private/instance --execute to the existing
+  starter invocation. The instance must be new or match exactly the same source,
+  selected MCU profile, project, runtimes, network tools and starter source.
+- Each actual run still needs a NEW --output directory. The instance is the
+  durable disk; the output is that run's logs. Never use an imported source or
+  previous output directory as the instance.
+- --recover-instance additionally accepts an unclean/externally changed disk
+  after writing a complete pre-resume backup. It never resets or discards it.
+- No dry-run with --instance: the option requires --execute, so no source copy
+  or recovery state changes occur merely for a printed plan.
+
+Safeguards
+- An exclusively locked, private 0600 disk.raw is copied from the immutable
+  source with explicit content hashing, not a hardlink or copied xattrs.
+- Source hashes, code/runtime/profile hashes, disk inode/size, instance/run IDs,
+  atomic state revisions and retained history are verified. Changed profiles
+  are refused. Migration is not implemented; keep the old package for resumes.
+- Symlinks, parent traversal, unsafe QEMU path delimiters, hardlinked regular
+  files and nonprivate instance files are refused. Same-user hostile concurrent
+  path modification is not a supported security boundary.
+- The actual top-level Popen -> unshare -> PID1 -> observer -> run_link Popen ->
+  wrapper exec chain carries the original flock descriptor with pass_fds.
+- The wrapper disables snapshot only for exactly one expected owned disk drive
+  specification. It does not grant arbitrary QEMU drive options or modify the
+  historical run_link.py. Network argument validation is retained.
+- Finalization closes the parent's inherited lock and acquires an independently
+  opened exclusive lock. A surviving inherited writer makes finalization fail
+  with state still active. Merely observing one parent's exit is insufficient.
+- Inherited finalizer failure has starter exit code 7 (when no earlier primary
+  boot/supervision failure applies). State/errors also remain in EXIT.json.
+- Host fsync and successful process exit DO NOT establish guest cache flush.
+  guest_sync_confirmed always remains false in this integration. Every next
+  resume keeps a complete disk backup, including normal unsynced exits. This
+  uses additional disk space intentionally; nothing is automatically deleted.
+- A killed launcher retains active state; only explicit --recover-instance can
+  resume it once all inherited writers have released their locks.
+
+Limitations / remaining validation
+- Prove real guest write + sync + shutdown + second boot readback before claiming
+  print-job/results persistence. A host synthetic disk write is not that proof.
+- An actual guest sync/graceful shutdown protocol is not integrated. Abrupt guest
+  shutdown may lose RAM-buffered application writes or damage the filesystem.
+- No automatic filesystem repair, rollback, source migration, VM RAM/MCU state,
+  calibration completion, GUI or real printer-mechanics claim is provided.
+- UI and persistence still require source merge, aggregate tests, actual boot,
+  checkpoint upload and roundtrip verification before a new release.
+
+Testing (Linux, unprivileged user/PID/mount/network namespaces required)
+  cd persistence_integration
+  python3 -B -m unittest discover -v
+The namespace tests launch only synthetic Python writers, never emulator code.
+The parent-death tests kill only subprocesses created by those tests.

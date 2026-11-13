@@ -1,0 +1,4 @@
+#!/bin/sh
+# Offline emulation profile only. Original source remains untouched.
+echo "Offline emulation: ATBM SDIO WLAN initialization skipped"
+exit 0

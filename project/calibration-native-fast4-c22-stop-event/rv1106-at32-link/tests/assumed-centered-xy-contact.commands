@@ -1,0 +1,6 @@
+# Explicit scenario only. Original software limits: X -18.5..280, Y -7.5..272.5 mm.
+# Assume initial physical carriages at each software-range midpoint, not known real positions.
+# Relative half spans: X 149.25 mm, Y 140 mm. No coordinate or homed flag is written.
+# Stops generate torque in physical rotor kernel, never synthetic DIAG/endstop levels.
+sysbus.electromechanicalPlant ConfigureRelativeContact 0 -149.25 149.25 10 0.01
+sysbus.electromechanicalPlant ConfigureRelativeContact 1 -140 140 10 0.01

@@ -1,0 +1,7 @@
+include @peripherals/AT32F403A_IO.cs
+include @peripherals/VirtualMotorTmcGateway.cs
+include @tests/VirtualMotorTmcTests.cs
+mach create
+machine LoadPlatformDescription @tests/tmc-gateway.repl
+sysbus.tests Run
+quit

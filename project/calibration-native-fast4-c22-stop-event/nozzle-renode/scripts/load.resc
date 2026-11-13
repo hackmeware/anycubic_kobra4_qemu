@@ -1,0 +1,9 @@
+include @peripherals/AT32F403A_System.cs
+include @peripherals/AT32F403A_IO.cs
+include @peripherals/AT32F403A_Bus.cs
+include @peripherals/AT32F403A_DWT.cs
+include @peripherals/AT32F403A_Extras.cs
+include @peripherals/F1BootFlash.cs
+include @peripherals/ClockedSTM32Timer.cs
+mach create "Nozzle-F1-Provisional"
+machine LoadPlatformDescription @platforms/nozzle-f1-provisional.repl

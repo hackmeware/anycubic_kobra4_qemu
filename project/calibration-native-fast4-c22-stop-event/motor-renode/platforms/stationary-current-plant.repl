@@ -1,0 +1,8 @@
+// Explicit stationary zero-current testbench hypothesis. No simulated motion.
+currentPlant: AT32.VirtualMotorCurrentCalibration @ sysbus
+    tmr2: tmr2
+    tmr1: tmr1
+    tmr8: tmr8
+    adc1: adc1
+    adc2: adc2
+    adc3: adc3

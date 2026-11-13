@@ -1,0 +1,12 @@
+include @scripts/load.resc
+include @scripts/generic-electromechanical.resc
+include @tests/GenericElectromechanicalTimingTests.cs
+machine LoadPlatformDescription @tests/generic-electromechanical-timing.repl
+sysbus.cpu IsHalted true
+sysbus.physicalTimingTests Start
+emulation RunFor "0.000001"
+sysbus.physicalTimingTests EndPulse
+emulation RunFor "0.000032"
+sysbus.physicalTimingTests CheckAfterDecay
+sysbus.electromechanicalPlant WriteCsv "__TRACE_PATH__"
+quit

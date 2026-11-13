@@ -1,0 +1,10 @@
+prefix=/workspace/scratch/ca95ca5f55d9/c22_fullrun_liveness10_r9_20261111/calibration-native-fast4-c22-stop-event/build-deps/root/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libffi
+Description: Library supporting Foreign Function Interfaces
+Version: 3.4.8
+Libs: -lffi
+Cflags: -I${includedir}

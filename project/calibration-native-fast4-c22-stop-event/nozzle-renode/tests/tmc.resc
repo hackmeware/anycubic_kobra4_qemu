@@ -1,0 +1,10 @@
+include @peripherals/AT32F403A_IO.cs
+include @peripherals/VirtualNozzleTmc2209.cs
+include @tests/VirtualNozzleTmcTests.cs
+mach create
+machine LoadPlatformDescription @tests/tmc.repl
+sysbus.tests Run
+sysbus.tests StartWaveform
+emulation RunFor "0.004"
+sysbus.tests CheckWaveform
+quit

@@ -1,0 +1,6 @@
+heaterBindingChecks: AT32Tests.NativeNozzleHeaterBindingTests @ sysbus 0x60000000
+    adc: adc1
+    portB: gpioB
+    thermal: virtualNozzleNTC
+    binding: nativeNozzleHeaterBinding
+    observer: passiveNozzleThermalObserver

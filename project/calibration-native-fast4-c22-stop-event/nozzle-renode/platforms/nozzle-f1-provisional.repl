@@ -1,0 +1,85 @@
+// PROVISIONAL F1-compatible software target. Not an identified physical SKU.
+// 128 KiB mapped flash covers observed config reads at 0x0801F800.
+// 20 KiB SRAM follows initial SP; full physical capacity remains unverified.
+flash: Memory.MappedMemory @ { sysbus 0x08000000; sysbus 0x0 }
+    size: 0x20000
+sram: Memory.MappedMemory @ sysbus 0x20000000
+    size: 0x5000
+nvic: IRQControllers.NVIC @ sysbus 0xE000E000
+    priorityMask: 0xF0
+    systickFrequency: 8000000
+    IRQ -> cpu@0
+cpu: CPU.CortexM @ sysbus
+    cpuType: "cortex-m3"
+    nvic: nvic
+crm: AT32.AT32CRM @ sysbus 0x40021000
+    nvic: nvic
+    hextFrequency: 24000000
+    IRQ -> nvic@5
+flashController: Nozzle.F1BootFlash @ sysbus 0x40022000
+    IRQ -> nvic@4
+dwt: AT32.AT32DWT @ sysbus 0xE0001000
+    frequency: 8000000
+wdt: AT32.AT32Watchdog @ sysbus 0x40003000
+usart1: AT32.AT32UART @ sysbus 0x40013800
+    IRQ -> nvic@37
+uart5: AT32.AT32UART @ sysbus 0x40005000
+    IRQ -> nvic@53
+iomux: AT32.AT32IOMUX @ sysbus 0x40010000
+    [0-15] -> exint@[0-15]
+exint: AT32.AT32EXINT @ sysbus 0x40010400
+    [0-4] -> nvic@[6-10]
+    IRQ5_9 -> nvic@23
+    IRQ10_15 -> nvic@40
+gpioA: AT32.AT32GPIO @ sysbus 0x40010800
+    iomux: iomux
+    portIndex: 0
+gpioB: AT32.AT32GPIO @ sysbus 0x40010C00
+    iomux: iomux
+    portIndex: 1
+gpioC: AT32.AT32GPIO @ sysbus 0x40011000
+    iomux: iomux
+    portIndex: 2
+gpioD: AT32.AT32GPIO @ sysbus 0x40011400
+    iomux: iomux
+    portIndex: 3
+gpioE: AT32.AT32GPIO @ sysbus 0x40011800
+    iomux: iomux
+    portIndex: 4
+adc1: AT32.AT32ADC @ sysbus 0x40012400
+    IRQ -> nvic@18
+spi1: AT32.AT32SPI @ sysbus 0x40013000
+    IRQ -> nvic@35
+spi2: AT32.AT32SPI @ sysbus 0x40003800
+    IRQ -> nvic@36
+i2c1: AT32.AT32I2C @ sysbus 0x40005400
+    EventIRQ -> nvic@31
+    ErrorIRQ -> nvic@32
+// Provisional F1-compatible TIM4, required by original nozzle configuration.
+// Hardware PWM pin routing remains unmodeled.
+timer4: Nozzle.ClockedSTM32Timer @ sysbus 0x40000800
+    frequency: 8000000
+    initialLimit: 0xFFFF
+    IRQ -> nvic@30
+crm:
+    init:
+        AttachTimer timer4 false
+        AttachReset timer4 0x10 2
+        AttachCoreClock dwt
+        AttachClock usart1 true
+        AttachClock uart5 false
+        AttachReset usart1 0xC 14
+        AttachReset uart5 0x10 20
+        AttachReset adc1 0xC 9
+        AttachReset gpioA 0xC 2
+        AttachReset gpioB 0xC 3
+        AttachReset gpioC 0xC 4
+        AttachReset gpioD 0xC 5
+        AttachReset gpioE 0xC 6
+        AttachReset spi1 0xC 12
+        AttachReset spi2 0x10 14
+        AttachReset i2c1 0x10 21
+bitbandSram: Miscellaneous.BitBanding @ sysbus <0x22000000, +0xA0000>
+    peripheralBase: 0x20000000
+bitbandPeripherals: Miscellaneous.BitBanding @ sysbus <0x42000000, +0x2000000>
+    peripheralBase: 0x40000000

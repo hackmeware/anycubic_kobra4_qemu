@@ -1,0 +1,11 @@
+// Opt-in original-host ZM3863 calibration; no physical board accuracy claim.
+// Use INSTEAD OF virtual-nozzle-ntc.repl, never together.
+// ADC0/PA0 is proven. Heater PB8 and fan PB9 remain intentionally UNCONNECTED.
+virtualNozzleNTC: AT32.VirtualPrinterThermal @ sysbus
+    adc: adc1
+    channel: 0
+    ambientCelsius: 30
+    pullResistanceOhms: 4700
+    adcMaximum: 4095
+    thermistorToGround: true
+    useRecoveredNozzleCurve: true

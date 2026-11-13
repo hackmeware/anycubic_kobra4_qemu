@@ -1,0 +1,3 @@
+# Load AFTER scripts/load.resc. This is an optional, explicitly modeled plant.
+include @peripherals/VirtualMotorCurrentCalibration.cs
+machine LoadPlatformDescription @platforms/stationary-current-plant.repl

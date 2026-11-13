@@ -1,0 +1,7 @@
+{
+  "pass_test": true,
+  "real_cpu_generated_gpio": true,
+  "capture": 800,
+  "uart": 90,
+  "scope": "Synthetic CPU stimulus, actual shared GPIO connector and virtual UART. Not native host synchronization validation."
+}

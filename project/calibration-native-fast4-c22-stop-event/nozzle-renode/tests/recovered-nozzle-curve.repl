@@ -1,0 +1,1 @@
+adc1: AT32.AT32ADC @ sysbus 0x40012400

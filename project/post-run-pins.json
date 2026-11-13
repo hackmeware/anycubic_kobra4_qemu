@@ -1,0 +1,15 @@
+{
+  "all_present_file_pins_match": true,
+  "pin_mismatches": [],
+  "profile_files_verified": 5492,
+  "control_files_verified": 13,
+  "default_scalar_checked": true,
+  "explicit_stop_event_checked": true,
+  "launch_blocked": true,
+  "missing_historical_inputs": [
+    "printer-shared-mcu/experimental/z-probe-state-trace/evidence/shared/work/test.resc",
+    "printer-shared-mcu/experimental/z-probe-state-trace/evidence/standalone/work/test.resc"
+  ],
+  "complete": false,
+  "native_launched": false
+}

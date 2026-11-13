@@ -1,0 +1,19 @@
+flash: Memory.MappedMemory @ {sysbus 0x08000000; sysbus 0}
+    size: 0x1000
+ram: Memory.MappedMemory @ sysbus 0x20000000
+    size: 0x1000
+nvic: IRQControllers.NVIC @ sysbus 0xE000E000
+    IRQ -> cpu@0
+cpu: CPU.CortexM @ sysbus
+    cpuType: "cortex-m4"
+    nvic: nvic
+uart: AT32.AT32UART @ sysbus 0x40013800
+wire: AT32.AT32VirtualSerialWire @ sysbus
+    uart: uart
+    baud: 576000
+    bitsPerFrame: 10
+observer: AT32Tests.SerialWireObserver @ sysbus
+    wire: wire
+smallWire: AT32.AT32VirtualSerialWire @ sysbus
+    uart: uart
+    capacity: 2

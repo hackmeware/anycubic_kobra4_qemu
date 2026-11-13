@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "three_cpu_free_1ms_RunFor_steps_identical": true,
+  "GetTime_final_ns": 3000000,
+  "epoch_stable_per_run": true,
+  "independent_epochs_expected": true,
+  "same_wrong_path_fault_in_initial_fixture": true,
+  "firmware_executed": false
+}

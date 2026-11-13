@@ -1,0 +1,3 @@
+// Diagnostic fallback: not original motor firmware, no physical motion.
+tmcGateway: AT32.VirtualMotorTmcGateway @ sysbus
+    uart: usart2

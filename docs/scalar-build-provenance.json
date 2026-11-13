@@ -1,0 +1,41 @@
+{
+  "upstream_qemu_archive": {
+    "sha256": "f859f0bc65e1f533d040bbe8c92bcfecee5af2c921a6687c652fb44d089bd894",
+    "bytes": 135188800
+  },
+  "baseline_board": {
+    "sha256": "3e93fe0cddb52937db806f844278a216873b29a8be3f54634cb3f63321ff50cd",
+    "bytes": 33718
+  },
+  "exact24_source_checkpoint": {
+    "sha256": "9b3852fa0d6cec5d6afa6911fc06d1fff2534e9e591d1693baa3ca78d9b765f6",
+    "bytes": 334053
+  },
+  "exact24_architecture_patch": {
+    "sha256": "33bc905e697cc30cd4583117d1040a27081949f2a25fc76095a567e2950b8a21",
+    "bytes": 7437
+  },
+  "pinned_dtc_source": {
+    "sha256": "e115f987eec23a1ba25150a46ced1675de3716072d3b4905afb3a9cda0f007c7",
+    "bytes": 205556
+  },
+  "new_board": {
+    "sha256": "fd3f75487b4cf412fb0a54f7077026eaa0cad8d8d5606c70a816d08e1f4f0507",
+    "bytes": 36098
+  },
+  "baseline_binary": {
+    "sha256": "d295efe337e46357fa6cc9bf28356ba6e0cc0df5c82198aa3bf0a4d1eae7bfb1",
+    "bytes": 44823968
+  },
+  "candidate_binary": {
+    "sha256": "5c0eb198c616a2123fa7e8bcfea4ded8a5d24a129588b8f852365b4540257624",
+    "bytes": 44830560
+  },
+  "dtc_url": "https://gitlab.com/qemu-project/dtc/-/archive/b6910bec11614980a21e46fbccc35934b671bd81/dtc-b6910bec11614980a21e46fbccc35934b671bd81.tar.gz",
+  "dtc_revision": "b6910bec11614980a21e46fbccc35934b671bd81",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "configuration": "--target-list=arm-softmmu --without-default-devices --disable-docs --disable-werror --disable-tools --disable-guest-agent --disable-pixman --disable-curl --disable-gnutls --disable-zstd --disable-modules --enable-slirp --disable-download -Dfdt=internal",
+  "build_jobs": 4,
+  "baseline_binary_bit_identical_to_preserved": false,
+  "only_candidate_source_change": "read-only virtual-clock-state board property plus qemu/main-loop.h include; exact24 architecture files unchanged"
+}

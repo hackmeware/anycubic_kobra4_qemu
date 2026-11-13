@@ -1,0 +1,22 @@
+port: AT32.AT32GPIO @ sysbus 0x40012000
+observer: AT32.VirtualStepperCommandObserver @ sysbus
+    stepPort: port
+    stepPin: 5
+    directionPort: port
+    directionPin: 4
+    stepsPerMillimeter: 82.05128205128205
+    invertDirection: true
+    maximumRows: 8
+both: AT32.VirtualStepperCommandObserver @ sysbus
+    stepPort: port
+    stepPin: 5
+    directionPort: port
+    directionPin: 4
+    stepsPerMillimeter: 82.05128205128205
+    invertDirection: true
+    bothEdges: true
+    maximumRows: 8
+tests: AT32Tests.CommandedMotionTests @ sysbus
+    port: port
+    observer: observer
+    both: both

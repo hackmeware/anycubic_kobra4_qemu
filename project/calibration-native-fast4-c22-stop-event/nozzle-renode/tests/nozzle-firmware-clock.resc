@@ -1,0 +1,12 @@
+include @scripts/load.resc
+include @tests/NozzleFirmwareClockTests.cs
+machine LoadPlatformDescriptionFromString "checks: AT32Tests.NozzleFirmwareClockTests @ sysbus { cpu: cpu; crm: crm; uart: usart1; timer: timer4 }"
+sysbus LoadBinary $bin 0x08004000
+cpu VectorTableOffset 0x08004000
+emulation RunFor "1"
+sysbus.checks Boot
+emulation RunFor "0.1"
+sysbus.checks PrepareTimer
+emulation RunFor "0.0002"
+sysbus.checks Finish
+quit

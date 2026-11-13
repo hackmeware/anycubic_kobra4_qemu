@@ -1,0 +1,11 @@
+include @scripts/load.resc
+include @peripherals/GenericStepperElectromechanical.cs
+include @peripherals/GenericMotorDriver.cs
+machine LoadPlatformDescription @platforms/generic-electromechanical.repl
+machine LoadPlatformDescription @platforms/generic-driver.repl
+include @peripherals/PassiveMotorStateTrace.cs
+machine LoadPlatformDescriptionFromString "passiveMotorStateTrace: AT32.PassiveMotorStateTrace @ sysbus { plant: electromechanicalPlant; driver: genericDriver; gpioB: gpioB; tmr1: tmr1; tmr2: tmr2; tmr3: tmr3; tmr4: tmr4; tmr8: tmr8; sampleEveryTriggers: 3; maximumSamples: 2 }"
+include @tests/PassiveMotorStateTraceTests.cs
+machine LoadPlatformDescriptionFromString "observerTests: AT32Tests.PassiveMotorStateTraceTests @ sysbus { observer: passiveMotorStateTrace; plant: electromechanicalPlant; driver: genericDriver; gpioB: gpioB; tmr3: tmr3; tmr8: tmr8 }"
+sysbus.observerTests Run "/workspace/scratch/ca95ca5f55d9/recovery/printer-snapshot-v4/motor-renode/tests/results/passive-observer/run-1GypPS/trace.csv"
+quit

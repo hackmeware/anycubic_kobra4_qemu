@@ -1,0 +1,4 @@
+// Passive virtual instrumentation only. No heater/motor role assignments.
+virtualGPIOTrace: AT32.VirtualGPIOTrace @ sysbus
+    portA: gpioA
+    portB: gpioB

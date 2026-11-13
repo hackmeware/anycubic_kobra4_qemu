@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "source_run": "startup-stop-scalar-30s-r3",
+  "original_root": "/workspace/scratch/ca95ca5f55d9/native-clock-integration",
+  "original_output": "/workspace/scratch/ca95ca5f55d9/native-clock-integration/runs/startup-stop-scalar-30s-r3",
+  "original_executor_root": "/tmp/rv-at32-link-gd0x25p0",
+  "files_sha256": {
+    "motor-setup.commands": "8eeb6cfec4429ef63f3a04167ece990784128a3c2fe063af7b5200fb4ee495b8",
+    "nozzle-setup.commands": "a4d7b234e9366f1777dedf17a3ef79069e9e0f110965d90f9d93ba36116d7689",
+    "shared-link.resc.txt": "9ea83d208373c05ae710663c90d5c3db59f49040d795fa0ae5b5b37441bfa7c6",
+    "shared-profile.json": "499c7e0fb40e8545bd98a6762936b5456124f174f65d5bfbc8f7f8b802a8a462",
+    "shared-model-manifest.json": "88dab227995330bafea817576697c4ecd7d66f6f8b257b2c21dc1810e1dd9ed9"
+  },
+  "firmware_sha256": {
+    "main": "9bd702c8a076f29c0ac019cc7c8ea6c7afa52d13580fea04e977e3dce0a5d517",
+    "nozzle": "ae09264667ff4a72905706026b1591bdede91e1f250755319fec531328e54e2f",
+    "motor": "76b439293ab08207317007f5179243a0684c1b27668442781bcb2e201ff62661"
+  }
+}

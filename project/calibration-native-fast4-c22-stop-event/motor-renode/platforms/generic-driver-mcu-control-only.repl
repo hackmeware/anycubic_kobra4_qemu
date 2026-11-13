@@ -1,0 +1,10 @@
+// OPT-IN ALTERNATE ASSUMPTION, not verified PCB wiring. Load after electromechanical plant.
+// PB2 is MCU control only. Supply/external faults still gate bridges; firmware PWM drives current.
+genericDriver: AT32.GenericMotorDriver @ sysbus
+    plant: electromechanicalPlant
+    gpioA: gpioA
+    gpioB: gpioB
+    gpioC: gpioC
+    supplyVoltage: 24
+    minimumSupplyVoltage: 8
+    enableControlsBridges: false

@@ -1,0 +1,33 @@
+{
+  "sram_sha256": "f6ccfc3b6a8000dfa9133c85dd4d20f9f36934adbe46b54b74eb9ea4bef4a596",
+  "source": "rv1106-at32-link/test-results/three-mcu-heater-trace/main-sram.bin",
+  "objects": [
+    {
+      "axis": "x",
+      "oid": 10,
+      "constructor": "0x8006445",
+      "object_address": "0x20002bcc",
+      "gpio": "0x40010800",
+      "pin": "PA6",
+      "meaning": "TMC virtual endstop DIAG"
+    },
+    {
+      "axis": "y",
+      "oid": 13,
+      "constructor": "0x8006445",
+      "object_address": "0x20002c74",
+      "gpio": "0x40010800",
+      "pin": "PA15",
+      "meaning": "TMC virtual endstop DIAG"
+    },
+    {
+      "axis": "z",
+      "oid": 3,
+      "constructor": "0x8006445",
+      "object_address": "0x20002ad4",
+      "gpio": "0x40010c00",
+      "pin": "PB2",
+      "meaning": "virtual probe endpoint"
+    }
+  ]
+}

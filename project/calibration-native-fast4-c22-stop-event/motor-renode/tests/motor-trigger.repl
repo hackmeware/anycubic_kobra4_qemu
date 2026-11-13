@@ -1,0 +1,20 @@
+master: AT32.AT32Timer @ sysbus 0x40000000
+    frequency: 1000000
+slave: AT32.AT32Timer @ sysbus 0x40013400
+    frequency: 1000000
+adc: AT32.AT32ADC @ sysbus 0x40012400
+pwm3: AT32.AT32Timer @ sysbus 0x40000400
+    frequency: 1000000
+pwm4: AT32.AT32Timer @ sysbus 0x40000800
+    frequency: 1000000
+wiring: AT32.VirtualMotorPWMTriggers @ sysbus
+    tmr2: master
+    tmr3: pwm3
+    tmr4: pwm4
+checks: AT32Tests.MotorTriggerTests @ sysbus
+    master: master
+    slave: slave
+    adc: adc
+    pwm3: pwm3
+    pwm4: pwm4
+    wiring: wiring

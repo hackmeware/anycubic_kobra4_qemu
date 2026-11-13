@@ -1,0 +1,16 @@
+include @scripts/load.resc
+include @scripts/generic-stationary-rl.resc
+include @tests/GenericMotorRLTests.cs
+machine LoadPlatformDescription @tests/generic-rl-tests.repl
+sysbus.rlChecks Equations
+emulation RunFor "0.0001"
+sysbus.rlChecks BeforeEnable
+emulation RunFor "0.0001"
+sysbus.rlChecks AfterEnable
+emulation RunFor "0.0001"
+sysbus.rlChecks AfterDisable
+emulation RunFor "0.000001"
+sysbus.rlChecks EndShortPulse
+emulation RunFor "0.000032"
+sysbus.rlChecks AfterShortPulse
+quit

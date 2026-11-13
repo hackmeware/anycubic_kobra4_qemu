@@ -1,0 +1,16 @@
+include @scripts/load.resc
+include @scripts/board-clock-and-rtc.resc
+include @scripts/stationary-current-plant.resc
+sysbus LoadBinary @/workspace/shared/kobra4-firmware/payload/motor_firmware_v1.6.01_20260313.bin 0x08008000
+cpu VectorTableOffset 0x08008000
+sysbus.adc1 SetChannelValue 0 0
+sysbus.adc1 SetChannelValue 4 0
+sysbus.adc2 SetChannelValue 5 0
+sysbus.adc2 SetChannelValue 6 0
+sysbus.adc3 SetChannelValue 12 0
+sysbus.adc3 SetChannelValue 10 0
+emulation RunFor "0.5"
+dump_file 0x20003b60 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/calibration/samples-0.bin
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/calibration/faults-0.bin
+cpu PC
+quit

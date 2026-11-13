@@ -1,0 +1,12 @@
+// Optional observer. Load after generic-electromechanical and generic-driver.
+passiveMotorStateTrace: AT32.PassiveMotorStateTrace @ sysbus
+    plant: electromechanicalPlant
+    driver: genericDriver
+    gpioB: gpioB
+    tmr1: tmr1
+    tmr2: tmr2
+    tmr3: tmr3
+    tmr4: tmr4
+    tmr8: tmr8
+    sampleEveryTriggers: 1000
+    maximumSamples: 20000

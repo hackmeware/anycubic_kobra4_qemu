@@ -1,0 +1,9 @@
+{
+  "returncode": 0,
+  "input_unchanged": true,
+  "outer_stop_reason": null,
+  "host_seconds": 92.8982550159999,
+  "namespace_wrapper_exited": true,
+  "supervisor_evidence_present": true,
+  "calibration_proven": false
+}

@@ -1,0 +1,12 @@
+{
+  "native_runs_started": 0,
+  "controller_tests": 19,
+  "temperature_schema_tests": 5,
+  "all_tests_passed": true,
+  "reviewed_dependency_count": 21,
+  "controller_sha256": "9cf279ff988e64b4c6b1083050bb8fc47ccccbcd15f9f43236a7c1b85bfcce34",
+  "dependency_manifest_sha256": "fef2b14c29195a73280f8d8aeb02338804853a600558478c62feb7d37b1899b3",
+  "nozzle_invocation": "python3 printer-shared-mcu/experimental/synthetic-calibration-thermal/native-controller/controller.py native-nozzle-230-synthetic-r1 --thermal-profile synthetic-calibration --heater nozzle --nozzle-tmc-model autobaud --execute --seconds 28800 --cleanup-seconds 120",
+  "limits": "one target and at most one zero; conservative zero at232s, hard240s fromqueue; fresh one-at-a-time readonly status1s; physical/native band30s; cooling30s; absolute360virtualseconds; wall8h",
+  "claim": "Prepared and offline-tested only; no completed native regulation/PID/print claim."
+}

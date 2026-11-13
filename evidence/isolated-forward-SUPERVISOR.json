@@ -1,0 +1,12 @@
+{
+  "returncode": 0,
+  "stop_reason": null,
+  "cpu_allowance_seconds_per_process": 445,
+  "children_user_cpu_seconds": 110.49238,
+  "children_system_cpu_seconds": 13.991168,
+  "host_seconds": 49.6237202500015,
+  "peak_namespace_rss_bytes": 1842810880,
+  "pid_namespace": "pid:[4026532224]",
+  "network_namespace": "net:[4026532295]",
+  "owned_child_exited": true
+}

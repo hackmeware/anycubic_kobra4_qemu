@@ -1,0 +1,58 @@
+{
+  "utc": "2026-11-12T22:16:16.928638+00:00",
+  "scope": "Actual staged release-v2, new SWU-built private inputs, restored runtime; two MCU independent; isolated SLIRP restrict=on; 30-second observation",
+  "outcome": {
+    "returncode": 0,
+    "input_unchanged": true,
+    "outer_stop_reason": null,
+    "host_seconds": 50.120712406001985,
+    "namespace_wrapper_exited": true,
+    "supervisor_evidence_present": true,
+    "calibration_proven": false,
+    "subprocess_returncode": 0,
+    "guest_userspace_ready": true,
+    "network_configuration_ready": true,
+    "loopback_forwards_verified": true,
+    "starter_returncode": 0
+  },
+  "listeners": [
+    {
+      "pid": 56,
+      "program": "/workspace/scratch/ca95ca5f55d9/kobra_compact_20261112/release-v2/runtime/qemu/lib/ld-linux-x86-64.so.2",
+      "address": "127.0.0.1",
+      "port": 50323,
+      "family": "ipv4",
+      "socket_inode": "156312",
+      "first_seen_host_seconds": 20.19564146799894
+    },
+    {
+      "pid": 56,
+      "program": "/workspace/scratch/ca95ca5f55d9/kobra_compact_20261112/release-v2/runtime/qemu/lib/ld-linux-x86-64.so.2",
+      "address": "127.0.0.1",
+      "port": 59879,
+      "family": "ipv4",
+      "socket_inode": "156313",
+      "first_seen_host_seconds": 20.19564146799894
+    }
+  ],
+  "verified_guest_address": "10.0.2.15/24",
+  "router_and_dns": "Not supplied by isolated DHCP; intentionally unavailable, no invented settings",
+  "not_proven": [
+    "Internet access",
+    "DNS resolution",
+    "HTTP or MQTT application service",
+    "native WLAN",
+    "UI",
+    "full calibration"
+  ],
+  "input_mutation": false,
+  "post_run_process_check": "No qemu-baseline/Renode.dll/run_link.py/start_diagnostic.py processes present",
+  "evidence_sha256": {
+    "EXIT.json": "e2f296205a3f24b3a882d4df03f370b10654e56dda4ecf74ed2d0ad75e9ff52d",
+    "SUPERVISOR.json": "76f44ca4a68f4bbcebd2c4e3f1ce60c6b16ab21a0c7a98572bbafe022a49813e",
+    "OWNED-LISTENERS.json": "92bfc16f827e13479a3082cf6d251716f5e9b9f04862bf240b9d94951dccc11a",
+    "PROCESS-EXITS.jsonl": "a11e95f5166557f2d444a81c335dc166b4fd84d77658fea8831bd26204aad64e",
+    "RUN-PLAN.json": "c6b578833b9684319a1f218ce39e5e86f63d6f5186d190eacf9080f5e5de887e",
+    "logs/console.bin": "fa85aba38229e85a59384f2d0445e20cafca2617b748c0be620d34b16fedf11d"
+  }
+}

@@ -1,0 +1,10 @@
+# Run from the package root: renode scripts/load.resc
+include @peripherals/AT32F403A_System.cs
+include @peripherals/AT32F403A_IO.cs
+include @peripherals/AT32F403A_Bus.cs
+include @peripherals/AT32F403A_Extras.cs
+include @peripherals/AT32F403A_DWT.cs
+include @peripherals/AT32F403A_DMA.cs
+include @peripherals/AT32F403A_Timer.cs
+mach create "AT32F403ARGT7"
+machine LoadPlatformDescription @platforms/at32f403argt7.repl

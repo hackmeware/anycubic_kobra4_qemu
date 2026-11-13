@@ -1,0 +1,4 @@
+# Opt-in for NEXT runs, after the nozzle platform and thermal fixture are loaded.
+# Does not bind a heater/fan, alter ADC values, or change firmware/guard state.
+include @peripherals/PassiveNozzleThermalObserver.cs
+machine LoadPlatformDescription @platforms/passive-nozzle-thermal-observer.repl

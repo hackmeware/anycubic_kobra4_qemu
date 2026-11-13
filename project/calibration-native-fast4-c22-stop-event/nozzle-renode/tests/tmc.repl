@@ -1,0 +1,9 @@
+gpio: AT32.AT32GPIO @ sysbus 0x40010800
+tmc: Nozzle.VirtualNozzleTmc2209 @ sysbus
+    port: gpio
+tests: NozzleTests.VirtualNozzleTmcTests @ sysbus 0x60000000
+    tmc: tmc
+    gpio: gpio
+
+gpio:
+    3 -> tmc@0

@@ -1,0 +1,15 @@
+{
+"completed_stages":["SYNTHETIC THERMAL PREPARED","SYNTHETIC THERMAL GPIO PWM PASS","SYNTHETIC THERMAL INITIAL RATE PASS","SYNTHETIC THERMAL TARGET CROSSING PASS","SYNTHETIC THERMAL COOLING PASS","SYNTHETIC THERMAL FAULT RESET PASS","SYNTHETIC THERMAL RESET RECOVERY PREPARED","SYNTHETIC THERMAL RESET RECOVERY PASS","SYNTHETIC THERMAL OUT OF TABLE PASS","SYNTHETIC THERMAL LONG NEGATIVES PASS","SYNTHETIC THERMAL TESTS PASS: 93"],
+"assertions":93,
+"native_firmware_run":false,
+"direct_duty_used":false,
+"temperature_injection_used":false,
+"full_power_start_s":1,
+"nozzle_target_crossing_s":115.75,
+"bed_target_crossing_s":122.55,
+"nozzle_first_full_second_delta_c":2.977624439618239,
+"bed_first_full_second_delta_c":0.33270920041285024,
+"new_nozzle_equilibrium_final_c":324.99842927428324,
+"unchanged_default_final_c":224.998952849521,
+"dropped_rows":0
+}

@@ -1,0 +1,89 @@
+{
+  "selection": "synthetic-calibration",
+  "hypothetical_fixture": true,
+  "physical_printer_accuracy_claimed": false,
+  "parameters": {
+    "nozzle": {
+      "heater_power_w": 60,
+      "heat_capacity_j_per_k": 20,
+      "conductance_w_per_k": 0.2,
+      "ambient_c": 25,
+      "environment_maximum_c": 400,
+      "adc_channel": 0,
+      "sensor": "NTC ZM3863 HNS112HC4570G0",
+      "pull_resistance_ohm": 4700
+    },
+    "bed": {
+      "heater_power_w": 200,
+      "heat_capacity_j_per_k": 600,
+      "conductance_w_per_k": 1.5,
+      "ambient_c": 25,
+      "environment_maximum_c": 150,
+      "adc_channel": 8,
+      "sensor": "B3950",
+      "nominal_resistance_ohm": 100000,
+      "beta_k": 3950,
+      "nominal_c": 25,
+      "pull_resistance_ohm": 4700
+    },
+    "update_us": 10000,
+    "adc_maximum": 4095,
+    "stop_heater_at_maximum": true,
+    "pb9_thermal_connection": false,
+    "heater_active_high": true
+  },
+  "global_quantum_ns": 1000,
+  "firmware_changes": false,
+  "clock_or_mips_changes": false,
+  "native_guards_unchanged": true,
+  "setup": "fresh paused zero-epoch generated selection; ordinary ADC writers omitted, never stacked/hot-swapped",
+  "heater_bindings": {
+    "nozzle": "actual resolved PB8 to thermal input0",
+    "bed": "actual resolved PA0 to thermal input0",
+    "pb9": "observed only, no thermal connection; physical fan coupling unknown"
+  },
+  "bed_sensor_calibration_verified": false,
+  "direct_duty_or_temperature_overrides": false,
+  "telemetry": {
+    "sample_us": 100000,
+    "maximum_rows_per_buffer_and_stream": 100000,
+    "nozzle": "nozzle-thermal-live.csv",
+    "bed": "bed-thermal-live.csv",
+    "time_domain": "source-local Renode clock, not host time; bed also records elapsed nanoseconds without synchronization",
+    "native_guard_state_in_model_observer": false,
+    "native_temperatures_in_model_observer": false,
+    "loss_or_error_invalidates_complete_capture": true
+  },
+  "source_sha256": {
+    "at32-renode/peripherals/VirtualPrinterThermal.cs": "035789c4de321a111205fd753fb5bed6ccb639cc720dca97480b872eccf24ae5",
+    "at32-renode/scripts/virtual-bed-ntc.resc": "26e09e272325465cf26a08ba5cf9f79375b0d7753746abac5d3777480b8aebaa",
+    "motor-renode/peripherals/PassiveMotorStateTrace.cs": "c44f64cc9b70491ea72fe19ad21fa14fc903b70bc7f8c6ea5d4a83366a629d32",
+    "motor-renode/platforms/passive-motor-state-trace.repl": "fa18852d17b214980fb6af6fdcc76603545597d38ad8beac74b2cd3c0be86e1c",
+    "nozzle-renode/peripherals/NativeNozzleHeaterBinding.cs": "072e8dde94c6659942520b956a4384eb9cf7c2f26c926d900008c0bb4eb278a9",
+    "nozzle-renode/peripherals/PassiveNozzleThermalObserver.cs": "0683acad29836b59e55e834cc0c332595694eed8e489c9747820bc044879b6cb",
+    "nozzle-renode/peripherals/PassiveTmcTimingObserver.cs": "e38dc78029680088f26f751705b514a9e55b02b9a50c81c417ed8dcbe1ac948f",
+    "nozzle-renode/peripherals/VirtualNozzleTmc2209.cs": "47c8dac2e8c6ffe0b357620fdcbbd07877079c589d5d2f8edb0250fa4fe462b3",
+    "nozzle-renode/peripherals/VirtualPrinterThermal.cs": "feecda52cccaa21875b14148fb7112a9694997ca70625ecbac424a34ece0b708",
+    "nozzle-renode/platforms/passive-nozzle-thermal-observer.repl": "0bcfe220428de8fdb9667cbf0dc30968afafc66f77b9a38ff6151597acecf9f7",
+    "nozzle-renode/platforms/passive-tmc-timing-observer.repl": "8a6c9c020059ee34a4cf734264c2435313b4d4046b1055257a2e03282df8b6ec",
+    "nozzle-renode/platforms/virtual-tmc2209.repl": "f95a894aa7b71cb2927a8ebf8551dbd3423b000ca3e1d39aae9f82a7dc542d83",
+    "nozzle-renode/scripts/passive-nozzle-thermal-observer.resc": "85292eb17cc636f15e0e3ed71bb6ce4997b85863102b3c8afafc5d110e3112a4",
+    "nozzle-renode/scripts/passive-tmc-timing-observer.resc": "66574ddd900cbef6647472a262bfc53a5f364202d58466465d5710b289e96668",
+    "nozzle-renode/scripts/virtual-nozzle-ntc.resc": "cea7d2522b365613f38ab3238cb2938101928676eb1d69372bfba4f34e19e060",
+    "nozzle-renode/scripts/virtual-nozzle-recovered-ntc.resc": "1ffd585915377d45efe323f7001790e5b777e5b5b959aaf794625b695a48735e",
+    "nozzle-renode/scripts/virtual-tmc2209.resc": "d2e91a9a09e1b567e1d941b62fac7106df9c813a811032aeac5587c3e74ae233",
+    "printer-shared-mcu/experimental/synthetic-calibration-thermal/PassiveBedThermalObserver.cs": "04b1955bd20717e0d54ab95ca8a5b775d293cae5c433714d612033465ff85e9a",
+    "printer-shared-mcu/experimental/synthetic-calibration-thermal/ResolvedBedHeaterBinding.cs": "3192079324188143bc8e0adedd603c38b5c3267ffcc33e35b1ce2e92b8e86cd5",
+    "printer-shared-mcu/experimental/synthetic-calibration-thermal/bed.repl": "15d7091b13c7e776932ad8245e4e1d7c42a664833766e6ac997b6b19b0094b51",
+    "printer-shared-mcu/experimental/synthetic-calibration-thermal/nozzle.repl": "880c4c71572e7c9fab62c0137916991fa9fafea1364c5d356b70005536b9548b"
+  },
+  "integration_helper_sha256": "c29df632dbb22b096c2577c2793bfc03307b811ad3c8d573b9782c9c82c51979",
+  "files": {
+    "thermal-profile/PassiveBedThermalObserver.cs": "c1f74e057c343dd8fe75f88dfa398b9aa1162dcdd559ca9b4e0e9b8cd33418be",
+    "thermal-profile/ResolvedBedHeaterBinding.cs": "a481cbd18db8e72efe427e24b4d429354b7b51c1fbc9d4ee053d34e0cf508f07",
+    "thermal-profile/bed.repl": "3fdc91c34aa516cc972716f26dc7fb515baff5d5495922e72dcad5bec1669945",
+    "thermal-profile/main-setup.commands": "535af163f74071177c3b98277682995d2b29b19f43d34357657b564a74abf91f",
+    "thermal-profile/nozzle-setup.commands": "dbaaed7cc810d6fd39ef4a1bd32dfe0f157460df2de92f6554ae82925ea3bc3a",
+    "thermal-profile/nozzle.repl": "ae4f0812e145bb70bc378813dc2cef0bb246a339f3cd5b62a48d8bdacb251080"
+  }
+}

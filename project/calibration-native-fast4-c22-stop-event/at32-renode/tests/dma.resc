@@ -1,0 +1,6 @@
+include @peripherals/AT32F403A_DMA.cs
+include @tests/DMAPeripheralTests.cs
+mach create "AT32 DMA tests"
+machine LoadPlatformDescription @tests/dma.repl
+sysbus.dmaTests Run
+quit

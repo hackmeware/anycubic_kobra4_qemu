@@ -1,0 +1,5 @@
+// Explicit opt-in only. Requires the existing recovered-nozzle thermal fixture.
+// Native PB8 drives heater input 0. PB9 remains observed but UNBOUND.
+nativeNozzleHeaterBinding: AT32.NativeNozzleHeaterBinding @ sysbus
+    portB: gpioB
+    thermal: virtualNozzleNTC

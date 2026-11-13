@@ -1,0 +1,22 @@
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/shared-load.resc
+mach set "main"
+sysbus LoadBinary @/workspace/shared/at32-images/mcu_firmware_v1.3.3_20260311.bin 0x08004000
+cpu VectorTableOffset 0x08004000
+mach set "motor"
+sysbus LoadBinary @/workspace/shared/kobra4-firmware/payload/motor_firmware_v1.6.01_20260313.bin 0x08008000
+cpu VectorTableOffset 0x08008000
+mach set "nozzle"
+sysbus LoadBinary @/workspace/shared/kobra4-firmware/payload/nozzle_firmware_v1.2.9_20260120.bin 0x08004000
+cpu VectorTableOffset 0x08004000
+emulation RunFor "1"
+mach set "motor"
+sysbus ReadDoubleWord 0x20000c00
+sysbus ReadDoubleWord 0x20000c10
+sysbus ReadDoubleWord 0x20000c20
+sysbus ReadDoubleWord 0xe000ed28
+mach set "main"
+sysbus ReadDoubleWord 0xe000ed28
+mach set "nozzle"
+sysbus ReadDoubleWord 0xe000ed28
+log "SHARED ORIGINAL BOOT COMPLETE"
+quit

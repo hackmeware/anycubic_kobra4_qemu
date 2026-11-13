@@ -1,0 +1,7 @@
+include @scripts/load.resc
+include @scripts/generic-electromechanical.resc
+include @scripts/generic-driver-mcu-control-only.resc
+include @tests/GenericMcuControlDriverTests.cs
+machine LoadPlatformDescriptionFromString "driverTests: AT32Tests.GenericMcuControlDriverTests @ sysbus { driver: genericDriver; plant: electromechanicalPlant; gpioB: gpioB }"
+sysbus.driverTests Run
+quit

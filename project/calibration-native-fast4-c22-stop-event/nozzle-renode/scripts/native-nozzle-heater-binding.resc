@@ -1,0 +1,5 @@
+# OPTIONAL LATER RUN ONLY. Load while paused after virtual-nozzle-recovered-ntc.resc.
+# Uses resolved PB8 initial state and real GPIO edges. No fan/duty/temperature override.
+# PB9 heat-break fan coupling is not modeled; keep its observer loaded separately.
+include @peripherals/NativeNozzleHeaterBinding.cs
+machine LoadPlatformDescription @platforms/native-nozzle-heater-binding.repl

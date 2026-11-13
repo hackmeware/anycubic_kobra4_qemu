@@ -1,0 +1,6 @@
+include @scripts/load.resc
+include @peripherals/GenericStepperElectromechanical.cs
+include @tests/GenericElectromechanicalTests.cs
+machine LoadPlatformDescriptionFromString "physicalTests: AT32Tests.GenericElectromechanicalTests @ sysbus"
+sysbus.physicalTests Run
+quit

@@ -1,0 +1,4 @@
+# Opt-in alternative to generic-driver.repl; never load both drivers.
+# Requires the electromechanical plant already loaded. No firmware state writes.
+include @peripherals/GenericMotorDriver.cs
+machine LoadPlatformDescription @platforms/generic-driver-mcu-control-only.repl

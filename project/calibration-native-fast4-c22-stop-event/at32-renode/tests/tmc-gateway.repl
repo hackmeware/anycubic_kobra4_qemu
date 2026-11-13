@@ -1,0 +1,5 @@
+uart: AT32.AT32UART @ sysbus 0x40004400
+gateway: AT32.VirtualMotorTmcGateway @ sysbus
+    uart: uart
+tests: AT32Tests.VirtualMotorTmcTests @ sysbus 0x60000000
+    gateway: gateway

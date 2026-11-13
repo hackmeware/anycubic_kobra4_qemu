@@ -1,0 +1,190 @@
+{
+  "main": {
+    "PA0": {
+      "edges": [
+        {
+          "time_us": "72888149",
+          "pin": "PA0",
+          "level": "1",
+          "configuration_nibble": "1",
+          "output_latch": "1",
+          "event": "edge"
+        },
+        {
+          "time_us": "74388149",
+          "pin": "PA0",
+          "level": "0",
+          "configuration_nibble": "1",
+          "output_latch": "0",
+          "event": "edge"
+        }
+      ],
+      "completed_high_pulses": [
+        {
+          "rise_us": 72888149,
+          "fall_us": 74388149,
+          "high_seconds": 1.5
+        }
+      ],
+      "markers": [
+        {
+          "time_us": "0",
+          "pin": "PA0",
+          "level": "0",
+          "configuration_nibble": "4",
+          "output_latch": "0",
+          "event": "snapshot:trace_attached"
+        },
+        {
+          "time_us": "70644800",
+          "pin": "PA0",
+          "level": "0",
+          "configuration_nibble": "1",
+          "output_latch": "0",
+          "event": "snapshot:BED_ONLY_BEGIN"
+        },
+        {
+          "time_us": "99491100",
+          "pin": "PA0",
+          "level": "0",
+          "configuration_nibble": "1",
+          "output_latch": "0",
+          "event": "snapshot:BED_ONLY_END_NOZZLE_ONLY_BEGIN"
+        },
+        {
+          "time_us": "128476700",
+          "pin": "PA0",
+          "level": "0",
+          "configuration_nibble": "1",
+          "output_latch": "0",
+          "event": "snapshot:NOZZLE_ONLY_END_MOTION_GUARD_BEGIN"
+        },
+        {
+          "time_us": "156850700",
+          "pin": "PA0",
+          "level": "0",
+          "configuration_nibble": "1",
+          "output_latch": "0",
+          "event": "snapshot:MOTION_GUARD_END_COLD_EXTRUSION_BEGIN"
+        }
+      ]
+    }
+  },
+  "nozzle": {
+    "PB8": {
+      "edges": [],
+      "completed_high_pulses": [],
+      "markers": [
+        {
+          "time_us": "0",
+          "pin": "PB8",
+          "level": "0",
+          "configuration_nibble": "4",
+          "output_latch": "0",
+          "event": "snapshot:trace_attached"
+        },
+        {
+          "time_us": "65505700",
+          "pin": "PB8",
+          "level": "0",
+          "configuration_nibble": "1",
+          "output_latch": "0",
+          "event": "snapshot:BED_ONLY_BEGIN"
+        },
+        {
+          "time_us": "94351700",
+          "pin": "PB8",
+          "level": "0",
+          "configuration_nibble": "1",
+          "output_latch": "0",
+          "event": "snapshot:BED_ONLY_END_NOZZLE_ONLY_BEGIN"
+        },
+        {
+          "time_us": "123336600",
+          "pin": "PB8",
+          "level": "0",
+          "configuration_nibble": "1",
+          "output_latch": "0",
+          "event": "snapshot:NOZZLE_ONLY_END_MOTION_GUARD_BEGIN"
+        },
+        {
+          "time_us": "151710400",
+          "pin": "PB8",
+          "level": "0",
+          "configuration_nibble": "1",
+          "output_latch": "0",
+          "event": "snapshot:MOTION_GUARD_END_COLD_EXTRUSION_BEGIN"
+        }
+      ]
+    },
+    "PB9": {
+      "edges": [
+        {
+          "time_us": "97420655",
+          "pin": "PB9",
+          "level": "1",
+          "configuration_nibble": "1",
+          "output_latch": "1",
+          "event": "edge"
+        },
+        {
+          "time_us": "100385913",
+          "pin": "PB9",
+          "level": "0",
+          "configuration_nibble": "1",
+          "output_latch": "0",
+          "event": "edge"
+        }
+      ],
+      "completed_high_pulses": [
+        {
+          "rise_us": 97420655,
+          "fall_us": 100385913,
+          "high_seconds": 2.965258
+        }
+      ],
+      "markers": [
+        {
+          "time_us": "0",
+          "pin": "PB9",
+          "level": "0",
+          "configuration_nibble": "4",
+          "output_latch": "0",
+          "event": "snapshot:trace_attached"
+        },
+        {
+          "time_us": "65505700",
+          "pin": "PB9",
+          "level": "0",
+          "configuration_nibble": "1",
+          "output_latch": "0",
+          "event": "snapshot:BED_ONLY_BEGIN"
+        },
+        {
+          "time_us": "94351700",
+          "pin": "PB9",
+          "level": "0",
+          "configuration_nibble": "1",
+          "output_latch": "0",
+          "event": "snapshot:BED_ONLY_END_NOZZLE_ONLY_BEGIN"
+        },
+        {
+          "time_us": "123336600",
+          "pin": "PB9",
+          "level": "0",
+          "configuration_nibble": "1",
+          "output_latch": "0",
+          "event": "snapshot:NOZZLE_ONLY_END_MOTION_GUARD_BEGIN"
+        },
+        {
+          "time_us": "151710400",
+          "pin": "PB9",
+          "level": "0",
+          "configuration_nibble": "1",
+          "output_latch": "0",
+          "event": "snapshot:MOTION_GUARD_END_COLD_EXTRUSION_BEGIN"
+        }
+      ]
+    }
+  }
+}

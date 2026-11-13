@@ -1,0 +1,6 @@
+{
+  "rv1106-at32-link/scripts/run_link.py": "7ef4ba83b1fb15a0f4e56d6464aa5a45a9402dae93d0d7dbd70f6a355f995d8d",
+  "rv1106-at32-link/scripts/shared_mcu.py": "6e897e0ad6341a0daba838c6300078b6376175aecf149e6ca3ec0645ba29db58",
+  "rv1106-at32-link/scripts/run_native_event_fixture.sh": "60c6eaa8539ef55a5ad57729b47ba35076819c5e1f61ed70c32c501b0414f2dd",
+  "rv1106-at32-link/scripts/thermal_profile_selection.py": "c29df632dbb22b096c2577c2793bfc03307b811ad3c8d573b9782c9c82c51979"
+}

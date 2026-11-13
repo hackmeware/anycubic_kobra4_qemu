@@ -1,0 +1,9 @@
+{
+  "sha256": "764bc5b10df96e6c9e8471649939a435415d6ce8293ce4ab96aa8ff62cf8a423",
+  "entry_count": 5489,
+  "symlink_count": 4,
+  "absent_target_count": 4,
+  "verification_elapsed_host_seconds": 1.0855220980010927,
+  "scope": "native-ui-resonance-execution-source-closure",
+  "physical_calibration_proven": false
+}

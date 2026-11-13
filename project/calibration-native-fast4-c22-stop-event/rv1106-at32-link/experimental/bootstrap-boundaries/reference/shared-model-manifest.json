@@ -1,0 +1,668 @@
+[
+  {
+    "board": "main",
+    "source": "at32-renode/peripherals/AT32F403A_Bus.cs",
+    "source_sha256": "dc25fb77c8cb14c58b361f70d93da1d3f862185e1fd4abd43d5e14d9ec1d5c5b",
+    "generated": "main/peripherals/AT32F403A_Bus.cs",
+    "generated_sha256": "31008848276d7fb9e09ce5047380d508c8b9c1045ab4ccc56fb3fa1654dd729d"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/peripherals/AT32F403A_DMA.cs",
+    "source_sha256": "04c9e79fb54f23399e2cacf3496167bcf3144562d425b127216de5467d808b94",
+    "generated": "main/peripherals/AT32F403A_DMA.cs",
+    "generated_sha256": "f7f1ac2d9d783986daa4ec08157e72f22d71fa99a69406f7ea71c6c0f3c2667b"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/peripherals/AT32F403A_DWT.cs",
+    "source_sha256": "dee855e319a314ff4423e455b6d489b2c4f0fa415701e09107a2c002318b28a7",
+    "generated": "main/peripherals/AT32F403A_DWT.cs",
+    "generated_sha256": "7ce28aab9c2314123d9ce8848a453d06620f5f12a6b3ca28fe34b19d8f6905ea"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/peripherals/AT32F403A_Extras.cs",
+    "source_sha256": "1ae5fc62e69551308c0ead845de3c0fd6fb7451b790e421df12986c608fe9217",
+    "generated": "main/peripherals/AT32F403A_Extras.cs",
+    "generated_sha256": "7655e8d2d54e1e7aebd7634da1bd1c984b0fcca28b0df202b42f1ceb37d1fa3b"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/peripherals/AT32F403A_IO.cs",
+    "source_sha256": "55e232cafb4047b06cac51184153941ca976b36b761bcacb4cb92a8ecfc9f520",
+    "generated": "main/peripherals/AT32F403A_IO.cs",
+    "generated_sha256": "ad9239941678a6acb44bcaec0393e85cc102147b64c72c7e47b8bd70d41a4c72"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/peripherals/AT32F403A_System.cs",
+    "source_sha256": "8482269788fe359d2dca43caf24b80012b5a14f1c5afb8d2e3de7f8ca50dd6d5",
+    "generated": "main/peripherals/AT32F403A_System.cs",
+    "generated_sha256": "179c85ca231af92a862fcea5d1afbc1332a08e0c77ad097954f9b1f3ea45cd97"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/peripherals/AT32F403A_Timer.cs",
+    "source_sha256": "a92dd9e2db8f539cdb84d085645240c83d7e289427d7f73aff73ca2c70481c4b",
+    "generated": "main/peripherals/AT32F403A_Timer.cs",
+    "generated_sha256": "10f2d36291a6a01c06a6881b5a4020284f73c30b0eb15318b69b32b0303501e2"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/peripherals/AT32F403A_VirtualSerialWire.cs",
+    "source_sha256": "60b83356fe3810bfab3d78cee11d5719f1abe2472932c92ca3cbe4fe15d13dfe",
+    "generated": "main/peripherals/AT32F403A_VirtualSerialWire.cs",
+    "generated_sha256": "800e5f1c5275df819fdea9db2dac3c57ca72bd51fcace90db7cbc8bb96e4a2be"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/peripherals/VirtualGPIOTrace.cs",
+    "source_sha256": "c522caea11f1cbcf15639a3d9ad8d137521438504df527f07bd9751b177aca0d",
+    "generated": "main/peripherals/VirtualGPIOTrace.cs",
+    "generated_sha256": "98d6760811c92d18e53588e816159622e24a000aa898867a77e845eace3d8b9c"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/peripherals/VirtualMotorTmcGateway.cs",
+    "source_sha256": "e65e40c756efe0e6fb2c9e355eabeced44920027e2b2175d71d41f65b00bffa2",
+    "generated": "main/peripherals/VirtualMotorTmcGateway.cs",
+    "generated_sha256": "5d27079817f9dea6164803d958b98623bba38a3ebd399eedd7c5da024b0667b5"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/peripherals/VirtualPrinterMechanics.cs",
+    "source_sha256": "87174cce6eaef8be45f2a974ec0ad2971042cf02335226ff845c9a8c9b97b353",
+    "generated": "main/peripherals/VirtualPrinterMechanics.cs",
+    "generated_sha256": "7a182bb89162b4a14c853c733194bc2524442226ee0d4b6a60aba2ffc90bf12b"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/peripherals/VirtualPrinterObserver.cs",
+    "source_sha256": "fe6c886043a2f9584e5161026e0ac5a4e754b80f9304b99924f46de8fe02365f",
+    "generated": "main/peripherals/VirtualPrinterObserver.cs",
+    "generated_sha256": "f075693c8bfa3633e90a708659aedb13496788199089ee710fa08e07c2953a04"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/peripherals/VirtualPrinterThermal.cs",
+    "source_sha256": "035789c4de321a111205fd753fb5bed6ccb639cc720dca97480b872eccf24ae5",
+    "generated": "main/peripherals/VirtualPrinterThermal.cs",
+    "generated_sha256": "5a2db893fa31db7336b9734b62d9919cf3ae9f7b035b8bbbf301e0b7c6e12e75"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/peripherals/VirtualStepperCommandObserver.cs",
+    "source_sha256": "c668b8e24a51d84aa27a62ae206a135b60c19f98ba86a2246a4282d25745d023",
+    "generated": "main/peripherals/VirtualStepperCommandObserver.cs",
+    "generated_sha256": "68aeb836768162f39449224709b6df205227f01e68160c49f31e8dce91a2d67c"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/platforms/at32f403argt7-224k.repl",
+    "source_sha256": "73ce6110ce7662f1c143c75334737f449a21a7ec0c1f70cbba98db4edbfc477c",
+    "generated": "main/platforms/at32f403argt7-224k.repl",
+    "generated_sha256": "73ce6110ce7662f1c143c75334737f449a21a7ec0c1f70cbba98db4edbfc477c"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/platforms/at32f403argt7.repl",
+    "source_sha256": "c7fa287012e70960acd857377723a4a5680a33f702f23c56931589fca21b3a5a",
+    "generated": "main/platforms/at32f403argt7.repl",
+    "generated_sha256": "8a4200646f1bb5e29ea1ad916d0100661e454fa9bd1516bc9e7dd4a3746217a6"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/platforms/virtual-bed-ntc.repl",
+    "source_sha256": "ccdf82208b0fe6f19f9e38fb2e8eb97c8a9fa64710e1cc2af50641af1ef8bfc8",
+    "generated": "main/platforms/virtual-bed-ntc.repl",
+    "generated_sha256": "85705c167ff1789bc651d00d288462f7fdfb465427401a2f27b45bbdc097f76e"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/platforms/virtual-commanded-bed.repl",
+    "source_sha256": "02094e789205e0b9c3b65caaf5289f2cd0e12b5029c8f2ddaeb5b007011d63bd",
+    "generated": "main/platforms/virtual-commanded-bed.repl",
+    "generated_sha256": "02094e789205e0b9c3b65caaf5289f2cd0e12b5029c8f2ddaeb5b007011d63bd"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/platforms/virtual-commanded-motion.repl",
+    "source_sha256": "136bd61cd2baec033409a9d4cb533ffa40ab6e5ac066cace76fc0ad498347798",
+    "generated": "main/platforms/virtual-commanded-motion.repl",
+    "generated_sha256": "978c491dbf176ea7d9b8434b53487a48e757db3374a6eaaa7fc582f3cf8c3374"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/platforms/virtual-gpio-trace.repl",
+    "source_sha256": "e324eb9a41667c19a0b0bd4fe7fa7c246b6ef4fbed6dbe7cb792851abac503fc",
+    "generated": "main/platforms/virtual-gpio-trace.repl",
+    "generated_sha256": "884322a01646cb9ea44e33dc9b501a5d191bf5611cbdb06f2fe32798707b1d8d"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/platforms/virtual-printer-sandbox.repl",
+    "source_sha256": "bc7016aac93b7f50634112e9e7abbb0c892929fab98cef02ec99d83a94a08d85",
+    "generated": "main/platforms/virtual-printer-sandbox.repl",
+    "generated_sha256": "d783136fb64e78c0ac55ddddd977be94862b802a06e3563d589e6cfa89e6e48c"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/platforms/virtual-tmc-gateway.repl",
+    "source_sha256": "7c1c01248a1b0d6dcb7b3c7027d2041783267ace89edb4e953fe88a9978a767b",
+    "generated": "main/platforms/virtual-tmc-gateway.repl",
+    "generated_sha256": "2a0f85d2d66f4345f58672a4c71b8d3b007fbbc2cfd115b5b3e6569d3dafc7fa"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/scripts/blank-powerdown-record.resc",
+    "source_sha256": "4cb8e7a3d4123bbc43de7d7ab9ed9ca22dd7eab08b308d905610567852b7fbd8",
+    "generated": "main/scripts/blank-powerdown-record.resc",
+    "generated_sha256": "4cb8e7a3d4123bbc43de7d7ab9ed9ca22dd7eab08b308d905610567852b7fbd8"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/scripts/load-kobra4.resc",
+    "source_sha256": "ce2da689d3e61f1ff3ed505936b06625fc5690575d9b03894fc08610097f3ba2",
+    "generated": "main/scripts/load-kobra4.resc",
+    "generated_sha256": "72f3c9e9c76681c85a75d6bafaf5c55729adbabddc64090ca54871b38029be47"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/scripts/load.resc",
+    "source_sha256": "fdc095373a0444537d467d32b291825a9eda0a3ef9e29fa6f920aaa2015b01a8",
+    "generated": "main/scripts/load.resc",
+    "generated_sha256": "644368942d85ddfb4cc8add50601267b0477634ab329fd5677b66350b5bcadcc"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/scripts/motor-image-version.resc",
+    "source_sha256": "b5eaee0a41506c5c0f3a9638e7177ff65ef0fbe14c0030300970f6c2b0fa0071",
+    "generated": "main/scripts/motor-image-version.resc",
+    "generated_sha256": "b5eaee0a41506c5c0f3a9638e7177ff65ef0fbe14c0030300970f6c2b0fa0071"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/scripts/smoke.resc",
+    "source_sha256": "d0c5452477a73c1167fc0dc4c2f698d09582653d046172d6e335b4ae2c09a62f",
+    "generated": "main/scripts/smoke.resc",
+    "generated_sha256": "1dca9c1d6b94bb635005ca3606322042ecc04524c30b8321a72ddd11956402c9"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/scripts/user-firmware.resc",
+    "source_sha256": "6a9682a9db3fa6b8414aa02fdd2b5cf65d9ec22d6811de2d8af4759e2da1cf43",
+    "generated": "main/scripts/user-firmware.resc",
+    "generated_sha256": "5e515614f21c0e34a48336559b57f4f58affafe624afac84c15bd283c61a3f1a"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/scripts/virtual-bed-ntc.resc",
+    "source_sha256": "26e09e272325465cf26a08ba5cf9f79375b0d7753746abac5d3777480b8aebaa",
+    "generated": "main/scripts/virtual-bed-ntc.resc",
+    "generated_sha256": "2ffe8015ad6d14c702084e85ce365307b802fd072de1270516c3068ec8cdd29f"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/scripts/virtual-printer-sandbox.resc",
+    "source_sha256": "8f20257438a06678913f9cf49fdc8a5c102fb78224f3e9de2074a9e48e9b3e7a",
+    "generated": "main/scripts/virtual-printer-sandbox.resc",
+    "generated_sha256": "06af44fb4546e185c74bd9d94ec583ed83e959a9150d21ab681bafa58c6cc0ad"
+  },
+  {
+    "board": "main",
+    "source": "at32-renode/scripts/virtual-tmc-gateway.resc",
+    "source_sha256": "7bdcbff0001d75208d79cb0b124c44edd2c21194e7d0712a9f587a93f9cde6dd",
+    "generated": "main/scripts/virtual-tmc-gateway.resc",
+    "generated_sha256": "086e01214d03b9ead12cb9a33a4b6703bbc2b1b7502df144c158bcb659618099"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/peripherals/AT32F403A_Bus.cs",
+    "source_sha256": "dc25fb77c8cb14c58b361f70d93da1d3f862185e1fd4abd43d5e14d9ec1d5c5b",
+    "generated": "nozzle/peripherals/AT32F403A_Bus.cs",
+    "generated_sha256": "c4ba762b909ed8ed344596c7bbcbaef972866f9e8015bd39fb5c8f45620dde67"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/peripherals/AT32F403A_DWT.cs",
+    "source_sha256": "dee855e319a314ff4423e455b6d489b2c4f0fa415701e09107a2c002318b28a7",
+    "generated": "nozzle/peripherals/AT32F403A_DWT.cs",
+    "generated_sha256": "b195148d6465f88959c58c02c0ca30a692c147f2a73624728604df9478f89d00"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/peripherals/AT32F403A_Extras.cs",
+    "source_sha256": "1ae5fc62e69551308c0ead845de3c0fd6fb7451b790e421df12986c608fe9217",
+    "generated": "nozzle/peripherals/AT32F403A_Extras.cs",
+    "generated_sha256": "6a358a3cdcc3bb184023b724b8e5bfa333ce083f9c75b5a21356d2e2f4fa651c"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/peripherals/AT32F403A_IO.cs",
+    "source_sha256": "55e232cafb4047b06cac51184153941ca976b36b761bcacb4cb92a8ecfc9f520",
+    "generated": "nozzle/peripherals/AT32F403A_IO.cs",
+    "generated_sha256": "f08b7eeb08f2f790c1c976bb5d6aaff4d926adc7335231f8a7cea086bcfd2664"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/peripherals/AT32F403A_System.cs",
+    "source_sha256": "8482269788fe359d2dca43caf24b80012b5a14f1c5afb8d2e3de7f8ca50dd6d5",
+    "generated": "nozzle/peripherals/AT32F403A_System.cs",
+    "generated_sha256": "a546324c4f3d341a00766d460c14dade9b447955108e89989fe5e6f6bc9238ee"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/peripherals/AT32F403A_VirtualSerialWire.cs",
+    "source_sha256": "60b83356fe3810bfab3d78cee11d5719f1abe2472932c92ca3cbe4fe15d13dfe",
+    "generated": "nozzle/peripherals/AT32F403A_VirtualSerialWire.cs",
+    "generated_sha256": "eabfb36a38995a1fb3491be5b47282bf31c1d54fba8e3fa948df26b8a17cee6f"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/peripherals/ClockedSTM32Timer.cs",
+    "source_sha256": "64f4b1bcb6970025f50cad49089d4aa6eeb1cd40f9962a162006741c9efafbfd",
+    "generated": "nozzle/peripherals/ClockedSTM32Timer.cs",
+    "generated_sha256": "b1b652a9bd5d404f9ecdbd648c3e26be4e7a048427222af678d5453e368cf117"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/peripherals/F1BootFlash.cs",
+    "source_sha256": "4511b112565c1b5e6f5d218ca27b6524dd2baacfeb7327c796b592b1a21f79bb",
+    "generated": "nozzle/peripherals/F1BootFlash.cs",
+    "generated_sha256": "cd7642ddf8d72c0fa1d932c0b201f86a8e407f19d71de09d99a43f1cf341549d"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/peripherals/NativeNozzleHeaterBinding.cs",
+    "source_sha256": "072e8dde94c6659942520b956a4384eb9cf7c2f26c926d900008c0bb4eb278a9",
+    "generated": "nozzle/peripherals/NativeNozzleHeaterBinding.cs",
+    "generated_sha256": "0557e7eff228c67ae95830a8f82703489e99c034453eba89393a5b618f493940"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/peripherals/PassiveNozzleThermalObserver.cs",
+    "source_sha256": "0683acad29836b59e55e834cc0c332595694eed8e489c9747820bc044879b6cb",
+    "generated": "nozzle/peripherals/PassiveNozzleThermalObserver.cs",
+    "generated_sha256": "89040900e9509f69ae07b35c7bb8b94bbb2ab50328e5b9e75a679b776827bc9a"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/peripherals/PassiveTmcTimingObserver.cs",
+    "source_sha256": "e38dc78029680088f26f751705b514a9e55b02b9a50c81c417ed8dcbe1ac948f",
+    "generated": "nozzle/peripherals/PassiveTmcTimingObserver.cs",
+    "generated_sha256": "371e76feea54ea291e20bedd97849c4533095ff8db05067da148a40b69770b56"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/peripherals/VirtualGPIOTrace.cs",
+    "source_sha256": "c522caea11f1cbcf15639a3d9ad8d137521438504df527f07bd9751b177aca0d",
+    "generated": "nozzle/peripherals/VirtualGPIOTrace.cs",
+    "generated_sha256": "8b52b301a73b162ed594782d3efb7585371ba278b7a8486ef6332f50f09bb8d6"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/experimental/tmc-native-replay/VirtualNozzleTmc2209Autobaud.cs",
+    "source_sha256": "905f96a12ffc9dc65a91aa429aaa664f33aca426ddbe0669ce799df6f7c64453",
+    "generated": "nozzle/peripherals/VirtualNozzleTmc2209.cs",
+    "generated_sha256": "262a4c672aa10f021e9601ee24f2995d0ba549d09a22b72059cc6c9c751de8a9",
+    "experimental_tmc_model": "autobaud"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/peripherals/VirtualPrinterThermal.cs",
+    "source_sha256": "feecda52cccaa21875b14148fb7112a9694997ca70625ecbac424a34ece0b708",
+    "generated": "nozzle/peripherals/VirtualPrinterThermal.cs",
+    "generated_sha256": "a55be20d332a1221a59fc3e305e4776deea947951bbe114997d5f8f7956ca1bf"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/platforms/native-nozzle-heater-binding.repl",
+    "source_sha256": "1990e7006d1b0ea5b3f216edbf6715dc1eabde0e03c014e7cb0792b9e4be986e",
+    "generated": "nozzle/platforms/native-nozzle-heater-binding.repl",
+    "generated_sha256": "5573963d6d1acfe5efe9ed321a5cbb0d36891b4542c16507a5acf404b5a92103"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/platforms/nozzle-f1-provisional.repl",
+    "source_sha256": "5e64d1f4c26695a1da05e76fc7ac072004ae80fc41ec7c5233708bca396a1068",
+    "generated": "nozzle/platforms/nozzle-f1-provisional.repl",
+    "generated_sha256": "1ba44f964e25642d1baed2ca942b93259991c14b0c9095b49347126920b042d4"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/platforms/passive-nozzle-thermal-observer.repl",
+    "source_sha256": "0bcfe220428de8fdb9667cbf0dc30968afafc66f77b9a38ff6151597acecf9f7",
+    "generated": "nozzle/platforms/passive-nozzle-thermal-observer.repl",
+    "generated_sha256": "36463e64be6296e19186e91c9099597c2ab73e56a9f2c9222fba44cbf7e8c92e"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/platforms/passive-tmc-timing-observer.repl",
+    "source_sha256": "8a6c9c020059ee34a4cf734264c2435313b4d4046b1055257a2e03282df8b6ec",
+    "generated": "nozzle/platforms/passive-tmc-timing-observer.repl",
+    "generated_sha256": "a18bb2a6497566abf22c1af2767045fb8b164f65e809014dd1e1e03e83c98484"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/platforms/virtual-commanded-motion.repl",
+    "source_sha256": "a6b7c2964a92e139ab11f2bf6df79692a8c8814975a1a4dd1c3afa33a684ef82",
+    "generated": "nozzle/platforms/virtual-commanded-motion.repl",
+    "generated_sha256": "04d1fdcba73357ea2b8dc09d2a09f8810b78624298d011fe16d12419ca37f975"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/platforms/virtual-gpio-trace.repl",
+    "source_sha256": "fba4596233273c18efe37e1f645d75f1797d802cc5c25ade8e5dd0792f57aca5",
+    "generated": "nozzle/platforms/virtual-gpio-trace.repl",
+    "generated_sha256": "bcf6294278b232eedb1edab5b289f395670184559b1290485a6768484750e2bc"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/platforms/virtual-nozzle-ntc.repl",
+    "source_sha256": "b9764b02fcd70d5f6690bbba1caa36a6fa14cc19ff05cc7b20898f322b9f0fe7",
+    "generated": "nozzle/platforms/virtual-nozzle-ntc.repl",
+    "generated_sha256": "244218ede2858e2a720e85df857862425b554ac139299ef95a7fbb84fdb52acb"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/platforms/virtual-nozzle-recovered-ntc.repl",
+    "source_sha256": "0aeee03190f1f0bd7284af8ef17708d07b949328df76451bf15134bbf248f408",
+    "generated": "nozzle/platforms/virtual-nozzle-recovered-ntc.repl",
+    "generated_sha256": "feeedd0c71ba915da1bad76c1a8896c59a4946c1605e47ebd35a62233212c66c"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/platforms/virtual-tmc2209.repl",
+    "source_sha256": "f95a894aa7b71cb2927a8ebf8551dbd3423b000ca3e1d39aae9f82a7dc542d83",
+    "generated": "nozzle/platforms/virtual-tmc2209.repl",
+    "generated_sha256": "e3b47eec2aae56bc129e7e3b91efad36259c69082ccaa065848388bdd10fe9b8"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/scripts/load.resc",
+    "source_sha256": "84dbf9d5b890ed1954b74b1cc8f1c463a8e636b383631e74b268c4ff16b08d36",
+    "generated": "nozzle/scripts/load.resc",
+    "generated_sha256": "1d756cab1c7082356d1d09a8742905cdc792419ecaf0449d60dab318cf515851"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/scripts/native-nozzle-heater-binding.resc",
+    "source_sha256": "1c23f11d8136bbdf957f197e88cebed232a91bac1d9430825d46471e9be5a5be",
+    "generated": "nozzle/scripts/native-nozzle-heater-binding.resc",
+    "generated_sha256": "aa4eef286676b1d2bf6636340921d3d70c93b67807b5a190f28f729b35e35e81"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/scripts/passive-nozzle-thermal-observer.resc",
+    "source_sha256": "85292eb17cc636f15e0e3ed71bb6ce4997b85863102b3c8afafc5d110e3112a4",
+    "generated": "nozzle/scripts/passive-nozzle-thermal-observer.resc",
+    "generated_sha256": "112df323cf7377c1a9d3d627cb1d85d1f5939497d11d69ed6f735199273075dc"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/scripts/passive-tmc-timing-observer.resc",
+    "source_sha256": "66574ddd900cbef6647472a262bfc53a5f364202d58466465d5710b289e96668",
+    "generated": "nozzle/scripts/passive-tmc-timing-observer.resc",
+    "generated_sha256": "a34cc34dcf1caa7c4d6989c8dd61b7e1f1de4faf3dcf820fc69c2fed78719016"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/scripts/user-firmware.resc",
+    "source_sha256": "997d096122b2d61e38317009f3a3c7dbe9255a907136c75c0cad9b2191d9d5ae",
+    "generated": "nozzle/scripts/user-firmware.resc",
+    "generated_sha256": "dd5fbef47b7ba7c20c7fa92e213c55f6ed3b0263f31059825749076b5c69cfd0"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/scripts/virtual-nozzle-ntc.resc",
+    "source_sha256": "cea7d2522b365613f38ab3238cb2938101928676eb1d69372bfba4f34e19e060",
+    "generated": "nozzle/scripts/virtual-nozzle-ntc.resc",
+    "generated_sha256": "e8484f9498df0b5854b4757ce91aac3a924c200b278f47504f9a66950e1c2921"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/scripts/virtual-nozzle-recovered-ntc.resc",
+    "source_sha256": "1ffd585915377d45efe323f7001790e5b777e5b5b959aaf794625b695a48735e",
+    "generated": "nozzle/scripts/virtual-nozzle-recovered-ntc.resc",
+    "generated_sha256": "3d55b0644124420beb2b0fc9a89db88de3f354fe0f48bda6a112f12ea2893bbc"
+  },
+  {
+    "board": "nozzle",
+    "source": "nozzle-renode/scripts/virtual-tmc2209.resc",
+    "source_sha256": "d2e91a9a09e1b567e1d941b62fac7106df9c813a811032aeac5587c3e74ae233",
+    "generated": "nozzle/scripts/virtual-tmc2209.resc",
+    "generated_sha256": "cd147d32e0900b25d632d15e58f0c35ef16e4b8a8327b7d4da1a12841673b8d5"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/AT32F403A_Bus.cs",
+    "source_sha256": "dc25fb77c8cb14c58b361f70d93da1d3f862185e1fd4abd43d5e14d9ec1d5c5b",
+    "generated": "motor/peripherals/AT32F403A_Bus.cs",
+    "generated_sha256": "50d23395e416e25bb099761ded91db3846ee10d29706e20d854e21b13ae41cdd"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/AT32F403A_DMA.cs",
+    "source_sha256": "04c9e79fb54f23399e2cacf3496167bcf3144562d425b127216de5467d808b94",
+    "generated": "motor/peripherals/AT32F403A_DMA.cs",
+    "generated_sha256": "e456b222f0b01f0a0ab5daa97e8e15cec8f9b90dcceb62d3752cc2737353e193"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/AT32F403A_DWT.cs",
+    "source_sha256": "dee855e319a314ff4423e455b6d489b2c4f0fa415701e09107a2c002318b28a7",
+    "generated": "motor/peripherals/AT32F403A_DWT.cs",
+    "generated_sha256": "6bdd672c328a2d59da56abd59ac4749aa1ce8334507f09978b6a6b96e90ff00d"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/AT32F403A_Extras.cs",
+    "source_sha256": "1ae5fc62e69551308c0ead845de3c0fd6fb7451b790e421df12986c608fe9217",
+    "generated": "motor/peripherals/AT32F403A_Extras.cs",
+    "generated_sha256": "b3244a19b04669b6a04629a632c9bee27102000b3251d402127599bbbd837475"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/AT32F403A_IO.cs",
+    "source_sha256": "55e232cafb4047b06cac51184153941ca976b36b761bcacb4cb92a8ecfc9f520",
+    "generated": "motor/peripherals/AT32F403A_IO.cs",
+    "generated_sha256": "2eb7207ead1e325510492490a827aaf91d4722e137accb7d03d3b630f970aec7"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/AT32F403A_System.cs",
+    "source_sha256": "de3aa9390fb7ccb57cbc1a46780965d181c7539e2c27a421a810f42b2f053d2e",
+    "generated": "motor/peripherals/AT32F403A_System.cs",
+    "generated_sha256": "9d188ef0f58354cb480f90379f4f3c93edacb1d5be339be39449d17090340e36"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/AT32F403A_Timer.cs",
+    "source_sha256": "2412458b6c2c61a33b0ad72d24898808e8b50b653fddaacead21baaecb703eb6",
+    "generated": "motor/peripherals/AT32F403A_Timer.cs",
+    "generated_sha256": "719fb6adc15773ea0d6edc01f5c7998a1e97c6586fb36cce32f85664f8a05768"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/AT32F403A_VirtualSerialWire.cs",
+    "source_sha256": "60b83356fe3810bfab3d78cee11d5719f1abe2472932c92ca3cbe4fe15d13dfe",
+    "generated": "motor/peripherals/AT32F403A_VirtualSerialWire.cs",
+    "generated_sha256": "39b35fc50558f88a53e80dbe41307a65f878f720abe2b572bbdd80b52db5c137"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/GenericMotorDriver.cs",
+    "source_sha256": "935e43b790a1bc8fa98ea0581ead09503d8274a85d906807b82105ab2f8f4726",
+    "generated": "motor/peripherals/GenericMotorDriver.cs",
+    "generated_sha256": "50168d229bbcd6b8d4e2c7331c4a39c43f023b975ecae99abc5c1e30180d2396"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/GenericStationaryMotorRL.cs",
+    "source_sha256": "96e1a5bb4344c45ff48ba353d2b83d33e8f4ee86c8cbfc0d6e564ddd9022d5f3",
+    "generated": "motor/peripherals/GenericStationaryMotorRL.cs",
+    "generated_sha256": "c882cf7c7a44566e3df789d8c65de808e715b5fd45674c1cb5d64c36a571e8c6"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/GenericStepperElectromechanical.cs",
+    "source_sha256": "326ab75aa08a8310a59cec6bc5a45f1573dc66bd6609c4ceba4e5d9f51a9d2d5",
+    "generated": "motor/peripherals/GenericStepperElectromechanical.cs",
+    "generated_sha256": "5c8ed812441e603185cfa8f6150f3cc6cda8dd178a512524646ff204df029a9a"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/PassiveMotorStateTrace.cs",
+    "source_sha256": "c44f64cc9b70491ea72fe19ad21fa14fc903b70bc7f8c6ea5d4a83366a629d32",
+    "generated": "motor/peripherals/PassiveMotorStateTrace.cs",
+    "generated_sha256": "e776929f4cf09f0f210c941d2e41e6438ceedd75584fcee4591b3bedb685056d"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/VirtualMotorCurrentCalibration.cs",
+    "source_sha256": "953b34848a83740555dc47cf5404769199c51de9d72a0f87225c89cb24d13a4b",
+    "generated": "motor/peripherals/VirtualMotorCurrentCalibration.cs",
+    "generated_sha256": "af3e2aee0ec49db846bef2d3c22946bf30dd7429b1e402991bf9ddab40b61cba"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/VirtualMotorPWMTriggers.cs",
+    "source_sha256": "23b31bdb196078d5b4fa5762be738d0dad9d2b11981a901446abe8e5396ea68e",
+    "generated": "motor/peripherals/VirtualMotorPWMTriggers.cs",
+    "generated_sha256": "02dd3ce5100b706181105435d6ede9ac61a9d8e99e82f5e2ab5a3e132deedcfd"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/VirtualMotorTmcGateway.cs",
+    "source_sha256": "9762535adcebe94d651fa2cf4e41e09dfb8b86a8945c38e03f75141ae0d55cc7",
+    "generated": "motor/peripherals/VirtualMotorTmcGateway.cs",
+    "generated_sha256": "9cafb0a9c19621c09644efba45f212cacbfd98abb14c97fc45e6daa7382afed8"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/VirtualPrinterMechanics.cs",
+    "source_sha256": "87174cce6eaef8be45f2a974ec0ad2971042cf02335226ff845c9a8c9b97b353",
+    "generated": "motor/peripherals/VirtualPrinterMechanics.cs",
+    "generated_sha256": "3082f23577f10b58feed4723e0e456d70acbfe0c65f0368413a40350557c5329"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/VirtualPrinterObserver.cs",
+    "source_sha256": "fe6c886043a2f9584e5161026e0ac5a4e754b80f9304b99924f46de8fe02365f",
+    "generated": "motor/peripherals/VirtualPrinterObserver.cs",
+    "generated_sha256": "e6253120f1fb72d35c40db4fb1630fb8bffd897ef5a8d0ec88d8ddff2e4a13e8"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/peripherals/VirtualPrinterThermal.cs",
+    "source_sha256": "035789c4de321a111205fd753fb5bed6ccb639cc720dca97480b872eccf24ae5",
+    "generated": "motor/peripherals/VirtualPrinterThermal.cs",
+    "generated_sha256": "cffc70b8081be0f78e53233b5adcf31c103e6c5231623a45d4bbba005cee7ce1"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/platforms/generic-driver-mcu-control-only.repl",
+    "source_sha256": "a5717014aec5691fedfefe2e2f05e642f899280624cc261d97fb07724478bf79",
+    "generated": "motor/platforms/generic-driver-mcu-control-only.repl",
+    "generated_sha256": "a25a4e4990bbae22b77fd577968817e3160020aa82102c59cfa9cdc8ba1b613b"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/platforms/generic-driver.repl",
+    "source_sha256": "0e58375f95a045fe0af4446338b2e1083747f3ee174e179a755575bc9943ecc3",
+    "generated": "motor/platforms/generic-driver.repl",
+    "generated_sha256": "ad7cedbc8e4d1d5b5e214e962b261c9164ecf93c0fb372271e11805886637395"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/platforms/generic-electromechanical.repl",
+    "source_sha256": "a1035266a4cc0a73342d893a32c158051b7dffca33feb9a761715393c0f13b66",
+    "generated": "motor/platforms/generic-electromechanical.repl",
+    "generated_sha256": "a237ec20b4b202b39aadedcb94d41a80ff036e12a75be312c3c7830923ccd277"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/platforms/generic-stationary-rl.repl",
+    "source_sha256": "2108e7bc0bc721409fc845c8768ef08e74e29b756636711c1716ea552c8ce306",
+    "generated": "motor/platforms/generic-stationary-rl.repl",
+    "generated_sha256": "16c73a7afaeaf9630cacf3fec1696a26e260b3d55df8e0a9ed5805b72f73daf1"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/platforms/motor-at32-provisional.repl",
+    "source_sha256": "731be6469a4d941cd26fa1a7e34bc6687672b3d6630e8f4cfcc08ddb20102187",
+    "generated": "motor/platforms/motor-at32-provisional.repl",
+    "generated_sha256": "08caac3390705daa160820d0c361086864dc1a896d4cdc22e343043f893c99a1"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/platforms/passive-motor-state-trace.repl",
+    "source_sha256": "fa18852d17b214980fb6af6fdcc76603545597d38ad8beac74b2cd3c0be86e1c",
+    "generated": "motor/platforms/passive-motor-state-trace.repl",
+    "generated_sha256": "5e86f6b4339295c09d33ac664865fa8c2044492ceb95e82bc1fa167a9f06d8dc"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/platforms/pwm-trigger-wiring.repl",
+    "source_sha256": "ee1bfc85720b8d312aa8b4daacfdf877282944f4f1b77651bcd2c916b828175f",
+    "generated": "motor/platforms/pwm-trigger-wiring.repl",
+    "generated_sha256": "ad5e3dff28832a163e21c2d7956fe3b41be6802d27b34a8577ffa9dabe9a8615"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/platforms/stationary-current-plant.repl",
+    "source_sha256": "2b8a2664aca1c46896a2d95e69678155849b0721947f5010861dc26e85265e99",
+    "generated": "motor/platforms/stationary-current-plant.repl",
+    "generated_sha256": "bce467153e6a9f10b5a2fc1c42cabcbd2ca333122475b082f0baf1465b1d17f9"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/scripts/board-clock-and-rtc.resc",
+    "source_sha256": "b55cb36d545295ad18eaaac28b0d38dc21300f0005368f4083a40e9c24776520",
+    "generated": "motor/scripts/board-clock-and-rtc.resc",
+    "generated_sha256": "b55cb36d545295ad18eaaac28b0d38dc21300f0005368f4083a40e9c24776520"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/scripts/generic-driver-mcu-control-only.resc",
+    "source_sha256": "7de782320e951b8feaf4bc6ac762dcec4486351aaa04a2ff896a72ac8c158c60",
+    "generated": "motor/scripts/generic-driver-mcu-control-only.resc",
+    "generated_sha256": "f4cc5f1e2d53d9541643e143d96586e714442fff6fbb5386c2b8747d854d0f43"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/scripts/generic-electromechanical.resc",
+    "source_sha256": "e6cd0e6fb68c307b278f5971a567c2fd55a92239eb3de1ed98fc0341ef82e250",
+    "generated": "motor/scripts/generic-electromechanical.resc",
+    "generated_sha256": "9b71bb1d505ca354547c1d68ebe2017f4d9451218d3ce81f7d24559f6b243a0e"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/scripts/generic-stationary-rl.resc",
+    "source_sha256": "ac881f2e71a77ca52896b8e7b8ef3dbda4dfbc2ed85daad61b112ffe2ffacb27",
+    "generated": "motor/scripts/generic-stationary-rl.resc",
+    "generated_sha256": "469bb876e245d1d6674489011114afeda4de315a9b47d9e006aa537cb613acda"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/scripts/load.resc",
+    "source_sha256": "9a1aa79f14af0a59bed83fd00c8a9eec0d2e4a2c11c718863e2e79f05e4a2467",
+    "generated": "motor/scripts/load.resc",
+    "generated_sha256": "c3c5a4988401897b8a11787e8a345af90cd231858ec4a5c73e229143b579c46d"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/scripts/pwm-trigger-wiring.resc",
+    "source_sha256": "100fccaa0171c9ce0b8487e735c6165e6ee3ad31b15dbbc125a84995be6512fa",
+    "generated": "motor/scripts/pwm-trigger-wiring.resc",
+    "generated_sha256": "d2ed9e50aa1d1373c21a7b99664ef9bc3bb4e250ac5bc265c22d47be5870eaad"
+  },
+  {
+    "board": "motor",
+    "source": "motor-renode/scripts/stationary-current-plant.resc",
+    "source_sha256": "276f5ab9d9070fbcd1b10603acffe1f8b2e31230ec5550c70a7230253f05c9c9",
+    "generated": "motor/scripts/stationary-current-plant.resc",
+    "generated_sha256": "ffc0a2f4e8404dc1f8efb2956b168d7aeceb3ef28542222acaefdc2b4b26101e"
+  }
+]

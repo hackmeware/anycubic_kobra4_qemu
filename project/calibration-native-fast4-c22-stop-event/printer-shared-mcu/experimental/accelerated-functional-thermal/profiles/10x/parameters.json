@@ -1,0 +1,49 @@
+{
+  "factor": 10,
+  "synthetic": true,
+  "realistic": false,
+  "purpose": "functional command/GPIO/ADC/shutdown plumbing only; not PID validation",
+  "clock_scale": 1,
+  "native_pwm_seconds": 0.1,
+  "native_sensor_smoothing_seconds": 1,
+  "native_firmware_and_guards_unchanged": true,
+  "pb9_thermally_unbound": true,
+  "sensors": {
+    "nozzle": {
+      "power_w": 60,
+      "capacity_j_per_k": 2.0,
+      "conductance_w_per_k": 0.2,
+      "ambient_c": 25,
+      "model_maximum_c": 400,
+      "target_c": 230,
+      "initial_rate_c_per_s": 30.0,
+      "time_constant_s": 10.0,
+      "mathematical_full_duty_equilibrium_c": 325.0,
+      "target_hold_duty": 0.6833333333333333,
+      "ideal_full_power_target_seconds": 11.499055830556603,
+      "first_100ms_rise_c": 2.985049875249585,
+      "first_1s_rise_c": 28.54877458921213,
+      "full_power_rate_at_target_c_per_s": 9.5,
+      "full_power_extra_1s_rise_from_target_c": 9.040445286583841,
+      "update_microseconds": 10000
+    },
+    "bed": {
+      "power_w": 200,
+      "capacity_j_per_k": 60.0,
+      "conductance_w_per_k": 1.5,
+      "ambient_c": 25,
+      "model_maximum_c": 150,
+      "target_c": 60,
+      "initial_rate_c_per_s": 3.3333333333333335,
+      "time_constant_s": 40.0,
+      "mathematical_full_duty_equilibrium_c": 158.33333333333334,
+      "target_hold_duty": 0.2625,
+      "ideal_full_power_target_seconds": 12.179567630726485,
+      "first_100ms_rise_c": 0.3329170136719835,
+      "first_1s_rise_c": 3.292011729555645,
+      "full_power_rate_at_target_c_per_s": 2.4583333333333335,
+      "full_power_extra_1s_rise_from_target_c": 2.427858650547288,
+      "update_microseconds": 10000
+    }
+  }
+}

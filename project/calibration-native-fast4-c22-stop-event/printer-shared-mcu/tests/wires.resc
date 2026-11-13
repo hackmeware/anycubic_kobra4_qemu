@@ -1,0 +1,44 @@
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/main/scripts/load.resc
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/main/peripherals/AT32F403A_VirtualSerialWire.cs
+sysbus.crm HextFrequency 24000000
+machine LoadPlatformDescriptionFromString "motorWire: PrinterMain.AT32VirtualSerialWire @ sysbus { uart: usart2; baud: 576000 }"
+emulation CreateUARTHub "motorHub"
+connector Connect sysbus.motorWire motorHub
+emulation CreateGPIOConnector "motorSync"
+connector Connect sysbus.gpioA motorSync
+motorSync SelectSourcePin sysbus.gpioA 8
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/motor/scripts/load.resc
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/motor/scripts/board-clock-and-rtc.resc
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/motor/scripts/generic-stationary-rl.resc
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/motor/peripherals/AT32F403A_VirtualSerialWire.cs
+machine LoadPlatformDescriptionFromString "mainWire: PrinterMotor.AT32VirtualSerialWire @ sysbus { uart: usart2; baud: 576000 }"
+connector Connect sysbus.mainWire motorHub
+connector Connect sysbus.tmr2 motorSync
+motorSync SelectDestinationPin sysbus.tmr2 0
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/nozzle/scripts/load.resc
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/nozzle/scripts/virtual-nozzle-ntc.resc
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/nozzle/scripts/virtual-tmc2209.resc
+mach set "AT32F403ARGT7"
+sysbus LoadBinary @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/tests/wire-smoke.bin 0x08000000
+cpu VectorTableOffset 0x08000000
+mach set "Motor-AT32-Provisional"
+cpu IsHalted true
+sysbus WriteDoubleWord 0x40000000 0x400
+sysbus WriteDoubleWord 0x4000002C 0xffffffff
+sysbus WriteDoubleWord 0x40000018 1
+sysbus WriteDoubleWord 0x40000020 0xb
+sysbus WriteDoubleWord 0x4000000C 2
+sysbus WriteDoubleWord 0x40000000 0x401
+sysbus WriteDoubleWord 0x4000440C 0x2004
+mach set "Nozzle-F1-Provisional"
+cpu IsHalted true
+emulation RunFor "0.002"
+mach set "Motor-AT32-Provisional"
+log "CAPTURE"
+sysbus ReadDoubleWord 0x40000034
+log "STATUS"
+sysbus ReadDoubleWord 0x40000010
+log "UART"
+sysbus ReadDoubleWord 0x40004404
+log "SHARED WIRE TEST COMPLETE"
+quit

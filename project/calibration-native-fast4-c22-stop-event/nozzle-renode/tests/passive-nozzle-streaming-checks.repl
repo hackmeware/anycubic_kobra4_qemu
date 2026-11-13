@@ -1,0 +1,4 @@
+streamChecks: AT32Tests.PassiveNozzleStreamingTests @ sysbus 0x60000000
+    portB: gpioB
+    thermal: virtualNozzleNTC
+    observer: passiveNozzleThermalObserver

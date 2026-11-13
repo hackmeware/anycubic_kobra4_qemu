@@ -1,0 +1,21 @@
+# CPU synchronization quantum below one576000baud10-bit frame; prevents batchingRX overrun.
+emulation SetGlobalQuantum "0.00001"
+include @@GENERATED@/main/scripts/load.resc
+include @@GENERATED@/main/peripherals/AT32F403A_VirtualSerialWire.cs
+sysbus.crm HextFrequency 24000000
+machine LoadPlatformDescriptionFromString "motorWire: PrinterMain.AT32VirtualSerialWire @ sysbus { uart: usart2; baud: 576000 }"
+emulation CreateUARTHub "motorHub"
+connector Connect sysbus.motorWire motorHub
+emulation CreateGPIOConnector "motorSync"
+connector Connect sysbus.gpioA motorSync
+motorSync SelectSourcePin sysbus.gpioA 8
+include @@GENERATED@/motor/scripts/load.resc
+include @@GENERATED@/motor/scripts/board-clock-and-rtc.resc
+include @@GENERATED@/motor/scripts/generic-stationary-rl.resc
+include @@GENERATED@/motor/peripherals/AT32F403A_VirtualSerialWire.cs
+machine LoadPlatformDescriptionFromString "mainWire: PrinterMotor.AT32VirtualSerialWire @ sysbus { uart: usart2; baud: 576000 }"
+connector Connect sysbus.mainWire motorHub
+connector Connect sysbus.tmr2 motorSync
+motorSync SelectDestinationPin sysbus.tmr2 0
+include @@GENERATED@/nozzle/scripts/load.resc
+mach set "main"

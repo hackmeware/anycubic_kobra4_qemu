@@ -1,0 +1,4 @@
+pause
+pause
+sysbus.tmcTimingObserver WriteCsv "${RUN_DIR}/nozzle-tmc-edges.csv"
+sysbus.tmcTimingObserver Dropped

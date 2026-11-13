@@ -1,0 +1,7 @@
+adc: AT32.AT32ADC @ sysbus 0x40012400
+thermal: AT32.VirtualPrinterThermal @ sysbus
+    adc: adc
+    channel: 1
+thermalTests: AT32Tests.VirtualThermalTests @ sysbus 0x60000000
+    adc: adc
+    thermal: thermal

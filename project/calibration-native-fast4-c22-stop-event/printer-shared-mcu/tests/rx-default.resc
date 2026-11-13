@@ -1,0 +1,86 @@
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/shared-load.resc
+mach set "main"
+sysbus LoadBinary @/workspace/scratch/ca95ca5f55d9/at32-renode/tests/serial-wire-test.bin 0x08000000
+cpu VectorTableOffset 0x08000000
+mach set "motor"
+sysbus LoadBinary @/workspace/scratch/ca95ca5f55d9/at32-renode/tests/serial-wire-test.bin 0x08000000
+cpu VectorTableOffset 0x08000000
+mach set "nozzle"
+sysbus LoadBinary @/workspace/scratch/ca95ca5f55d9/at32-renode/tests/serial-wire-test.bin 0x08000000
+cpu VectorTableOffset 0x08000000
+mach set "main"
+machine LoadPlatformDescriptionFromString "serialWire: PrinterMain.AT32VirtualSerialWire @ sysbus { uart: usart1; baud: 576000 }"
+emulation RunFor "0.001"
+sysbus.serialWire WriteChar 0
+sysbus.serialWire WriteChar 1
+sysbus.serialWire WriteChar 2
+sysbus.serialWire WriteChar 3
+sysbus.serialWire WriteChar 4
+sysbus.serialWire WriteChar 5
+sysbus.serialWire WriteChar 6
+sysbus.serialWire WriteChar 7
+sysbus.serialWire WriteChar 8
+sysbus.serialWire WriteChar 9
+sysbus.serialWire WriteChar 10
+sysbus.serialWire WriteChar 11
+sysbus.serialWire WriteChar 12
+sysbus.serialWire WriteChar 13
+sysbus.serialWire WriteChar 14
+sysbus.serialWire WriteChar 15
+sysbus.serialWire WriteChar 16
+sysbus.serialWire WriteChar 17
+sysbus.serialWire WriteChar 18
+sysbus.serialWire WriteChar 19
+sysbus.serialWire WriteChar 20
+sysbus.serialWire WriteChar 21
+sysbus.serialWire WriteChar 22
+sysbus.serialWire WriteChar 23
+sysbus.serialWire WriteChar 24
+sysbus.serialWire WriteChar 25
+sysbus.serialWire WriteChar 26
+sysbus.serialWire WriteChar 27
+sysbus.serialWire WriteChar 28
+sysbus.serialWire WriteChar 29
+sysbus.serialWire WriteChar 30
+sysbus.serialWire WriteChar 31
+sysbus.serialWire WriteChar 32
+sysbus.serialWire WriteChar 33
+sysbus.serialWire WriteChar 34
+sysbus.serialWire WriteChar 35
+sysbus.serialWire WriteChar 36
+sysbus.serialWire WriteChar 37
+sysbus.serialWire WriteChar 38
+sysbus.serialWire WriteChar 39
+sysbus.serialWire WriteChar 40
+sysbus.serialWire WriteChar 41
+sysbus.serialWire WriteChar 42
+sysbus.serialWire WriteChar 43
+sysbus.serialWire WriteChar 44
+sysbus.serialWire WriteChar 45
+sysbus.serialWire WriteChar 46
+sysbus.serialWire WriteChar 47
+sysbus.serialWire WriteChar 48
+sysbus.serialWire WriteChar 49
+sysbus.serialWire WriteChar 50
+sysbus.serialWire WriteChar 51
+sysbus.serialWire WriteChar 52
+sysbus.serialWire WriteChar 53
+sysbus.serialWire WriteChar 54
+sysbus.serialWire WriteChar 55
+sysbus.serialWire WriteChar 56
+sysbus.serialWire WriteChar 57
+sysbus.serialWire WriteChar 58
+sysbus.serialWire WriteChar 59
+sysbus.serialWire WriteChar 60
+sysbus.serialWire WriteChar 61
+sysbus.serialWire WriteChar 62
+sysbus.serialWire WriteChar 63
+emulation RunFor "0.005"
+log "RX_COUNT"
+sysbus ReadDoubleWord 0x20000100
+log "RX_STATUS"
+sysbus ReadDoubleWord 0x40013800
+log "WIRE_COUNT"
+sysbus.serialWire DeliveredBytes
+log "RX BURST COMPLETE"
+quit

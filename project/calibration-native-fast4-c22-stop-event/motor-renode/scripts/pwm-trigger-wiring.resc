@@ -1,0 +1,2 @@
+include @peripherals/VirtualMotorPWMTriggers.cs
+machine LoadPlatformDescription @platforms/pwm-trigger-wiring.repl

@@ -1,0 +1,269 @@
+pause
+machine ElapsedVirtualTime
+mach set "motor"
+sysbus.physicalStateTrace Stop
+sysbus.physicalStateTrace WriteStatus "${RUN_DIR}/physical-state-status.json"
+mach set "main"
+mach set "motor"
+sysbus.electromechanicalPlant StopContactTrace
+sysbus.electromechanicalPlant ContactRowsWritten
+sysbus.electromechanicalPlant ContactDroppedRows
+sysbus.electromechanicalPlant ContactLastError
+sysbus.electromechanicalPlant IntegrationCalls
+mach set "main"
+mach set "main"
+sysbus.homingEdges DroppedRows
+sysbus.homingEdges LastError
+mach set "motor"
+sysbus.homingEdges DroppedRows
+sysbus.homingEdges LastError
+mach set "main"
+mach set "nozzle"
+echo "COLD_PROBE_nozzle_BEGIN"
+sysbus.zProbeEdges Enabled
+sysbus.zProbeEdges Stop
+sysbus.zProbeEdges Enabled
+sysbus.zProbeEdges RowsWritten
+sysbus.zProbeEdges DroppedRows
+sysbus.zProbeEdges EdgeCount
+sysbus.zProbeEdges CapacityReached
+sysbus.zProbeEdges LastError
+echo "COLD_PROBE_nozzle_END"
+mach set "main"
+echo "COLD_PROBE_main_BEGIN"
+sysbus.zProbeEdges Enabled
+sysbus.zProbeEdges Stop
+sysbus.zProbeEdges Enabled
+sysbus.zProbeEdges RowsWritten
+sysbus.zProbeEdges DroppedRows
+sysbus.zProbeEdges EdgeCount
+sysbus.zProbeEdges CapacityReached
+sysbus.zProbeEdges LastError
+echo "COLD_PROBE_main_END"
+mach set "motor"
+echo "COLD_CONTACT_BEGIN"
+sysbus.electromechanicalPlant ContactTraceEnabled
+sysbus.electromechanicalPlant ContactRowsWritten
+sysbus.electromechanicalPlant ContactDroppedRows
+sysbus.electromechanicalPlant ContactLastError
+echo "COLD_CONTACT_END"
+mach set "main"
+mach set "main"
+echo "IDENT_SPI_main_spi1_BEGIN"
+sysbus.spi1 StopPassiveByteTrace
+sysbus.spi1 PassiveTraceEnabled
+sysbus.spi1 PassiveRowsWritten
+sysbus.spi1 PassiveDroppedRows
+sysbus.spi1 PassiveCapacityReached
+sysbus.spi1 PassiveLastError
+echo "IDENT_SPI_main_spi1_END"
+echo "IDENT_SPI_main_spi2_BEGIN"
+sysbus.spi2 StopPassiveByteTrace
+sysbus.spi2 PassiveTraceEnabled
+sysbus.spi2 PassiveRowsWritten
+sysbus.spi2 PassiveDroppedRows
+sysbus.spi2 PassiveCapacityReached
+sysbus.spi2 PassiveLastError
+echo "IDENT_SPI_main_spi2_END"
+echo "IDENT_SPI_main_spi3_BEGIN"
+sysbus.spi3 StopPassiveByteTrace
+sysbus.spi3 PassiveTraceEnabled
+sysbus.spi3 PassiveRowsWritten
+sysbus.spi3 PassiveDroppedRows
+sysbus.spi3 PassiveCapacityReached
+sysbus.spi3 PassiveLastError
+echo "IDENT_SPI_main_spi3_END"
+echo "IDENT_SPI_main_spi4_BEGIN"
+sysbus.spi4 StopPassiveByteTrace
+sysbus.spi4 PassiveTraceEnabled
+sysbus.spi4 PassiveRowsWritten
+sysbus.spi4 PassiveDroppedRows
+sysbus.spi4 PassiveCapacityReached
+sysbus.spi4 PassiveLastError
+echo "IDENT_SPI_main_spi4_END"
+echo "IDENT_GPIO_main_A_BEGIN"
+sysbus.identificationGpioA Stop
+sysbus.identificationGpioA Enabled
+sysbus.identificationGpioA RowsWritten
+sysbus.identificationGpioA DroppedRows
+sysbus.identificationGpioA CapacityReached
+sysbus.identificationGpioA LastError
+echo "IDENT_GPIO_main_A_END"
+sysbus.identificationGpioA WriteStatus "${RUN_DIR}/main-gpioA-edges.csv.status.json"
+echo "IDENT_GPIO_main_B_BEGIN"
+sysbus.identificationGpioB Stop
+sysbus.identificationGpioB Enabled
+sysbus.identificationGpioB RowsWritten
+sysbus.identificationGpioB DroppedRows
+sysbus.identificationGpioB CapacityReached
+sysbus.identificationGpioB LastError
+echo "IDENT_GPIO_main_B_END"
+sysbus.identificationGpioB WriteStatus "${RUN_DIR}/main-gpioB-edges.csv.status.json"
+echo "IDENT_GPIO_main_C_BEGIN"
+sysbus.identificationGpioC Stop
+sysbus.identificationGpioC Enabled
+sysbus.identificationGpioC RowsWritten
+sysbus.identificationGpioC DroppedRows
+sysbus.identificationGpioC CapacityReached
+sysbus.identificationGpioC LastError
+echo "IDENT_GPIO_main_C_END"
+sysbus.identificationGpioC WriteStatus "${RUN_DIR}/main-gpioC-edges.csv.status.json"
+echo "IDENT_GPIO_main_D_BEGIN"
+sysbus.identificationGpioD Stop
+sysbus.identificationGpioD Enabled
+sysbus.identificationGpioD RowsWritten
+sysbus.identificationGpioD DroppedRows
+sysbus.identificationGpioD CapacityReached
+sysbus.identificationGpioD LastError
+echo "IDENT_GPIO_main_D_END"
+sysbus.identificationGpioD WriteStatus "${RUN_DIR}/main-gpioD-edges.csv.status.json"
+echo "IDENT_GPIO_main_E_BEGIN"
+sysbus.identificationGpioE Stop
+sysbus.identificationGpioE Enabled
+sysbus.identificationGpioE RowsWritten
+sysbus.identificationGpioE DroppedRows
+sysbus.identificationGpioE CapacityReached
+sysbus.identificationGpioE LastError
+echo "IDENT_GPIO_main_E_END"
+sysbus.identificationGpioE WriteStatus "${RUN_DIR}/main-gpioE-edges.csv.status.json"
+mach set "nozzle"
+echo "IDENT_SPI_nozzle_spi1_BEGIN"
+sysbus.spi1 StopPassiveByteTrace
+sysbus.spi1 PassiveTraceEnabled
+sysbus.spi1 PassiveRowsWritten
+sysbus.spi1 PassiveDroppedRows
+sysbus.spi1 PassiveCapacityReached
+sysbus.spi1 PassiveLastError
+echo "IDENT_SPI_nozzle_spi1_END"
+echo "IDENT_SPI_nozzle_spi2_BEGIN"
+sysbus.spi2 StopPassiveByteTrace
+sysbus.spi2 PassiveTraceEnabled
+sysbus.spi2 PassiveRowsWritten
+sysbus.spi2 PassiveDroppedRows
+sysbus.spi2 PassiveCapacityReached
+sysbus.spi2 PassiveLastError
+echo "IDENT_SPI_nozzle_spi2_END"
+echo "IDENT_GPIO_nozzle_A_BEGIN"
+sysbus.identificationGpioA Stop
+sysbus.identificationGpioA Enabled
+sysbus.identificationGpioA RowsWritten
+sysbus.identificationGpioA DroppedRows
+sysbus.identificationGpioA CapacityReached
+sysbus.identificationGpioA LastError
+echo "IDENT_GPIO_nozzle_A_END"
+sysbus.identificationGpioA WriteStatus "${RUN_DIR}/nozzle-gpioA-edges.csv.status.json"
+echo "IDENT_GPIO_nozzle_B_BEGIN"
+sysbus.identificationGpioB Stop
+sysbus.identificationGpioB Enabled
+sysbus.identificationGpioB RowsWritten
+sysbus.identificationGpioB DroppedRows
+sysbus.identificationGpioB CapacityReached
+sysbus.identificationGpioB LastError
+echo "IDENT_GPIO_nozzle_B_END"
+sysbus.identificationGpioB WriteStatus "${RUN_DIR}/nozzle-gpioB-edges.csv.status.json"
+echo "IDENT_GPIO_nozzle_C_BEGIN"
+sysbus.identificationGpioC Stop
+sysbus.identificationGpioC Enabled
+sysbus.identificationGpioC RowsWritten
+sysbus.identificationGpioC DroppedRows
+sysbus.identificationGpioC CapacityReached
+sysbus.identificationGpioC LastError
+echo "IDENT_GPIO_nozzle_C_END"
+sysbus.identificationGpioC WriteStatus "${RUN_DIR}/nozzle-gpioC-edges.csv.status.json"
+echo "IDENT_GPIO_nozzle_D_BEGIN"
+sysbus.identificationGpioD Stop
+sysbus.identificationGpioD Enabled
+sysbus.identificationGpioD RowsWritten
+sysbus.identificationGpioD DroppedRows
+sysbus.identificationGpioD CapacityReached
+sysbus.identificationGpioD LastError
+echo "IDENT_GPIO_nozzle_D_END"
+sysbus.identificationGpioD WriteStatus "${RUN_DIR}/nozzle-gpioD-edges.csv.status.json"
+echo "IDENT_GPIO_nozzle_E_BEGIN"
+sysbus.identificationGpioE Stop
+sysbus.identificationGpioE Enabled
+sysbus.identificationGpioE RowsWritten
+sysbus.identificationGpioE DroppedRows
+sysbus.identificationGpioE CapacityReached
+sysbus.identificationGpioE LastError
+echo "IDENT_GPIO_nozzle_E_END"
+sysbus.identificationGpioE WriteStatus "${RUN_DIR}/nozzle-gpioE-edges.csv.status.json"
+mach set "motor"
+echo "IDENT_SPI_motor_spi1_BEGIN"
+sysbus.spi1 StopPassiveByteTrace
+sysbus.spi1 PassiveTraceEnabled
+sysbus.spi1 PassiveRowsWritten
+sysbus.spi1 PassiveDroppedRows
+sysbus.spi1 PassiveCapacityReached
+sysbus.spi1 PassiveLastError
+echo "IDENT_SPI_motor_spi1_END"
+echo "IDENT_SPI_motor_spi2_BEGIN"
+sysbus.spi2 StopPassiveByteTrace
+sysbus.spi2 PassiveTraceEnabled
+sysbus.spi2 PassiveRowsWritten
+sysbus.spi2 PassiveDroppedRows
+sysbus.spi2 PassiveCapacityReached
+sysbus.spi2 PassiveLastError
+echo "IDENT_SPI_motor_spi2_END"
+echo "IDENT_SPI_motor_spi3_BEGIN"
+sysbus.spi3 StopPassiveByteTrace
+sysbus.spi3 PassiveTraceEnabled
+sysbus.spi3 PassiveRowsWritten
+sysbus.spi3 PassiveDroppedRows
+sysbus.spi3 PassiveCapacityReached
+sysbus.spi3 PassiveLastError
+echo "IDENT_SPI_motor_spi3_END"
+echo "IDENT_SPI_motor_spi4_BEGIN"
+sysbus.spi4 StopPassiveByteTrace
+sysbus.spi4 PassiveTraceEnabled
+sysbus.spi4 PassiveRowsWritten
+sysbus.spi4 PassiveDroppedRows
+sysbus.spi4 PassiveCapacityReached
+sysbus.spi4 PassiveLastError
+echo "IDENT_SPI_motor_spi4_END"
+echo "IDENT_GPIO_motor_A_BEGIN"
+sysbus.identificationGpioA Stop
+sysbus.identificationGpioA Enabled
+sysbus.identificationGpioA RowsWritten
+sysbus.identificationGpioA DroppedRows
+sysbus.identificationGpioA CapacityReached
+sysbus.identificationGpioA LastError
+echo "IDENT_GPIO_motor_A_END"
+sysbus.identificationGpioA WriteStatus "${RUN_DIR}/motor-gpioA-edges.csv.status.json"
+echo "IDENT_GPIO_motor_B_BEGIN"
+sysbus.identificationGpioB Stop
+sysbus.identificationGpioB Enabled
+sysbus.identificationGpioB RowsWritten
+sysbus.identificationGpioB DroppedRows
+sysbus.identificationGpioB CapacityReached
+sysbus.identificationGpioB LastError
+echo "IDENT_GPIO_motor_B_END"
+sysbus.identificationGpioB WriteStatus "${RUN_DIR}/motor-gpioB-edges.csv.status.json"
+echo "IDENT_GPIO_motor_C_BEGIN"
+sysbus.identificationGpioC Stop
+sysbus.identificationGpioC Enabled
+sysbus.identificationGpioC RowsWritten
+sysbus.identificationGpioC DroppedRows
+sysbus.identificationGpioC CapacityReached
+sysbus.identificationGpioC LastError
+echo "IDENT_GPIO_motor_C_END"
+sysbus.identificationGpioC WriteStatus "${RUN_DIR}/motor-gpioC-edges.csv.status.json"
+echo "IDENT_GPIO_motor_D_BEGIN"
+sysbus.identificationGpioD Stop
+sysbus.identificationGpioD Enabled
+sysbus.identificationGpioD RowsWritten
+sysbus.identificationGpioD DroppedRows
+sysbus.identificationGpioD CapacityReached
+sysbus.identificationGpioD LastError
+echo "IDENT_GPIO_motor_D_END"
+sysbus.identificationGpioD WriteStatus "${RUN_DIR}/motor-gpioD-edges.csv.status.json"
+echo "IDENT_GPIO_motor_E_BEGIN"
+sysbus.identificationGpioE Stop
+sysbus.identificationGpioE Enabled
+sysbus.identificationGpioE RowsWritten
+sysbus.identificationGpioE DroppedRows
+sysbus.identificationGpioE CapacityReached
+sysbus.identificationGpioE LastError
+echo "IDENT_GPIO_motor_E_END"
+sysbus.identificationGpioE WriteStatus "${RUN_DIR}/motor-gpioE-edges.csv.status.json"
+mach set "main"

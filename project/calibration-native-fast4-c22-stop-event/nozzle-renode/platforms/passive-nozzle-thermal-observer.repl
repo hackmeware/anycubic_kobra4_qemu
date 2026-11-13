@@ -1,0 +1,6 @@
+// Observation only. Constructor attaches PB8/PB9 GPIO sinks, never thermal inputs.
+passiveNozzleThermalObserver: AT32.PassiveNozzleThermalObserver @ sysbus
+    portB: gpioB
+    thermal: virtualNozzleNTC
+    sampleMicroseconds: 100000
+    maximumRows: 100000

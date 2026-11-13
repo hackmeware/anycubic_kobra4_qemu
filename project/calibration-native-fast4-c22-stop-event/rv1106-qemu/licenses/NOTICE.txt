@@ -1,0 +1,13 @@
+This kit includes a modified QEMU 9.2.0 binary and RV1106 board source.
+QEMU is distributed under GPL version 2; individual files and components
+have their own compatible licenses. See QEMU-COPYING, QEMU-COPYING.LIB,
+and sources/qemu-9.2.0.tar.xz plus the current hw/arm/rv1106.c overlay
+and scripts/build.sh supplied in this kit. The source archive retains upstream copyright and license files.
+The RV1106 board source is marked GPL-2.0-or-later.
+
+libfdt.so.1 is from Debian libfdt1 1.7.2-2+b1 and is supplied under its
+BSD-2-Clause alternative. See libfdt-Debian-copyright for copyright notices,
+the full license, other source-file license details, and provenance.
+
+GLib, libc, zlib, Nettle/Hogweed, GMP and their system dependencies are not bundled. The launcher
+uses the host's installed system libraries. This private kit includes the user-supplied firmware normalized for this task; it is not covered by the QEMU license or licensed here for redistribution.

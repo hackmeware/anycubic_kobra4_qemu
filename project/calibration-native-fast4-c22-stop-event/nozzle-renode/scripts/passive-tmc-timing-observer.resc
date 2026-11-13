@@ -1,0 +1,2 @@
+include @peripherals/PassiveTmcTimingObserver.cs
+machine LoadPlatformDescription @platforms/passive-tmc-timing-observer.repl

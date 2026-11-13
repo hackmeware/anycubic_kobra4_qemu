@@ -1,0 +1,36 @@
+test_bad_names (test_import_swu.ImportTests.test_bad_names) ... ok
+test_budget (test_import_swu.ImportTests.test_budget) ... ok
+test_cross_host_redirect_blocked (test_import_swu.ImportTests.test_cross_host_redirect_blocked) ... ok
+test_download_mocked_success (test_import_swu.ImportTests.test_download_mocked_success) ... ok
+test_download_wall_timeout (test_import_swu.ImportTests.test_download_wall_timeout) ... ok
+test_existing_destination_refused (test_import_swu.ImportTests.test_existing_destination_refused) ... ok
+test_hash_mismatch_blocks_extraction (test_import_swu.ImportTests.test_hash_mismatch_blocks_extraction) ... ok
+test_key_hash_checked_before_openssl (test_import_swu.ImportTests.test_key_hash_checked_before_openssl) ... ok
+test_nonpublic_dns_blocked (test_import_swu.ImportTests.test_nonpublic_dns_blocked) ... ok
+test_outer_inventory_and_private_copy (test_import_swu.ImportTests.test_outer_inventory_and_private_copy) ... ok
+test_oversized_member (test_import_swu.ImportTests.test_oversized_member) ... ok
+test_safe_name (test_import_swu.ImportTests.test_safe_name) ... ok
+test_synthetic_known_profile_stages_but_never_claims_ready (test_import_swu.ImportTests.test_synthetic_known_profile_stages_but_never_claims_ready) ... ok
+test_tar_links_special (test_import_swu.ImportTests.test_tar_links_special) ... ok
+test_tar_pax_metadata_limit (test_import_swu.ImportTests.test_tar_pax_metadata_limit) ... ok
+test_tar_regular (test_import_swu.ImportTests.test_tar_regular) ... ok
+test_tar_root_headers_counted (test_import_swu.ImportTests.test_tar_root_headers_counted) ... ok
+test_tar_traversal (test_import_swu.ImportTests.test_tar_traversal) ... ok
+test_truncated_member (test_import_swu.ImportTests.test_truncated_member) ... ok
+test_unexpected_outer_member (test_import_swu.ImportTests.test_unexpected_outer_member) ... ok
+test_unknown_version_not_staged (test_import_swu.ImportTests.test_unknown_version_not_staged) ... ok
+test_url_rules (test_import_swu.ImportTests.test_url_rules) ... ok
+test_zip64_locator_refused_before_zipfile (test_import_swu.ImportTests.test_zip64_locator_refused_before_zipfile) ... ok
+test_zip_duplicate_normalized (test_import_swu.ImportTests.test_zip_duplicate_normalized) ... ok
+test_zip_symlink (test_import_swu.ImportTests.test_zip_symlink) ... ok
+test_zip_traversal (test_import_swu.ImportTests.test_zip_traversal) ... ok
+test_app_rejects_unrecognized_archive (test_preparation.GuardTests.test_app_rejects_unrecognized_archive) ... ok
+test_layout_pin (test_preparation.GuardTests.test_layout_pin) ... ok
+test_layout_rejected_before_output (test_preparation.GuardTests.test_layout_rejected_before_output) ... ok
+test_setup_rejected_before_output (test_preparation.GuardTests.test_setup_rejected_before_output) ... ok
+test_system_rejected_before_output (test_preparation.GuardTests.test_system_rejected_before_output) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.011s
+
+OK

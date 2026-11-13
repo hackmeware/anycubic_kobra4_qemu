@@ -1,0 +1,12 @@
+include @peripherals/AT32F403A_System.cs
+include @peripherals/AT32F403A_Timer.cs
+include @peripherals/VirtualMotorPWMTriggers.cs
+include @tests/MotorTriggerTests.cs
+mach create
+machine LoadPlatformDescription @tests/motor-trigger.repl
+sysbus.checks Prepare
+emulation RunFor "0.0001"
+sysbus.checks AfterTime
+emulation RunFor "0.000045"
+sysbus.checks AfterRepetition
+quit

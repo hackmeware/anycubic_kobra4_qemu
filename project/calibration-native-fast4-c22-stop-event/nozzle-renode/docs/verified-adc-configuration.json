@@ -1,0 +1,24 @@
+{
+  "firmware": "nozzle_v1.2.9",
+  "oid_count": 13,
+  "oid_table": "0x200004f8",
+  "adc_objects": [
+    {
+      "oid": 10,
+      "address": "0x20000730",
+      "callback": "0x8005d1d",
+      "adc": "0x40012400",
+      "channel": 0,
+      "pin": "PA0",
+      "sample_sum": 0,
+      "minimum_sum": 962,
+      "maximum_sum": 32593,
+      "error_count": 2,
+      "error_limit": 4,
+      "sample_index": 9,
+      "sample_count": 8,
+      "sample_ticks": 72000,
+      "rest_ticks": 21600000
+    }
+  ]
+}

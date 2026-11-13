@@ -1,0 +1,13 @@
+# Package Information for pkg-config
+
+prefix=/workspace/scratch/ca95ca5f55d9/c22_fullrun_liveness10_r9_20261111/calibration-native-fast4-c22-stop-event/build-deps/root/usr
+exec_prefix=${prefix}
+libdir=${prefix}/lib/x86_64-linux-gnu
+includedir=${prefix}/include
+
+Name: libpcre2-32
+Description: PCRE2 - Perl compatible regular expressions C library (2nd API) with 32 bit character support
+Version: 10.46
+Libs: -L${libdir} -lpcre2-32
+Libs.private:  
+Cflags: -I${includedir} 

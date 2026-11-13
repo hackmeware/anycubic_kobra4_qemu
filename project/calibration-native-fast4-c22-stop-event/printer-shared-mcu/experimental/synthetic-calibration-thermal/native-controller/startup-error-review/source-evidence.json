@@ -1,0 +1,145 @@
+{
+  "source": "/tmp/lan-schema/avata_main",
+  "sha256": "5ab198028c4b64a5f8a77ca41fb74f074070b0681cb68ace3ff29b7209953c06",
+  "review_mode": "Read-only static inspection; no native execution, command execution, RPC, firmware edits, or controller edits.",
+  "conclusion": "All five templates and local normal-return error paths are source verified. This does not establish global benignity or full readiness. Exact rendered arguments require independent startup capture evidence.",
+  "scope_constraints": [
+    "Only the five exact rendered lines supplied by parent are candidates for startup-only classification.",
+    "Do not whitelist generic config, failed, Wi-Fi, or other substrings.",
+    "Unknown, TMC, thermal, guard, motion, and printer-shutdown errors remain blocking.",
+    "Independent readiness and valid sensor/status evidence required; static local returns alone are insufficient.",
+    "Parent reports four prior autobaud runs reached ready with these five startup errors; that observation was not independently revalidated in this static task."
+  ],
+  "messages": [
+    {
+      "exact_observed_message_supplied_by_parent": "Unable to read config file /app/etc/avata_main_mutable.cfg",
+      "source_template": "Unable to read config file {}",
+      "string_va": "0x13adb68",
+      "file_offset": 20568936,
+      "length_including_nul": 30,
+      "sha256_including_nul": "8bf109c75d230ad3e5c317c2d73bc5b587ccec205c75a9adfbabe963395f9403",
+      "xref_movw_va": "0x1267558",
+      "local_control_flow": "Path passed dynamically from caller via r5. Error handler logs then builds empty string at 0x12675c0 using empty literal 0x13982e4, jumps to cleanup 0x1267520, returns at 0x1267538. This is local normal return, not proof that every caller tolerates every missing configuration.",
+      "full_rendered_message_is_literal": false
+    },
+    {
+      "exact_observed_message_supplied_by_parent": "filament hub config file open failed: No such file or directory",
+      "source_template": "filament hub config file open failed: {}",
+      "string_va": "0x13a73b8",
+      "file_offset": 20542392,
+      "length_including_nul": 41,
+      "sha256_including_nul": "0e5ed0a14adbc69c93f1574d40a9dbdf540d3dbc510f2068e098d461836c0db7",
+      "xref_movw_va": "0x1235da4",
+      "local_control_flow": "Argument is strerror(*__errno_location()), calls at 0x1235db4..0x1235dbc. Log path rejoins stream cleanup at 0x1235d08 and normal return 0x1235d70. Source does not establish actual errno of a particular run; ENOENT must be matched from observed startup text.",
+      "full_rendered_message_is_literal": false
+    },
+    {
+      "exact_observed_message_supplied_by_parent": "Unable to open config file /app/etc/ace_list.json",
+      "source_template": "Unable to open config file {}",
+      "string_va": "0x131565c",
+      "file_offset": 19945052,
+      "length_including_nul": 30,
+      "sha256_including_nul": "9d0dfe5129d08654b3d03e8a2f88a247204430361730c3700e75f3f3ac32b0b4",
+      "xref_movw_va": "0xd17830",
+      "local_control_flow": "Generic configuration loader. Path argument from r6. Failed open logs, writes byte zero to result offset 0x18 at 0xd178a0, destroys stream, returns result at 0xd17918..0xd17920. Exact /app/etc path absent as ELF literal. Generic template must not be blanket-allowed.",
+      "full_rendered_message_is_literal": false
+    },
+    {
+      "exact_observed_message_supplied_by_parent": "start wpa_supplicant failed, command: killall wpa_supplicant 2> /dev/null; wpa_supplicant -Dnl80211 -i wlan0 -c /app/etc/wpa_supplicant.conf -B",
+      "source_template": "start wpa_supplicant failed, command: {}",
+      "string_va": "0x13b6468",
+      "file_offset": 20604008,
+      "length_including_nul": 41,
+      "sha256_including_nul": "e53c799d68a3c4a77dcaae63b2c3c85ff5c4a6d36742942de02fc8e2bf524372",
+      "xref_movw_va": "0x12d8fe4",
+      "local_control_flow": "system(command) at 0x12d8f9c; nonzero result branches to error logger. Sets return slot zero at 0x12d9040..0x12d9044, cleans up via 0x12d8fbc and 0x12d8d80, returns false at 0x12d8d94. Interface/config path are dynamic string members; full rendered command is not a literal.",
+      "full_rendered_message_is_literal": false
+    },
+    {
+      "exact_observed_message_supplied_by_parent": "wifi init failed",
+      "source_template": "wifi init failed",
+      "string_va": "0x13a8990",
+      "file_offset": 20547984,
+      "length_including_nul": 17,
+      "sha256_including_nul": "d07ba8b511e771e2d6334d48426c76ba7bd7b8be435a088bc3695ab2bd95bb50",
+      "xref_movw_va": "0x124296c",
+      "local_control_flow": "Initialization call 0x12d8b58 at 0x124288c returns false: branch 0x1242894 to logger 0x1242950. Log path returns normally at 0x12429ac (or 0x124294c); successful path would schedule Wi-Fi callback. Failure disables that local setup, not proof of all-system readiness.",
+      "full_rendered_message_is_literal": true
+    }
+  ],
+  "command_template": {
+    "text": "killall wpa_supplicant 2> /dev/null; wpa_supplicant -Dnl80211 -i {} -c {} -B",
+    "va": "0x13b63f4",
+    "file_offset": 20603892,
+    "length_including_nul": 77,
+    "sha256_including_nul": "796c299f12eb3c946bf913222e931ededf4027adaaffc3337f1429c23a7f6a68"
+  },
+  "plt_symbols": [
+    {
+      "plt_va": "0x1fe2c",
+      "rel_plt_index": 396,
+      "symbol": "__errno_location"
+    },
+    {
+      "plt_va": "0x1fc58",
+      "rel_plt_index": 357,
+      "symbol": "strerror"
+    },
+    {
+      "plt_va": "0x1f388",
+      "rel_plt_index": 169,
+      "symbol": "system"
+    }
+  ],
+  "ranges": [
+    {
+      "name": "mutable_config_local_error_return",
+      "start_va": "0x1267520",
+      "end_va_exclusive": "0x12675d4",
+      "file_offset": 19232032,
+      "sha256": "f929b023d628168bc436ac4c8ce08f69799342e73a09ee40cee56eba13e4839e"
+    },
+    {
+      "name": "filament_error_and_log",
+      "start_va": "0x1235d8c",
+      "end_va_exclusive": "0x1235f20",
+      "file_offset": 19029388,
+      "sha256": "f2097880896e42174712e31b78990d2e629374596e1f7d0bfd5bb492e135d316"
+    },
+    {
+      "name": "filament_cleanup_return",
+      "start_va": "0x1235d08",
+      "end_va_exclusive": "0x1235d74",
+      "file_offset": 19029256,
+      "sha256": "0b7160b33194537ef2ad94db3ea2cc049b53287ad76b8fce02c97453a25ec8b0"
+    },
+    {
+      "name": "generic_config_open_failure",
+      "start_va": "0xd17800",
+      "end_va_exclusive": "0xd17924",
+      "file_offset": 13662208,
+      "sha256": "7a554e332a7811e098d0ebe66ac8b7d8410f1a609e5d83f8897b556d96e5e251"
+    },
+    {
+      "name": "wifi_init_error_return",
+      "start_va": "0x124287c",
+      "end_va_exclusive": "0x1242a34",
+      "file_offset": 19081340,
+      "sha256": "0bbed15efb6ac975e8b576d86bbcfa9ec352e253fff72dfd092160b51a9379d7"
+    },
+    {
+      "name": "wpa_command_build_error",
+      "start_va": "0x12d8e68",
+      "end_va_exclusive": "0x12d904c",
+      "file_offset": 19697256,
+      "sha256": "57f6d1267b29ae3380880f371fb2b6bb40d3ffff3c97ec6f6a01aa215f31fe69"
+    },
+    {
+      "name": "wpa_return",
+      "start_va": "0x12d8d80",
+      "end_va_exclusive": "0x12d8da4",
+      "file_offset": 19697024,
+      "sha256": "ef611c2d096846e6ed8c31e41715e16f8c2a94d4ea21147276ed4509720722e1"
+    }
+  ]
+}

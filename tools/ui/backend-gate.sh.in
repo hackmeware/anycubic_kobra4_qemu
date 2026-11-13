@@ -1,0 +1,105 @@
+#!/bin/sh
+# Fixed identity only. Executed once by the already-supported guest startup command file.
+# Native programs are unchanged. All /proc reads address the captured child.
+set -eu
+RUN=@RUN@
+D=/data/kobra-runs/@RUN@
+abort() { trap - 0; printf '\nC18_UI_STARTUP_ABORT run=%s reason=%s\n' "$RUN" "$1"; exit 1; }
+trap 'abort shell_exit' 0
+umask 077
+if [ -e /data/kobra-runs ] || [ -L /data/kobra-runs ]; then
+    [ -d /data/kobra-runs ] && [ ! -L /data/kobra-runs ] || abort unsafe_log_parent
+else
+    mkdir /data/kobra-runs || abort log_parent_create
+fi
+mkdir "$D" || abort directory_not_fresh
+: > "$D/avata_main.log"
+: > "$D/main.stdout"
+: > "$D/ui.stdout"
+log_identity() {
+    [ -f "$D/avata_main.log" ] && [ ! -L "$D/avata_main.log" ] || return 1
+    META=$(ls -id "$D/avata_main.log") || return 1
+    set -- $META
+    case "$1" in ''|*[!0-9]*) return 1 ;; esac
+    printf '%s\n' "$1"
+}
+LOG_ID=$(log_identity) || abort log_identity
+read -r UP REST < /proc/uptime
+DEADLINE=$((${UP%%.*} + 30))
+printf '\nC18_UI_GATE_BEGIN run=%s\n' "$RUN"
+/app/bin/avata_main -l "$D/avata_main.log" /app/etc/avata_main.cfg >"$D/main.stdout" 2>&1 &
+MAIN_PID=$!
+# Start forwarding before the readiness loop so strict host review stays active.
+tail -n +1 -f "$D/avata_main.log" "$D/main.stdout" "$D/ui.stdout" &
+TAIL_PID=$!
+start_ticks() {
+    read -r P COMM STATE PPID PGRP SESSION TTY TPGID FLAGS MINFLT CMINFLT MAJFLT CMAJFLT UTIME STIME CUTIME CSTIME PRIORITY NICE THREADS ITREAL START REST < "/proc/$MAIN_PID/stat" || return 1
+    [ "$P" = "$MAIN_PID" ] && [ "$STATE" != Z ] && [ "$STATE" != X ] || return 1
+    printf '%s\n' "$START"
+}
+MAIN_START=$(start_ticks) || abort main_identity_absent
+SEEN_EXE=0
+LAST_SIZE=0
+ATTEMPTS=0
+while :; do
+    ATTEMPTS=$((ATTEMPTS + 1))
+    read -r UP REST < /proc/uptime
+    printf '\nUI_GATE_PROGRESS run=%s uptime=%s deadline=%s attempt=%s main_pid=%s start_ticks=%s phase=poll\n' "$RUN" "$UP" "$DEADLINE" "$ATTEMPTS" "$MAIN_PID" "$MAIN_START"
+    [ "${UP%%.*}" -lt "$DEADLINE" ] && [ "$ATTEMPTS" -le 40 ] || abort backend_deadline
+    kill -0 "$TAIL_PID" 2>/dev/null || abort forwarding_ended
+    [ "$(start_ticks)" = "$MAIN_START" ] || abort main_identity_changed
+    EXE=$(readlink "/proc/$MAIN_PID/exe") || abort main_executable_absent
+    if [ "$EXE" != /app/bin/avata_main ]; then
+        [ "$SEEN_EXE" = 0 ] || abort main_executable_changed
+        sleep 1
+        continue
+    fi
+    SEEN_EXE=1
+    [ ! -L "$D/avata_main.log" ] && [ "$(log_identity)" = "$LOG_ID" ] || abort log_identity_changed
+    SIZE=$(wc -c < "$D/avata_main.log")
+    [ "$SIZE" -ge "$LAST_SIZE" ] && [ "$SIZE" -le 4194304 ] || abort log_size_changed
+    LAST_SIZE=$SIZE
+    LISTEN=0
+    READY=0
+    # read succeeds only on newline-terminated records; a partial tail cannot pass.
+    while IFS= read -r LINE; do
+        case "$LINE" in
+            *'Server listening on 127.0.0.1:50051'*)
+                if printf '%s\n' "$LINE" | sed "s/$(printf '\033')\[[0-9;]*m//g" | grep -Eq '^\[[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}\] \[info\] \[103\] Server listening on 127\.0\.0\.1:50051$'; then LISTEN=1; fi ;;
+            *'Printer is ready at '*)
+                if [ "$LISTEN" = 1 ] && printf '%s\n' "$LINE" | sed "s/$(printf '\033')\[[0-9;]*m//g" | grep -Eq '^\[[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}\] \[info\] \[527\] Printer is ready at [0-9]+\.[0-9]+\.$'; then READY=1; fi ;;
+        esac
+    done < "$D/avata_main.log"
+    SOCKET_INODE=
+    while read -r SLOT LOCAL REMOTE TCP_STATE QUEUES TIMER RETR UID WAIT INODE REST; do
+        if [ "$LOCAL" = 0100007F:C383 ] && [ "$REMOTE" = 00000000:0000 ] && [ "$TCP_STATE" = 0A ]; then
+            [ -z "$SOCKET_INODE" ] || abort ambiguous_listener
+            case "$INODE" in ''|*[!0-9]*|0) abort listener_inode ;; esac
+            SOCKET_INODE=$INODE
+        fi
+    done < /proc/net/tcp
+    OWNED=0
+    if [ -n "$SOCKET_INODE" ]; then
+        for FD in "/proc/$MAIN_PID/fd/"*; do
+            LINK=$(readlink "$FD" 2>/dev/null) || continue
+            [ "$LINK" != "socket:[$SOCKET_INODE]" ] || OWNED=1
+        done
+    fi
+    printf '\nUI_GATE_PROGRESS run=%s uptime=%s deadline=%s attempt=%s main_pid=%s start_ticks=%s phase=evaluated listen=%s backend_ready=%s owned=%s\n' "$RUN" "$UP" "$DEADLINE" "$ATTEMPTS" "$MAIN_PID" "$MAIN_START" "$LISTEN" "$READY" "$OWNED"
+    if [ "$LISTEN" = 1 ] && [ "$READY" = 1 ] && [ "$OWNED" = 1 ]; then
+        [ "$(start_ticks)" = "$MAIN_START" ] && [ "$(readlink "/proc/$MAIN_PID/exe")" = /app/bin/avata_main ] || abort main_identity_changed
+        [ ! -L "$D/avata_main.log" ] && [ "$(log_identity)" = "$LOG_ID" ] || abort log_identity_changed
+        [ "$(wc -c < "$D/avata_main.log")" -ge "$SIZE" ] || abort log_size_changed
+        printf '\nC18_UI_BACKEND_VERIFIED run=%s main_pid=%s start_ticks=%s socket_inode=%s\n' "$RUN" "$MAIN_PID" "$MAIN_START" "$SOCKET_INODE"
+        break
+    fi
+    sleep 1
+done
+# Exclusive claim and one invocation. There is no retry/relaunch path.
+mkdir "$D/ui-launch-once" || abort ui_already_launched
+printf '\nC18_UI_LAUNCH_BEGIN run=%s\n' "$RUN"
+/app/bin/avata_ui -c /app/etc/avata_ui.cfg >"$D/ui.stdout" 2>&1 &
+UI_PID=$!
+printf '\nC18_UI_LAUNCHED run=%s ui_pid=%s\n' "$RUN" "$UI_PID"
+printf '\nCOLD_UI_STARTUP_COMMANDS_DONE\n'
+trap - 0

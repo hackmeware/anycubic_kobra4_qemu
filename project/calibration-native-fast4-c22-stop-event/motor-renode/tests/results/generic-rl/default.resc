@@ -1,0 +1,15 @@
+include @scripts/load.resc
+include @scripts/board-clock-and-rtc.resc
+include @scripts/generic-stationary-rl.resc
+
+sysbus LoadBinary @/workspace/shared/kobra4-firmware/payload/motor_firmware_v1.6.01_20260313.bin 0x08008000
+cpu VectorTableOffset 0x08008000
+emulation RunFor "1.0"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/generic-rl/faults-default.bin
+dump_file 0x2000070c 12 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/generic-rl/states-default.bin
+sysbus.rlPlant TriggerCount
+sysbus.rlPlant ClippedSamples
+sysbus.rlPlant GetCurrent 0 0
+sysbus.rlPlant GetCurrent 0 1
+cpu PC
+quit

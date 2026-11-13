@@ -1,0 +1,6 @@
+// Optional additional sink. No existing GPIO connection is replaced.
+tmcTimingObserver: NozzleDiagnostics.PassiveTmcTimingObserver @ sysbus
+    port: gpioA
+    tmc: extruderTmc
+    pin: 3
+    maximumRows: 200000

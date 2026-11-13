@@ -1,0 +1,13 @@
+{
+  "source_url": "https://jlcpcb.com/partdetail/JLCPCBAssembly-GD32FCESRBT6/C9900165928",
+  "checked_utc": "2026-11-04",
+  "catalog_model": "GD32FCESRBT6",
+  "catalog_code": "C9900165928",
+  "catalog_brand": "JLCPCB Assembly",
+  "catalog_name": "JIALICHUANG SMT GD32FCESRBT6",
+  "package": "LQFP64-10X10-0.5",
+  "dataManualUrl": null,
+  "dataManualOfficialLink": "",
+  "attributes": [],
+  "meaning": "Exact catalog designation and package are supported. No CPU, clock, flash or SRAM capacity is specified by this listing. Do not substitute GD32F303/F305 data for GD32FCES."
+}

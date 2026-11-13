@@ -1,0 +1,6 @@
+{
+  "motor-renode/peripherals/AT32F403A_Timer.cs": "6fda000001dc7bcfa1e21098e62cb1b011848992233286c9a3dc9ec388ec5a39",
+  "motor-renode/peripherals/GenericStationaryMotorRL.cs": "96e1a5bb4344c45ff48ba353d2b83d33e8f4ee86c8cbfc0d6e564ddd9022d5f3",
+  "motor-renode/tests/GenericMotorRLTests.cs": "bde2e9542a952b5404f8ebfda5ea9927fc68a9567f91002745c203575d569e3a",
+  "motor-renode/tests/replay-native-current.py": "8560e5e5631efb4bd4b17c439e24d97804968abe3da35ed78269f933eaf5b2ba"
+}

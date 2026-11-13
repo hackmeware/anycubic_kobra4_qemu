@@ -1,0 +1,3 @@
+# Diagnostic protocol metadata from motor_firmware_v1.6.01, not execution of motor MCU.
+# Requires virtual-tmc-gateway.resc first.
+sysbus.tmcGateway EmulateFirmwareVersion true

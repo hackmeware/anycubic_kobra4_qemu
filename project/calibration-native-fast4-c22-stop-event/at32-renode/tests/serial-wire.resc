@@ -1,0 +1,52 @@
+include @peripherals/AT32F403A_IO.cs
+include @peripherals/AT32F403A_VirtualSerialWire.cs
+include @tests/SerialWireObserver.cs
+mach create "Serial wire test"
+machine LoadPlatformDescription @tests/serial-wire.repl
+sysbus LoadBinary @tests/serial-wire-test.bin 0x08000000
+emulation RunFor "0.0001"
+sysbus.wire WriteChar 65
+sysbus.wire WriteChar 66
+sysbus.wire WriteChar 67
+emulation RunFor "0.000017"
+sysbus.wire DeliveredBytes
+emulation RunFor "0.000001"
+sysbus.wire DeliveredBytes
+sysbus ReadDoubleWord 0x20000100
+emulation RunFor "0.000016"
+sysbus.wire DeliveredBytes
+emulation RunFor "0.000001"
+sysbus.wire DeliveredBytes
+sysbus ReadDoubleWord 0x20000100
+emulation RunFor "0.000017"
+sysbus.wire DeliveredBytes
+emulation RunFor "0.000001"
+sysbus.wire DeliveredBytes
+sysbus ReadDoubleWord 0x20000100
+sysbus ReadDoubleWord 0x20000000
+sysbus ReadDoubleWord 0x40013800
+sysbus.wire WriteChar 90
+emulation RunFor "0.000010"
+sysbus.wire Reset
+emulation RunFor "0.000020"
+sysbus.wire DeliveredBytes
+sysbus.wire PendingBytes
+sysbus ReadDoubleWord 0x20000100
+sysbus.wire WriteChar 68
+emulation RunFor "0.000017"
+sysbus.wire DeliveredBytes
+emulation RunFor "0.000001"
+sysbus.wire DeliveredBytes
+sysbus ReadDoubleWord 0x20000100
+sysbus ReadDoubleWord 0x20000000
+sysbus.observer Count
+sysbus.observer Signature
+sysbus.smallWire WriteChar 1
+sysbus.smallWire WriteChar 2
+sysbus.smallWire WriteChar 3
+sysbus.smallWire PendingBytes
+sysbus.smallWire RejectedBytes
+sysbus.smallWire Reset
+sysbus.smallWire PendingBytes
+sysbus.smallWire RejectedBytes
+quit

@@ -1,0 +1,5 @@
+# Kobra 4 main-board clock hypothesis, supported by original host clock contract
+# (120 MHz) and firmware PLL/APB/UART divisors. Crystal not independently read.
+# Generic AT32 chip model remains at its documented 8 MHz example HEXT.
+include @scripts/load.resc
+sysbus.crm HextFrequency 24000000

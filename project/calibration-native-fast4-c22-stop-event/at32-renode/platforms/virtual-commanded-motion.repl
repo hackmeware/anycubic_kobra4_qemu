@@ -1,0 +1,27 @@
+// OPT-IN SOFTWARE GPIOG SHIM, NOT a bonded GPIOG on the assumed RGT7 package.
+// Original host configuration and main firmware use PG5/PG4 as software signals.
+// No IOMUX/EXINT route or new physical pin is asserted. Default portIndex is unused.
+gpioG: AT32.AT32GPIO @ sysbus 0x40012000
+
+commandedX: AT32.VirtualStepperCommandObserver @ sysbus
+    bothEdges: true
+    stepPort: gpioG
+    stepPin: 5
+    directionPort: gpioG
+    directionPin: 4
+    stepsPerMillimeter: 82.05128205128205
+    invertDirection: true
+commandedY: AT32.VirtualStepperCommandObserver @ sysbus
+    bothEdges: true
+    stepPort: gpioC
+    stepPin: 4
+    directionPort: gpioA
+    directionPin: 7
+    stepsPerMillimeter: 82.05128205128205
+commandedZ: AT32.VirtualStepperCommandObserver @ sysbus
+    bothEdges: true
+    stepPort: gpioC
+    stepPin: 9
+    directionPort: gpioB
+    directionPin: 1
+    stepsPerMillimeter: 400

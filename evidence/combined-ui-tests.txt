@@ -1,0 +1,25 @@
+test_logs_are_fresh_run_specific_and_prior_paths_untouched (test_generate_ui.PersistentLogTests.test_logs_are_fresh_run_specific_and_prior_paths_untouched) ... ok
+test_bad_run (test_generate_ui.Tests.test_bad_run) ... ok
+test_bounds (test_generate_ui.Tests.test_bounds) ... ok
+test_network (test_generate_ui.Tests.test_network) ... ok
+test_path (test_generate_ui.Tests.test_path) ... ok
+test_changed_text (test_ui_evidence.Tests.test_changed_text) ... ok
+test_control (test_ui_evidence.Tests.test_control) ... ok
+test_critical (test_ui_evidence.Tests.test_critical) ... ok
+test_duplicate (test_ui_evidence.Tests.test_duplicate) ... ok
+test_echo (test_ui_evidence.Tests.test_echo) ... ok
+test_empty (test_ui_evidence.Tests.test_empty) ... ok
+test_optional_after (test_ui_evidence.Tests.test_optional_after) ... ok
+test_optional_before (test_ui_evidence.Tests.test_optional_before) ... ok
+test_partial (test_ui_evidence.Tests.test_partial) ... ok
+test_ready (test_ui_evidence.Tests.test_ready) ... ok
+test_regression (test_ui_evidence.Tests.test_regression) ... ok
+test_sgr (test_ui_evidence.Tests.test_sgr) ... ok
+test_unrecognized_printer (test_ui_evidence.Tests.test_unrecognized_printer) ... ok
+test_wrong_run (test_ui_evidence.Tests.test_wrong_run) ... ok
+test_wrong_source (test_ui_evidence.Tests.test_wrong_source) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.005s
+
+OK

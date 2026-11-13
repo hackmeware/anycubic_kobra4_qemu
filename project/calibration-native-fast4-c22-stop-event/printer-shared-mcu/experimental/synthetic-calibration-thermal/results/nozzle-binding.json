@@ -1,0 +1,13 @@
+{
+  "binding": "resolved nozzle PB8 to virtual thermal heater input 0, active high",
+  "heater_connected": true,
+  "pb9_fan_connected": false,
+  "initial_resolved_pb8_level": false,
+  "current_resolved_pb8_level": false,
+  "forwarded_gpio_edges": 208,
+  "reset_observations": 2,
+  "direct_duty_override_used": false,
+  "temperature_override_used": false,
+  "fan_thermal_coupling_modeled": false,
+  "physical_printer_accuracy_claimed": false
+}

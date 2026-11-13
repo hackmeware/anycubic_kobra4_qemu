@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "source": "renode-shared-mcu",
+  "virtual_time_ns": 25000000,
+  "sequence": 4,
+  "epoch": "7c5bb5b7242f4fa1a009ce959cb7c484",
+  "enabled": false,
+  "time_went_backwards": false
+}

@@ -1,0 +1,261 @@
+{
+  "source": "/tmp/lan-schema/avata_main",
+  "source_sha256": "5ab198028c4b64a5f8a77ca41fb74f074070b0681cb68ace3ff29b7209953c06",
+  "method": "/applink.AppLinkService/GetStatus",
+  "request": "empty protobuf",
+  "mapping": {
+    "response.1": "GetStatus",
+    "response.1.2": "Extruder",
+    "response.1.3": "HeaterBed",
+    "response.1.2.1": "nozzle current signed int32",
+    "response.1.2.2": "nozzle target signed int32",
+    "response.1.3.1": "bed current signed int32",
+    "response.1.3.2": "bed target signed int32"
+  },
+  "semantics": {
+    "temperature_key_string_va": "0x13226fc",
+    "target_key_string_va": "0x12f9e84",
+    "temperature_key_global": "0x1763904",
+    "target_key_global": "0x1763934",
+    "round_plt": "0x1f01c (.rel.plt index 96 symbol round)",
+    "quantization": "round(double) then vcvt.s32.f64; whole degrees, no fractional precision"
+  },
+  "correction": "PrintInfoResponse field 2 is PrintInfo metadata with seven string fields, not thermal status. Use GetStatus.",
+  "ranges": [
+    {
+      "name": "request_empty_serializer",
+      "start_va": "0x10d5e08",
+      "end_va_exclusive": "0x10d5e30",
+      "file_offset": 17587720,
+      "sha256": "12fbfffa37a7c1d0a7597ff8de907784f3aad90293a2fe24696ada066991809b"
+    },
+    {
+      "name": "response_serializer",
+      "start_va": "0x10d5e30",
+      "end_va_exclusive": "0x10d5ea4",
+      "file_offset": 17587760,
+      "sha256": "90cc407780f3bad7b6a6de20a0b415826236183ec7a4f25f9935b64be3ae6b07"
+    },
+    {
+      "name": "status_serializer",
+      "start_va": "0x10e01d8",
+      "end_va_exclusive": "0x10e0264",
+      "file_offset": 17629656,
+      "sha256": "a8d2bbdc443325729ef5d39a46e5ec6df2409380e195267e9042ba71a06814a8"
+    },
+    {
+      "name": "status_child_sizes",
+      "start_va": "0x10e06e0",
+      "end_va_exclusive": "0x10e078c",
+      "file_offset": 17630944,
+      "sha256": "dd9e9ff9d9c9723151bce5681c22a7aac59e6226fa60aa4802efcdd8a1923f03"
+    },
+    {
+      "name": "extruder_parser",
+      "start_va": "0x111d064",
+      "end_va_exclusive": "0x111d24c",
+      "file_offset": 17879140,
+      "sha256": "1482e5f5e258455f3afc89ee661e95376af5421abd04e78e9cbe42e42a405159"
+    },
+    {
+      "name": "bed_parser",
+      "start_va": "0x111d24c",
+      "end_va_exclusive": "0x111d3ac",
+      "file_offset": 17879628,
+      "sha256": "37f8cc0e4a831a530c575780562f8ded3a23776967c7594a8cffa4038d29e7d3"
+    },
+    {
+      "name": "extruder_size_int32",
+      "start_va": "0x10ce0fc",
+      "end_va_exclusive": "0x10ce1e0",
+      "file_offset": 17555708,
+      "sha256": "25654b4b39dda553d958f743ac4d4018ebd894b8947e7c7750de5f5812781db3"
+    },
+    {
+      "name": "bed_size_int32",
+      "start_va": "0x10c98f8",
+      "end_va_exclusive": "0x10c99a8",
+      "file_offset": 17537272,
+      "sha256": "87e7acfa25f43d5def83fc873fbb884d338f7c06c5c7ff5f13a04627f71a24c7"
+    },
+    {
+      "name": "handler_temperature_target",
+      "start_va": "0x11711fc",
+      "end_va_exclusive": "0x11713dc",
+      "file_offset": 18223612,
+      "sha256": "1058067086baac93ead6727175fd8f18641230f1e32cd4c8227bf733f61d6045"
+    },
+    {
+      "name": "key_initializers",
+      "start_va": "0x9fd8a8",
+      "end_va_exclusive": "0x9fd908",
+      "file_offset": 10410152,
+      "sha256": "cf8a0ebff2ad2b53b211c40a63312849bd286437c334c9da2826851cad11d29c"
+    },
+    {
+      "name": "heater_allocations",
+      "start_va": "0x1172a1c",
+      "end_va_exclusive": "0x1172a88",
+      "file_offset": 18229788,
+      "sha256": "2cbe0adda48439aa478b5582c0463791ada1beba65d16a1a3778b29cec1a14e6"
+    },
+    {
+      "name": "printinfo_metadata",
+      "start_va": "0x10dea04",
+      "end_va_exclusive": "0x10dec40",
+      "file_offset": 17623556,
+      "sha256": "44e1fe61b9e69efcb6b2798a386b45cd8543a4cc9dfe23abfca1e1d2bfd9e770"
+    },
+    {
+      "name": "round_plt",
+      "start_va": "0x1f01c",
+      "end_va_exclusive": "0x1f028",
+      "file_offset": 61468,
+      "sha256": "86527d9ad8c13a8aa23cc03dce2c1a7f345b54e11f8c685448c227d8faa6e5ab"
+    }
+  ],
+  "validation": "Static recovery plus synthetic decoder tests only. No native execution or live RPC performed.",
+  "type_identity_evidence": [
+    {
+      "type_name": "N7applink16GetStatusRequestE",
+      "name_va": "0x138318c",
+      "rtti_va": "0x13820ac",
+      "vtable_rtti_slot_va": "0x1386034",
+      "vtable_words": [
+        "0x13820ac",
+        "0x113a374",
+        "0x11422d0",
+        "0x10c63e0",
+        "0x1106668",
+        "0x10c38b0",
+        "0x10c2fe0",
+        "0x2000c",
+        "0x10f01fc",
+        "0x10c8488",
+        "0x10c4bb4",
+        "0x111f5b4",
+        "0x10c2b10",
+        "0x10d5e08"
+      ],
+      "vtable_56_bytes_sha256": "06a312060608f0ad6df5355d077a080ab259d497f92002f3d5f8215208324736"
+    },
+    {
+      "type_name": "N7applink17GetStatusResponseE",
+      "name_va": "0x13833ec",
+      "rtti_va": "0x1382190",
+      "vtable_rtti_slot_va": "0x13864a8",
+      "vtable_words": [
+        "0x1382190",
+        "0x114e650",
+        "0x114e7f0",
+        "0x10c63c4",
+        "0x11066f4",
+        "0x114e764",
+        "0x10c2fe0",
+        "0x2000c",
+        "0x11512bc",
+        "0x10e0a7c",
+        "0x10c4bac",
+        "0x111f6d0",
+        "0x10c2b10",
+        "0x10d5e30"
+      ],
+      "vtable_56_bytes_sha256": "ebb8642358776cefa2a6b5d495f713431d01c64208c7048c952fc48539ea6b5b"
+    },
+    {
+      "type_name": "N7applink9GetStatusE",
+      "name_va": "0x1385634",
+      "rtti_va": "0x1382cf4",
+      "vtable_rtti_slot_va": "0x1389d9c",
+      "vtable_words": [
+        "0x1382cf4",
+        "0x114e5d8",
+        "0x114e908",
+        "0x10c63fc",
+        "0x11065e4",
+        "0x114e988",
+        "0x10c2fe0",
+        "0x2000c",
+        "0x1151168",
+        "0x10e06e0",
+        "0x10c4a9c",
+        "0x111f080",
+        "0x10c2b10",
+        "0x10e01d8"
+      ],
+      "vtable_56_bytes_sha256": "e5d022c6d409aa2cf77892dca1e032a1149a329cfd001213eb221a83f0c46448"
+    },
+    {
+      "type_name": "N7applink8ExtruderE",
+      "name_va": "0x13855dc",
+      "rtti_va": "0x1382cc4",
+      "vtable_rtti_slot_va": "0x1389cac",
+      "vtable_words": [
+        "0x1382cc4",
+        "0x1138f90",
+        "0x114583c",
+        "0x10c6610",
+        "0x11052ec",
+        "0x10c4564",
+        "0x10c2fe0",
+        "0x2000c",
+        "0x10ee9c8",
+        "0x10ce0fc",
+        "0x10c4a14",
+        "0x111d064",
+        "0x10c2b10",
+        "0x10dcc44"
+      ],
+      "vtable_56_bytes_sha256": "e283dd3d8a897850b818ba5333b267c685ec1f5622fda031e6cf768451babcf3"
+    },
+    {
+      "type_name": "N7applink9HeaterBedE",
+      "name_va": "0x138564c",
+      "rtti_va": "0x1382d00",
+      "vtable_rtti_slot_va": "0x1389dd8",
+      "vtable_words": [
+        "0x1382d00",
+        "0x1138ff8",
+        "0x11458ac",
+        "0x10c65f4",
+        "0x1105388",
+        "0x10c45a0",
+        "0x10c2fe0",
+        "0x2000c",
+        "0x10eead8",
+        "0x10c98f8",
+        "0x10c4a1c",
+        "0x111d24c",
+        "0x10c2b10",
+        "0x10dcd98"
+      ],
+      "vtable_56_bytes_sha256": "43305240688155efd73a2d0c62cb5d127b7d8d67315feb464689fb60cebeebbb"
+    },
+    {
+      "type_name": "N7applink9PrintInfoE",
+      "name_va": "0x1385664",
+      "rtti_va": "0x1382d0c",
+      "vtable_rtti_slot_va": "0x1389e14",
+      "vtable_words": [
+        "0x1382d0c",
+        "0x112d2a4",
+        "0x1145da8",
+        "0x10c765c",
+        "0x10fe068",
+        "0x10c3bf0",
+        "0x10c2fe0",
+        "0x2000c",
+        "0x10e5b2c",
+        "0x10d0658",
+        "0x10c498c",
+        "0x110d670",
+        "0x10c2b10",
+        "0x10dea04"
+      ],
+      "vtable_56_bytes_sha256": "d0205bb38f9da04f7ce4d2ef21c63c999f0c0293181b4c44f0239dad1d8e500b"
+    }
+  ],
+  "rpc_cardinality": "server_streaming",
+  "cardinality_proof": "../streaming-status-review/cardinality-source-evidence.json",
+  "initial_recovery_omission": "The first recovery proved message fields and temperature semantics but omitted RPC cardinality. Assuming unary END_STREAM was a controller mistake; preserved native r2 produced five messages then client timeout143, with no heater target sent."
+}

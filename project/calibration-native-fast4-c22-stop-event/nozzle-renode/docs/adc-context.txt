@@ -1,0 +1,62 @@
+{'pc': '0x80060a8', 'instruction': 'ldr r2, [pc, #0x98]', 'literal_at': '0x8006144', 'value': '0x40012400'}
+08006058 7000       lsls     r0, r6, #1
+0800605a 0020       movs     r0, #0
+0800605c 7400       lsls     r4, r6, #1
+0800605e 0020       movs     r0, #0
+08006060 6200       lsls     r2, r4, #1
+08006062 0020       movs     r0, #0
+08006064 2160       str      r1, [r4]
+08006066 0008       lsrs     r0, r0, #0x20
+08006068 0023       movs     r3, #0
+0800606a 70b5       push     {r4, r5, r6, lr}
+0800606c 314a       ldr      r2, [pc, #0xc4]
+0800606e 0546       mov      r5, r0
+08006070 1c46       mov      r4, r3
+08006072 4068       ldr      r0, [r0, #4]
+08006074 04e0       b        #0x8006080
+08006076 0134       adds     r4, #1
+08006078 112c       cmp      r4, #0x11
+0800607a 1cd0       beq      #0x80060b6
+0800607c 12f8013f   ldrb     r3, [r2, #1]!
+08006080 9842       cmp      r0, r3
+08006082 f8d1       bne      #0x8006076
+08006084 2c4a       ldr      r2, [pc, #0xb0]
+08006086 9369       ldr      r3, [r2, #0x18]
+08006088 13f40073   ands     r3, r3, #0x200
+0800608c 16d0       beq      #0x80060bc
+0800608e fe28       cmp      r0, #0xfe
+08006090 03d0       beq      #0x800609a
+08006092 0022       movs     r2, #0
+08006094 0321       movs     r1, #3
+08006096 03f0d7fa   bl       #0x8009648
+0800609a 2c22       movs     r2, #0x2c
+0800609c 2749       ldr      r1, [pc, #0x9c]
+0800609e 2878       ldrb     r0, [r5]
+080060a0 fff792fa   bl       #0x80055c8
+080060a4 0123       movs     r3, #1
+080060a6 2649       ldr      r1, [pc, #0x98]
+080060a8 264a       ldr      r2, [pc, #0x98]
+080060aa 80f82a30   strb.w   r3, [r0, #0x2a]
+080060ae c0e90824   strd     r2, r4, [r0, #0x20]
+080060b2 4160       str      r1, [r0, #4]
+080060b4 70bd       pop      {r4, r5, r6, pc}
+080060b6 2e20       movs     r0, #0x2e
+080060b8 fef7f0f8   bl       #0x800429c
+
+{'pc': '0x800610e', 'instruction': 'ldr r1, [pc, #0x34]', 'literal_at': '0x8006144', 'value': '0x40012400'}
+080060be 108c       ldrh     r0, [r2, #0x20]
+080060c0 72b6       cpsid    i
+080060c2 4ff40076   mov.w    r6, #0x200
+080060c6 9169       ldr      r1, [r2, #0x18]
+080060c8 3143       orrs     r1, r6
+080060ca 9161       str      r1, [r2, #0x18]
+080060cc 9169       ldr      r1, [r2, #0x18]
+080060ce d660       str      r6, [r2, #0xc]
+080060d0 d360       str      r3, [r2, #0xc]
+
+{'pc': '0x800611a', 'instruction': 'ldr r2, [pc, #0x28]', 'literal_at': '0x8006144', 'value': '0x40012400'}
+080060ca 9161       str      r1, [r2, #0x18]
+080060cc 9169       ldr      r1, [r2, #0x18]
+080060ce d660       str      r6, [r2, #0xc]
+080060d0 d360       str      r3, [r2, #0xc]
+

@@ -1,0 +1,11 @@
+# No user's firmware is loaded and no real board pin mapping is assumed.
+include @peripherals/AT32F403A_System.cs
+include @peripherals/VirtualPrinterThermal.cs
+include @peripherals/VirtualPrinterMechanics.cs
+mach create "VirtualPrinterSandbox"
+machine LoadPlatformDescription @platforms/virtual-printer-sandbox.repl
+# Commands: sysbus.virtualHotend SetDutyCycle 0.5
+#           emulation RunFor "10"
+#           sysbus.virtualHotend TemperatureCelsius
+#           sysbus.virtualHotend ADCValue
+# MCU's real ADC1 inputs remain untouched in this isolated sandbox.

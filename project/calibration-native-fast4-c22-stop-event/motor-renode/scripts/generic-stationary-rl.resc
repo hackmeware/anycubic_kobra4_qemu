@@ -1,0 +1,3 @@
+# Alternative to stationary-current-plant.resc: do not load both.
+include @peripherals/GenericStationaryMotorRL.cs
+machine LoadPlatformDescription @platforms/generic-stationary-rl.repl

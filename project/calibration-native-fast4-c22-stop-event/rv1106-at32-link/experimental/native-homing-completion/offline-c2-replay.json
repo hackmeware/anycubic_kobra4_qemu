@@ -1,0 +1,77 @@
+{
+  "scope": "OFFLINE deterministic replay of immutable c2 only; no c3 native execution or pass",
+  "offline_replay_passed": true,
+  "native_execution_performed": false,
+  "c2_strict_success_unchanged": false,
+  "rpc_stages": [
+    "ready",
+    "baseline",
+    "home_x",
+    "status_x",
+    "home_y",
+    "status_y",
+    "home_z",
+    "status_z"
+  ],
+  "paired_z_pulses": 4,
+  "anchor": {
+    "home_z_queue_source_s": 24.03480934,
+    "probe_last_edge_source_s": 32.836144,
+    "native_complete_observed_shared_ns": 32987000000,
+    "status_z_completed_shared_ns": 34129000000,
+    "status_z_completed_source_s": 34.125012
+  },
+  "anchor_source_note": "c2 did not persist queue physical samples; replay derives latest raw physical row at or before the recorded shared queue/completion times. c3 persists those samples directly.",
+  "at_home_rail_complete": {
+    "observed_shared_ns": 32987000000,
+    "physical_source_s": 32.98365498,
+    "ready": false,
+    "status_z_completed": false,
+    "clearance_mm": 0.031094035971413803,
+    "z_velocity_mm_s": 0.014747162283940754
+  },
+  "at_status_z_completion": {
+    "observed_shared_ns": 34129000000,
+    "physical_source_s": 34.125012,
+    "ready": false,
+    "z_velocity_mm_s": 5.1689232628022
+  },
+  "first_readiness_source_s": 34.72572384,
+  "settled_start_source_s": 34.225114,
+  "final_source_s": 35.39657,
+  "final_clearance_mm": 8.042412794952055,
+  "settled_duration_s": 1.1714559999999992,
+  "contact_release": {
+    "final_z_contact_off_source_s": 32.85031898,
+    "last_z_contact_on_source_s": 32.847931,
+    "contact_rows": 21,
+    "no_recontact_after_clearance": true
+  },
+  "trace_health": {
+    "nozzle": {
+      "rows": 9,
+      "edges": 8,
+      "drops": 0,
+      "stopped": true
+    },
+    "main": {
+      "rows": 9,
+      "edges": 8,
+      "drops": 0,
+      "stopped": true
+    },
+    "contact_rows": 21
+  },
+  "calibration_completed": false,
+  "hardware_accuracy_proven": false,
+  "source_sha256": {
+    "cold-release-observation.json": "7bb7f76eaa6e58c7693440334fb90402587a70b284e5cee542f1326d553d9a28",
+    "physical-state.csv": "9eda9cde10d07729ebd8cc0c3a99fd8c9100cf9af81bd4f4702d8c440e3ba89e",
+    "physical-state-status.json": "0f8fb9c4f6f4ade7291832e62da7b83a77e579ca83710fbc196b6663813daebb",
+    "renode.log": "1a160cef15487e95291cbf161499a4f04d8a4f2048eb89728ed58172fbb3e6f9",
+    "contact-transitions.csv": "0a11f3fa7ae96ee67e6726e76ac2156b02ec15c475cbeeb11bb8d635e97d65ec",
+    "console.bin": "d05367799ee3229306298617d2391cd7f04a4d04a5a407a94706559edce487f8",
+    "nozzle-z-probe-edges.csv": "c82dafde1aee1595362024f47ef1fa55fab6e0e22a5aae59f5e8d02cd14e7a4c",
+    "main-z-probe-edges.csv": "8a92280757d25ff5ad08241f7a76564d050b0c4fdb4d12eb016ca0b2d414864e"
+  }
+}

@@ -1,0 +1,4 @@
+// Load only after electromechanicalPlant has connected itself to tmr8.
+physicalStateTrace: AT32.PassivePhysicalStateTrace @ sysbus
+    plant: electromechanicalPlant
+    tmr8: tmr8

@@ -1,0 +1,7 @@
+# Run from package root: renode --disable-gui --console tests/io.resc
+include @peripherals/AT32F403A_IO.cs
+include @tests/IOPeripheralTests.cs
+mach create "AT32 IO tests"
+machine LoadPlatformDescription @tests/io.repl
+sysbus.ioTests Run
+quit

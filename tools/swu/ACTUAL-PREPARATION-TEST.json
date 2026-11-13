@@ -1,0 +1,82 @@
+{
+  "status": "PREPARED_DIAGNOSTIC_INPUTS_BOOT_UNTESTED",
+  "setup_sha256": "e8845e5d8af475578f3e0f860f9990dc7b581620ad5cc07b50a5730a2e799b66",
+  "profile": "kobra-r9-rebuilt-v1",
+  "vendor_code_executed": false,
+  "signature_authenticity_verified": false,
+  "old_disk_metadata_reproduced": false,
+  "inputs": {
+    "motor.bin": {
+      "bytes": 95017,
+      "sha256": "76b439293ab08207317007f5179243a0684c1b27668442781bcb2e201ff62661"
+    },
+    "offline-emmc.img": {
+      "bytes": 536870912,
+      "sha256": "6c8db757646c92c8ee050cf40358ce924ef2e62112b0abe332c54ba3dd10464c"
+    },
+    "kernel-zImage": {
+      "bytes": 3229784,
+      "sha256": "4a0ae43f8bbbec5117960885da90a68d34baaff1c39d0d559c0af0c69647f62e"
+    },
+    "nozzle.bin": {
+      "bytes": 37469,
+      "sha256": "ae09264667ff4a72905706026b1591bdede91e1f250755319fec531328e54e2f"
+    },
+    "kernel-board-dtb.dtb": {
+      "bytes": 36886,
+      "sha256": "301e0a203b3e8161d06f585ad061c4f5508fd8a94593fa41cdf95f704bae8e38"
+    },
+    "disk-layout.json": {
+      "bytes": 3650,
+      "sha256": "cb90cb89a39e52766f535606535bf32690820674146cfaa461695f85fef4a3d5"
+    },
+    "mcu.bin": {
+      "bytes": 39681,
+      "sha256": "9bd702c8a076f29c0ac019cc7c8ea6c7afa52d13580fea04e977e3dce0a5d517"
+    }
+  },
+  "system": {
+    "profile": "kobra-r9-diagnostic-rebuilt-v1",
+    "input_sha256": "f4c0032b5d201ca43ce5b220e7a1fb90a4ffcc8120bb67839486b970e75ffcc4",
+    "output_sha256": "9dcc30bf9289bf7445cd5b56856c755092637b798ba0fcddfab19768560c0e36",
+    "output_bytes": 7278592,
+    "regular_file_bytes_types_modes_match_r9": true,
+    "ownership": "all root",
+    "xattrs": "removed intentionally",
+    "boot_tested": false,
+    "changes": [
+      "emulation-init.sh diagnostic PID1 (does not start vendor daemons)",
+      "S80_wifi_connect skips hardware SDIO init"
+    ],
+    "warning": "Synthetic diagnostic filesystem only; not for physical flashing."
+  },
+  "filesystems": {
+    "app": {
+      "bytes": 268435456,
+      "sha256": "5dcfdeccaaab5e6c2d588c1615de74c02c2982a5e05b1cf4e4b73f2b75d229a8",
+      "paths": 309,
+      "content_mode_uid_gid_matches_r9": true,
+      "metadata_identical_to_r9": false,
+      "fsck_readonly_clean": true
+    },
+    "userdata": {
+      "bytes": 16777216,
+      "sha256": "940c4189624a88070151db5dce410e9ec8cfd88ae7929074091d3038784a6c2d",
+      "paths": 2,
+      "content_mode_uid_gid_matches_r9": true,
+      "metadata_identical_to_r9": false,
+      "fsck_readonly_clean": true
+    },
+    "data": {
+      "bytes": 67108864,
+      "sha256": "0a25cc689b5ce079e90fe0f2ebaaed0b82d2afc06338590a70a07be1b364f4ca",
+      "paths": 2,
+      "content_mode_uid_gid_matches_r9": true,
+      "metadata_identical_to_r9": false,
+      "fsck_readonly_clean": true
+    },
+    "boot_tested": false,
+    "profile": "kobra-rebuilt-v1",
+    "warning": "Synthetic guest images only. Never flash physical hardware."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "binding": "resolved main PA0 to thermal input 0, active high",
+  "hypothetical_fixture": true,
+  "initial_level": false,
+  "current_resolved_level": false,
+  "forwarded_edges": 208,
+  "reset_observations": 2,
+  "direct_duty_override_used": false,
+  "temperature_override_used": false
+}

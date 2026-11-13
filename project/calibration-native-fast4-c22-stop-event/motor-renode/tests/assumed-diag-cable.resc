@@ -1,0 +1,53 @@
+# Two CPU-less machines: only electrical GPIO and cross-machine connectors.
+# Connector notifications are queued; assertions must follow a time-domain advance.
+include @peripherals/AT32F403A_IO.cs
+include @tests/AssumedDiagCableTests.cs
+mach create "main"
+machine LoadPlatformDescriptionFromString "gpioA: AT32.AT32GPIO @ sysbus 0x40010800 { portIndex: 0 }; diagCableTest: AT32Tests.AssumedDiagCableTests @ sysbus { gpio: gpioA }"
+sysbus.diagCableTest SetupTarget
+mach create "motor"
+machine LoadPlatformDescriptionFromString "gpioB: AT32.AT32GPIO @ sysbus 0x40010c00 { portIndex: 1 }; diagCableTest: AT32Tests.AssumedDiagCableTests @ sysbus { gpio: gpioB }"
+sysbus.diagCableTest SetupSource
+# Identical machine/pin connector setup order to shared_mcu.py.
+emulation CreateGPIOConnector "assumedDiagX"
+connector Connect sysbus.gpioB assumedDiagX
+assumedDiagX SelectSourcePin sysbus.gpioB 5
+mach set "main"
+connector Connect sysbus.gpioA assumedDiagX
+assumedDiagX SelectDestinationPin sysbus.gpioA 6
+mach set "motor"
+emulation CreateGPIOConnector "assumedDiagY"
+connector Connect sysbus.gpioB assumedDiagY
+assumedDiagY SelectSourcePin sysbus.gpioB 4
+mach set "main"
+connector Connect sysbus.gpioA assumedDiagY
+assumedDiagY SelectDestinationPin sysbus.gpioA 15
+emulation RunFor "0.001"
+sysbus.diagCableTest CheckStage 0
+mach set "motor"
+sysbus.diagCableTest Drive 1
+emulation RunFor "0.001"
+mach set "main"
+sysbus.diagCableTest CheckStage 1
+mach set "motor"
+sysbus.diagCableTest Drive 2
+emulation RunFor "0.001"
+mach set "main"
+sysbus.diagCableTest CheckStage 2
+mach set "motor"
+sysbus.diagCableTest Drive 3
+emulation RunFor "0.001"
+mach set "main"
+sysbus.diagCableTest CheckStage 3
+mach set "motor"
+sysbus.diagCableTest Drive 4
+emulation RunFor "0.001"
+mach set "main"
+sysbus.diagCableTest CheckStage 4
+mach set "motor"
+sysbus.diagCableTest Drive 5
+emulation RunFor "0.001"
+mach set "main"
+sysbus.diagCableTest CheckStage 5
+sysbus.diagCableTest Result
+quit

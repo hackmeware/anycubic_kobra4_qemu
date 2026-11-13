@@ -1,0 +1,258 @@
+{
+  "source_run": "runs/native-nozzle-230-synthetic-r2",
+  "console_sha256": "8975ccb650eeeac5eeab9c20bdb39d344323d099c1a2111c4482154ca525b6c7",
+  "observation_sha256": "077e6260de24bd0bd940c144da986e1acb66ed0bce61e7bcb76593fdafef4375",
+  "begin_marker": "THERMAL_STATUS001_BEGIN_c27517b792f6cd6dd8cf7f47",
+  "end_marker": "THERMAL_STATUS001_END_c27517b792f6cd6dd8cf7f47",
+  "original_statuses": {
+    "READY_CLIENT_STATUS": [
+      "143"
+    ],
+    "GRPC_PROBE_TRANSPORT_EXIT": [
+      "143"
+    ]
+  },
+  "original_error": "Uncertain or unsuccessful transport; never retry",
+  "original_request_method": "GetStatus",
+  "request_protobuf_hex": "",
+  "original_client_timeout_guest_seconds": 5,
+  "files": {
+    "r2-full-stream.http2.bin": {
+      "length": 1168,
+      "sha256": "9ddaaa17141983eac672416b6a2f2cc69f1a3d278d2c64c5bf80a72bfb16fea8"
+    },
+    "r2-first-message-prefix.http2.bin": {
+      "length": 368,
+      "sha256": "d2b869e6ae186b9f21c8dd7f9cdd62ea04d6089eacd490551f38204e62f1cb87"
+    }
+  },
+  "frames": [
+    {
+      "offset": 0,
+      "end": 33,
+      "size": 24,
+      "type": 4,
+      "flags": 0,
+      "stream": 0
+    },
+    {
+      "offset": 33,
+      "end": 46,
+      "size": 4,
+      "type": 8,
+      "flags": 0,
+      "stream": 0
+    },
+    {
+      "offset": 46,
+      "end": 55,
+      "size": 0,
+      "type": 4,
+      "flags": 1,
+      "stream": 0
+    },
+    {
+      "offset": 55,
+      "end": 68,
+      "size": 4,
+      "type": 8,
+      "flags": 0,
+      "stream": 0
+    },
+    {
+      "offset": 68,
+      "end": 85,
+      "size": 8,
+      "type": 6,
+      "flags": 0,
+      "stream": 0
+    },
+    {
+      "offset": 85,
+      "end": 172,
+      "size": 78,
+      "type": 1,
+      "flags": 4,
+      "stream": 1
+    },
+    {
+      "offset": 172,
+      "end": 368,
+      "size": 187,
+      "type": 0,
+      "flags": 0,
+      "stream": 1
+    },
+    {
+      "offset": 368,
+      "end": 568,
+      "size": 191,
+      "type": 0,
+      "flags": 0,
+      "stream": 1
+    },
+    {
+      "offset": 568,
+      "end": 768,
+      "size": 191,
+      "type": 0,
+      "flags": 0,
+      "stream": 1
+    },
+    {
+      "offset": 768,
+      "end": 968,
+      "size": 191,
+      "type": 0,
+      "flags": 0,
+      "stream": 1
+    },
+    {
+      "offset": 968,
+      "end": 1168,
+      "size": 191,
+      "type": 0,
+      "flags": 0,
+      "stream": 1
+    }
+  ],
+  "messages": [
+    {
+      "index": 1,
+      "completed_at_http2_offset": 368,
+      "filename": "r2-message-01.protobuf.bin",
+      "protobuf_sha256": "71746e2b3fe5215f8449ce84ba824be9abda958ebafed6509aa3560b85a4b35f",
+      "protobuf_length": 182,
+      "temperatures": {
+        "nozzle": {
+          "current": 0,
+          "target": 0
+        },
+        "bed": {
+          "current": 0,
+          "target": 0
+        }
+      },
+      "scalar_presence": {
+        "nozzle": {
+          "current_field_present": false,
+          "target_field_present": false
+        },
+        "bed": {
+          "current_field_present": false,
+          "target_field_present": false
+        }
+      }
+    },
+    {
+      "index": 2,
+      "completed_at_http2_offset": 568,
+      "filename": "r2-message-02.protobuf.bin",
+      "protobuf_sha256": "7dc047d568c00736cad7dcf9cd8f3d824958263f975cb330eabded89f4f04c45",
+      "protobuf_length": 186,
+      "temperatures": {
+        "nozzle": {
+          "current": 25,
+          "target": 0
+        },
+        "bed": {
+          "current": 25,
+          "target": 0
+        }
+      },
+      "scalar_presence": {
+        "nozzle": {
+          "current_field_present": true,
+          "target_field_present": false
+        },
+        "bed": {
+          "current_field_present": true,
+          "target_field_present": false
+        }
+      }
+    },
+    {
+      "index": 3,
+      "completed_at_http2_offset": 768,
+      "filename": "r2-message-03.protobuf.bin",
+      "protobuf_sha256": "7dc047d568c00736cad7dcf9cd8f3d824958263f975cb330eabded89f4f04c45",
+      "protobuf_length": 186,
+      "temperatures": {
+        "nozzle": {
+          "current": 25,
+          "target": 0
+        },
+        "bed": {
+          "current": 25,
+          "target": 0
+        }
+      },
+      "scalar_presence": {
+        "nozzle": {
+          "current_field_present": true,
+          "target_field_present": false
+        },
+        "bed": {
+          "current_field_present": true,
+          "target_field_present": false
+        }
+      }
+    },
+    {
+      "index": 4,
+      "completed_at_http2_offset": 968,
+      "filename": "r2-message-04.protobuf.bin",
+      "protobuf_sha256": "7dc047d568c00736cad7dcf9cd8f3d824958263f975cb330eabded89f4f04c45",
+      "protobuf_length": 186,
+      "temperatures": {
+        "nozzle": {
+          "current": 25,
+          "target": 0
+        },
+        "bed": {
+          "current": 25,
+          "target": 0
+        }
+      },
+      "scalar_presence": {
+        "nozzle": {
+          "current_field_present": true,
+          "target_field_present": false
+        },
+        "bed": {
+          "current_field_present": true,
+          "target_field_present": false
+        }
+      }
+    },
+    {
+      "index": 5,
+      "completed_at_http2_offset": 1168,
+      "filename": "r2-message-05.protobuf.bin",
+      "protobuf_sha256": "7dc047d568c00736cad7dcf9cd8f3d824958263f975cb330eabded89f4f04c45",
+      "protobuf_length": 186,
+      "temperatures": {
+        "nozzle": {
+          "current": 25,
+          "target": 0
+        },
+        "bed": {
+          "current": 25,
+          "target": 0
+        }
+      },
+      "scalar_presence": {
+        "nozzle": {
+          "current_field_present": true,
+          "target_field_present": false
+        },
+        "bed": {
+          "current_field_present": true,
+          "target_field_present": false
+        }
+      }
+    }
+  ],
+  "caveat": "The first-message prefix is an offline snapshot fixture, not proof that the timed-out r2 request succeeded. No END_STREAM/trailers present. Full original capture and status 143 preserved. First message scalar absence means proto3 zero, not verified live sensor readiness.",
+  "correction": "Earlier recovery correctly mapped temperature fields but omitted RPC cardinality. Treating GetStatus as unary was incorrect; its server-streaming handler sends recurring messages. r2 timed out before heating. No new native execution performed."
+}

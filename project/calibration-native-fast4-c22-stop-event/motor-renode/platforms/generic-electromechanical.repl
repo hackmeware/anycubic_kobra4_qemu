@@ -1,0 +1,24 @@
+// OPT-IN GENERIC ASSUMPTIONS, not measured printer/motor calibration.
+// Alternative to every stationary/current plant. Never load two ADC writers.
+electromechanicalPlant: AT32.GenericStepperElectromechanical @ sysbus
+    tmr2: tmr2
+    tmr1: tmr1
+    tmr3: tmr3
+    tmr4: tmr4
+    tmr8: tmr8
+    adc1: adc1
+    adc2: adc2
+    adc3: adc3
+    supplyVoltage: 24
+    resistanceOhms: 2
+    inductanceHenries: 0.003
+    inertiaKilogramMetersSquared: 0.00001
+    fluxLinkageWebers: 0.002
+    polePairs: 50
+    dampingNewtonMeterSeconds: 0.0001
+    loadTorqueNewtonMeters: 0
+    adcCountsPerAmp: 500
+    adcOffset: 2048
+    maximumStepSeconds: 0.00002
+    traceEveryTriggers: 1000
+    maximumTraceSamples: 100000

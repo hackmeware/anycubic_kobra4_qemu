@@ -1,0 +1,75 @@
+{
+  "source": "/tmp/lan-schema/avata_main",
+  "source_sha256": "5ab198028c4b64a5f8a77ca41fb74f074070b0681cb68ace3ff29b7209953c06",
+  "rpc": "/applink.AppLinkService/GetStatus",
+  "cardinality": "server-streaming",
+  "correction": "Earlier temperature schema recovery omitted cardinality; the unary transport assumption was incorrect. Per-message temperature field decoding remains valid. No native runs performed for this review.",
+  "registration": "0x107eef4 mov r2,#2; 0x107eef8 stores kind 2. Method-name pointer 0x13784b4. Typed ServerStreamingHandler and ServerWriter<GetStatusResponse> strings corroborate kind semantics.",
+  "dispatch": "Dispatcher 0x106b7a4 loads service vtable slot +0x1d8 at 0x106b7c0. Concrete slot 0x1395430 contains 0x1176800.",
+  "loop": "Handler invokes writer via virtual slot at 0x11768b4..0x11768d8. On successful write computes next cycle now+1.0 at 0x11768f8..0x1176904 (d8 initialized 1.0 at 0x1176838). Checks IsCancelled at 0x1176920 and loops to generate another status.",
+  "cancellation_import": {
+    "plt_va": "0x1ef5c",
+    "rel_plt_index": 80,
+    "symbol": "_ZNK4grpc17ServerContextBase11IsCancelledEv"
+  },
+  "vtable_slot": {
+    "va": "0x1395430",
+    "file_offset": 20468784,
+    "value": "0x1176800",
+    "sha256": "527e31b02fa31ba1e6c3bf43bde5108f1fcce66d105fdab280c0fab62e4bd106"
+  },
+  "strings": [
+    {
+      "va": "0x1373604",
+      "file_offset": 20329988,
+      "length_including_nul": 124,
+      "text": "N4grpc8internal22ServerStreamingHandlerIN7applink14AppLinkService7ServiceENS2_16GetStatusRequestENS2_17GetStatusResponseEEE",
+      "sha256": "20c2d4ee1349215e8a6703e6860260a7a5fcff82cd2434c1487c11b23ca4826a"
+    },
+    {
+      "va": "0x1367a3c",
+      "file_offset": 20281916,
+      "length_including_nul": 53,
+      "text": "N4grpc12ServerWriterIN7applink17GetStatusResponseEEE",
+      "sha256": "7da242899524b696da5b287c0b3ef30637a262712fae20e7c2fb26669614d1f2"
+    },
+    {
+      "va": "0x13784b4",
+      "file_offset": 20350132,
+      "length_including_nul": 34,
+      "text": "/applink.AppLinkService/GetStatus",
+      "sha256": "c543a3a458c7d704636b93dcd6dd2107e4c60223639050b4b6e1ace513ba6571"
+    }
+  ],
+  "ranges": [
+    {
+      "name": "server_streaming_registration",
+      "start_va": "0x107ee6c",
+      "end_va_exclusive": "0x107ef38",
+      "file_offset": 17231468,
+      "sha256": "4befeebdc8e0484759d4b0cccc2f9211368f1be26b5e62183cf0a7457bc60b35"
+    },
+    {
+      "name": "dispatcher_slot",
+      "start_va": "0x106b7a4",
+      "end_va_exclusive": "0x106b7fc",
+      "file_offset": 17151908,
+      "sha256": "7151419868bd1c0d77fb10e26a087dd15538a38ce293ce2b91bf88d79837c094"
+    },
+    {
+      "name": "server_streaming_handler",
+      "start_va": "0x1176800",
+      "end_va_exclusive": "0x1176950",
+      "file_offset": 18245632,
+      "sha256": "220ac0b35fc2aad6f26945b851f4d6f2c9b86a5453b5e2604096ae56e3d07c42"
+    },
+    {
+      "name": "cancellation_plt",
+      "start_va": "0x1ef5c",
+      "end_va_exclusive": "0x1ef68",
+      "file_offset": 61276,
+      "sha256": "bee8d4f5d95c93cbe6d1395d50fe8dd358c8de4c89c3866c4358f71e730efb69"
+    }
+  ],
+  "limitations": "A first-message snapshot ends local observation, not the native server RPC. A timeout/error cannot be relabeled a successful full RPC. Fresh baseline/readiness requirements remain separate from protobuf zero defaults."
+}

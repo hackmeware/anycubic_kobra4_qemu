@@ -1,0 +1,1 @@
+ioTests: AT32Tests.IOTests @ sysbus 0x60000000

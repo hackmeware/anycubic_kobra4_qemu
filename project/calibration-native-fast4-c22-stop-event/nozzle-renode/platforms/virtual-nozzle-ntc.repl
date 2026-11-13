@@ -1,0 +1,13 @@
+// Explicit virtual environment, never a physical wiring/control interface.
+// ADC0/PA0 proven by original native host configured object OID10.
+// NTC curve and 25C ambient below are illustrative, not recovered PCB calibration.
+// Heater/fan inputs intentionally UNCONNECTED: output pins remain unverified.
+virtualNozzleNTC: AT32.VirtualPrinterThermal @ sysbus
+    adc: adc1
+    channel: 0
+    ambientCelsius: 25
+    nominalResistanceOhms: 100000
+    nominalCelsius: 25
+    betaKelvin: 3950
+    pullResistanceOhms: 4700
+    thermistorToGround: true

@@ -1,0 +1,2 @@
+include @experimental/uart-timing/PassiveTmcTimingObserver.cs
+machine LoadPlatformDescription @experimental/uart-timing/passive-observer.repl

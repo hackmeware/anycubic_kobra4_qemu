@@ -1,0 +1,313 @@
+{
+  "scope": "Read-only cross-check of existing immutable native startup captures, no new run",
+  "exact_startup_rules": {
+    "Unable to read config file /app/etc/avata_main_mutable.cfg": {
+      "source_log_identifier": 218,
+      "context": "optional mutable overlay absent"
+    },
+    "filament hub config file open failed: No such file or directory": {
+      "source_log_identifier": 123,
+      "context": "absent auxiliary filament-hub configuration"
+    },
+    "Unable to open config file /app/etc/ace_list.json": {
+      "source_log_identifier": 360,
+      "context": "absent auxiliary ACE list"
+    },
+    "start wpa_supplicant failed, command: killall wpa_supplicant 2> /dev/null; wpa_supplicant -Dnl80211 -i wlan0 -c /app/etc/wpa_supplicant.conf -B": {
+      "source_log_identifier": 58,
+      "context": "absent emulated Wi-Fi service"
+    },
+    "wifi init failed": {
+      "source_log_identifier": 36,
+      "context": "absent emulated Wi-Fi service"
+    }
+  },
+  "runs": [
+    {
+      "run": "native-ready-autobaud",
+      "console_sha256": "f5695fcd0db25e61256db76336b488c72052147470586d14086a86c136f603ce",
+      "native_ready_line": "[1970-01-01 00:00:12.308] [info] [527] Printer is ready at 12.30862067.",
+      "known_auxiliary_startup_errors": [
+        {
+          "line": "[1970-01-01 00:00:01.380] [error] [218] Unable to read config file /app/etc/avata_main_mutable.cfg",
+          "context": "optional mutable overlay absent",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.368] [error] [123] filament hub config file open failed: No such file or directory",
+          "context": "absent auxiliary filament-hub configuration",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.370] [error] [360] Unable to open config file /app/etc/ace_list.json",
+          "context": "absent auxiliary ACE list",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.995] [error] [58] start wpa_supplicant failed, command: killall wpa_supplicant 2> /dev/null; wpa_supplicant -Dnl80211 -i wlan0 -c /app/etc/wpa_supplicant.conf -B",
+          "context": "absent emulated Wi-Fi service",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.995] [error] [36] wifi init failed",
+          "context": "absent emulated Wi-Fi service",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        }
+      ],
+      "other_blocking_error_lines": [],
+      "note": "Historical success does NOT exempt these other errors. Fixed-model TMC errors and corrupted console lines remain blocking."
+    },
+    {
+      "run": "native-ready-synthetic-z",
+      "console_sha256": "c0c8919d81f9673cd6b6ee5287a7595b6b824835333daa80f8cb5efd09f57935",
+      "native_ready_line": "[1970-01-01 00:00:08.398] [info] [527] Printer is ready at 8.398643335.",
+      "known_auxiliary_startup_errors": [
+        {
+          "line": "[1970-01-01 00:00:01.383] [error] [218] Unable to read config file /app/etc/avata_main_mutable.cfg",
+          "context": "optional mutable overlay absent",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.372] [error] [123] filament hub config file open failed: No such file or directory",
+          "context": "absent auxiliary filament-hub configuration",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.374] [error] [360] Unable to open config file /app/etc/ace_list.json",
+          "context": "absent auxiliary ACE list",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.998] [error] [58] start wpa_supplicant failed, command: killall wpa_supplicant 2> /dev/null; wpa_supplicant -Dnl80211 -i wlan0 -c /app/etc/wpa_supplicant.conf -B",
+          "context": "absent emulated Wi-Fi service",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.998] [error] [36] wifi init failed",
+          "context": "absent emulated Wi-Fi service",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        }
+      ],
+      "other_blocking_error_lines": [],
+      "note": "Historical success does NOT exempt these other errors. Fixed-model TMC errors and corrupted console lines remain blocking."
+    },
+    {
+      "run": "native-ready-synthetic-z-clockfix",
+      "console_sha256": "835d42b3191cf63983076fbd5f47ac7339fb97f81059fd2373885b55444e9b98",
+      "native_ready_line": "[1970-01-01 00:00:05.499] [info] [527] Printer is ready at 5.499359292.",
+      "known_auxiliary_startup_errors": [
+        {
+          "line": "[1970-01-01 00:00:01.381] [error] [218] Unable to read config file /app/etc/avata_main_mutable.cfg",
+          "context": "optional mutable overlay absent",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.369] [error] [123] filament hub config file open failed: No such file or directory",
+          "context": "absent auxiliary filament-hub configuration",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.371] [error] [360] Unable to open config file /app/etc/ace_list.json",
+          "context": "absent auxiliary ACE list",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.994] [error] [58] start wpa_supplicant failed, command: killall wpa_supplicant 2> /dev/null; wpa_supplicant -Dnl80211 -i wlan0 -c /app/etc/wpa_supplicant.conf -B",
+          "context": "absent emulated Wi-Fi service",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.994] [error] [36] wifi init failed",
+          "context": "absent emulated Wi-Fi service",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        }
+      ],
+      "other_blocking_error_lines": [],
+      "note": "Historical success does NOT exempt these other errors. Fixed-model TMC errors and corrupted console lines remain blocking."
+    },
+    {
+      "run": "native-xyz-synthetic-z-r1",
+      "console_sha256": "59c14183676eaf5dd733af8b52e8a6525591ff835f5c2e5312761a2eca3fdd5d",
+      "native_ready_line": "[1970-01-01 00:00:07.161] [info] [527] Printer is ready at 7.161668918.",
+      "known_auxiliary_startup_errors": [
+        {
+          "line": "[1970-01-01 00:00:01.385] [error] [218] Unable to read config file /app/etc/avata_main_mutable.cfg",
+          "context": "optional mutable overlay absent",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.374] [error] [123] filament hub config file open failed: No such file or directory",
+          "context": "absent auxiliary filament-hub configuration",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.376] [error] [360] Unable to open config file /app/etc/ace_list.json",
+          "context": "absent auxiliary ACE list",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.999] [error] [58] start wpa_supplicant failed, command: killall wpa_supplicant 2> /dev/null; wpa_supplicant -Dnl80211 -i wlan0 -c /app/etc/wpa_supplicant.conf -B",
+          "context": "absent emulated Wi-Fi service",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.999] [error] [36] wifi init failed",
+          "context": "absent emulated Wi-Fi service",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        }
+      ],
+      "other_blocking_error_lines": [
+        "[1970-01-01 00:00:02.999] [error] [36] wifi init failedtail -150 /data/logs/avata_main.log",
+        "[1970-01-01 00:00:12.164] [error] [211] GetVideoState failed: failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:50052: Failed to connect to remote host: Connection refusedecho XYZ_LOG_END_2d05565d74f6622b58ce34b2_23078000000",
+        "[1970-01-01 00:00:08.163] [error] [211] GetVideoState failed: failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:50052: Failed to connect to remote host: Connection refusedprintf '\\177\\105\\114\\106\\001\\001\\001\\000\\000\\000\\000\\000\\000\\000"
+      ],
+      "note": "Historical success does NOT exempt these other errors. Fixed-model TMC errors and corrupted console lines remain blocking."
+    },
+    {
+      "run": "native-xy-quantum1",
+      "console_sha256": "e5fca8e897909581c717b23dfe8f927bf7e5a4eaac7d17863eeaa53237a3f9c7",
+      "native_ready_line": "[1970-01-01 00:00:10.604] [info] [527] Printer is ready at 10.60463492.",
+      "known_auxiliary_startup_errors": [
+        {
+          "line": "[1970-01-01 00:00:01.379] [error] [218] Unable to read config file /app/etc/avata_main_mutable.cfg",
+          "context": "optional mutable overlay absent",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.394] [error] [123] filament hub config file open failed: No such file or directory",
+          "context": "absent auxiliary filament-hub configuration",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.396] [error] [360] Unable to open config file /app/etc/ace_list.json",
+          "context": "absent auxiliary ACE list",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:03.021] [error] [58] start wpa_supplicant failed, command: killall wpa_supplicant 2> /dev/null; wpa_supplicant -Dnl80211 -i wlan0 -c /app/etc/wpa_supplicant.conf -B",
+          "context": "absent emulated Wi-Fi service",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:03.021] [error] [36] wifi init failed",
+          "context": "absent emulated Wi-Fi service",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        }
+      ],
+      "other_blocking_error_lines": [
+        "[1970-01-01 00:00:10.492] [error] [301] Verification failed for register 2 (start/stop bits or CRC mismatch)",
+        "[1970-01-01 00:00:10.497] [error] [301] Verification failed for register 2 (start/stop bits or CRC mismatch)",
+        "[1970-01-01 00:00:10.510] [error] [301] Verification failed for register 2 (start/stop bits or CRC mismatch)",
+        "[1970-01-01 00:00:10.523] [error] [301] Verification failed for register 2 (start/stop bits or CRC mismatch)",
+        "[1970-01-01 00:00:10.528] [error] [301] Verification failed for register 2 (start/stop bits or CRC mismatch)",
+        "[1970-01-01 00:00:10.540] [error] [301] Verification failed for register 2 (start/stop bits or CRC mismatch)",
+        "[1970-01-01 00:00:10.553] [error] [301] Verification failed for register 2 (start/stop bits or CRC mismatch)"
+      ],
+      "note": "Historical success does NOT exempt these other errors. Fixed-model TMC errors and corrupted console lines remain blocking."
+    },
+    {
+      "run": "native-home-x-heater",
+      "console_sha256": "a68f3318a5c81ec5071bb181a4f581cdd0beeb8465fea55d26adf17588f77dd3",
+      "native_ready_line": "[1970-01-01 00:00:09.004] [info] [527] Printer is ready at 9.004604127.",
+      "known_auxiliary_startup_errors": [
+        {
+          "line": "[1970-01-01 00:00:01.385] [error] [218] Unable to read config file /app/etc/avata_main_mutable.cfg",
+          "context": "optional mutable overlay absent",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.400] [error] [123] filament hub config file open failed: No such file or directory",
+          "context": "absent auxiliary filament-hub configuration",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:02.402] [error] [360] Unable to open config file /app/etc/ace_list.json",
+          "context": "absent auxiliary ACE list",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:03.027] [error] [58] start wpa_supplicant failed, command: killall wpa_supplicant 2> /dev/null; wpa_supplicant -Dnl80211 -i wlan0 -c /app/etc/wpa_supplicant.conf -B",
+          "context": "absent emulated Wi-Fi service",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        },
+        {
+          "line": "[1970-01-01 00:00:03.027] [error] [36] wifi init failed",
+          "context": "absent emulated Wi-Fi service",
+          "classification": "exact known auxiliary startup failure; readiness still required",
+          "source_evidence": "startup-error-review/source-evidence.json",
+          "successful_startup_evidence": "startup-error-review/captured-startups.json"
+        }
+      ],
+      "other_blocking_error_lines": [
+        "[1970-01-01 00:00:08.925] [error] [301] Verification failed for register 2 (start/stop bits or CRC mismatch)",
+        "[1970-01-01 00:00:14.007] [error] [211] GetVideoState failed: failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:50052: Failed to connect to remottail -65 /data/logs/avata_main.log",
+        "[1970-01-01 00:00:18.008] [error] [211] GetVideoState failed: failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:50052: Failed to connect to remote host: Connection refusedecho AUTO_HOMING_LOG_5_DONE"
+      ],
+      "note": "Historical success does NOT exempt these other errors. Fixed-model TMC errors and corrupted console lines remain blocking."
+    }
+  ],
+  "first_failed_attempt": {
+    "run": "native-nozzle-230-synthetic-r1",
+    "phase": "startup_native_failure",
+    "requests": [],
+    "fact": "Controller stopped at shared3.469s before any RPC or heat; both original model traces remain25C/off. Parent preserves run independently."
+  }
+}

@@ -1,0 +1,79 @@
+--- a/hw/arm/rv1106.c
++++ b/hw/arm/rv1106.c
+@@ -7,6 +7,7 @@
+ #include "qemu/log.h"
+ #include "qemu/units.h"
+ #include "qemu/timer.h"
++#include "qemu/main-loop.h"
+ #include "qemu/bswap.h"
+ #include "qemu/host-utils.h"
+ #include "qemu/guest-random.h"
+@@ -186,6 +187,59 @@
+     visit_type_int64(v, name, &value, errp);
+ }
+ 
++/* Read-only diagnostic snapshot. BQL serializes runstate and deadline metadata.
++ * The actual virtual clock is sampled once. While running it remains a live
++ * sample; clients must require running=false before relying on frozen time.
++ * This getter never pauses, rearms, clears, or changes any emulated state.
++ */
++static void rv1106_virtual_clock_state_get(Object *obj, Visitor *v,
++                                           const char *name, void *opaque,
++                                           Error **errp)
++{
++    RV1106State *s = RV1106_MACHINE(obj);
++    int64_t schema = 1;
++    char source_text[] = "rv1106-virtual-clock-state";
++    char *source = source_text;
++    bool enabled, initialized, running, armed, fired;
++    int64_t epoch, now, deadline, fired_ns, stop_ns;
++
++    if (!bql_locked()) {
++        error_setg(errp, "Clock snapshot requires the Big QEMU Lock");
++        return;
++    }
++    enabled = s->virtual_deadline_enabled;
++    initialized = s->virtual_clock_initialized;
++    running = runstate_is_running();
++    epoch = s->virtual_clock_epoch;
++    now = qemu_clock_get_ns(QEMU_CLOCK_VIRTUAL);
++    deadline = s->virtual_deadline_ns;
++    armed = s->virtual_deadline_armed;
++    fired = s->virtual_deadline_fired;
++    fired_ns = s->virtual_deadline_fired_ns;
++    stop_ns = s->virtual_deadline_stop_ns;
++
++    if (!visit_start_struct(v, name, NULL, 0, errp)) {
++        return;
++    }
++    if (!visit_type_int64(v, "schema", &schema, errp) ||
++        !visit_type_str(v, "source", &source, errp) ||
++        !visit_type_bool(v, "enabled", &enabled, errp) ||
++        !visit_type_bool(v, "initialized", &initialized, errp) ||
++        !visit_type_bool(v, "running", &running, errp) ||
++        !visit_type_int64(v, "epoch", &epoch, errp) ||
++        !visit_type_int64(v, "virtual_time_ns", &now, errp) ||
++        !visit_type_int64(v, "deadline_ns", &deadline, errp) ||
++        !visit_type_bool(v, "armed", &armed, errp) ||
++        !visit_type_bool(v, "fired", &fired, errp) ||
++        !visit_type_int64(v, "fired_ns", &fired_ns, errp) ||
++        !visit_type_int64(v, "stop_ns", &stop_ns, errp)) {
++        goto out;
++    }
++    visit_check_struct(v, errp);
++out:
++    visit_end_struct(v, NULL);
++}
++
+ static void rv1106_virtual_deadline_set(Object *obj, Visitor *v,
+                                       const char *name, void *opaque,
+                                       Error **errp)
+@@ -876,6 +930,8 @@
+     mc->default_ram_id = "rv1106.dram";
+     mc->max_cpus = 1;
+     /* These approximate register banks do not implement migration state. */
++    object_class_property_add(oc, "virtual-clock-state", "rv1106 clock state",
++                              rv1106_virtual_clock_state_get, NULL, NULL, NULL);
+     object_class_property_add(oc, "virtual-time-ns", "int",
+                               rv1106_virtual_clock_get, NULL, NULL, NULL);
+     object_class_property_add_bool(oc, "virtual-deadline-enabled",

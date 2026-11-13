@@ -1,0 +1,24 @@
+test_argv (test_baseline_network.Tests.test_argv) ... ok
+test_coupled (test_baseline_network.Tests.test_coupled) ... ok
+test_dt (test_baseline_network.Tests.test_dt) ... ok
+test_modes (test_baseline_network.Tests.test_modes) ... ok
+test_monitor_none (test_baseline_network.Tests.test_monitor_none) ... ok
+test_port (test_baseline_network.Tests.test_port) ... ok
+test_reject (test_baseline_network.Tests.test_reject) ... ok
+test_dangling_vendor_symlink (test_dhcp_hook.HookTests.test_dangling_vendor_symlink) ... ok
+test_invalid_address (test_dhcp_hook.HookTests.test_invalid_address) ... ok
+test_invalid_interface (test_dhcp_hook.HookTests.test_invalid_interface) ... ok
+test_invalid_provided_dns (test_dhcp_hook.HookTests.test_invalid_provided_dns) ... ok
+test_isolated_without_router_dns (test_dhcp_hook.HookTests.test_isolated_without_router_dns) ... ok
+test_no_dns (test_dhcp_hook.HookTests.test_no_dns) ... ok
+test_no_router (test_dhcp_hook.HookTests.test_no_router) ... ok
+test_valid (test_dhcp_hook.HookTests.test_valid) ... ok
+test_bounds_and_reconstruction (test_guest_commands.Tests.test_bounds_and_reconstruction) ... ok
+test_mode_serialization (test_guest_commands.Tests.test_mode_serialization) ... ok
+test_oversize_rejected (test_guest_commands.Tests.test_oversize_rejected) ... ok
+test_tmp_before_write (test_guest_commands.Tests.test_tmp_before_write) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.053s
+
+OK

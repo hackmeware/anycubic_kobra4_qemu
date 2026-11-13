@@ -1,0 +1,16 @@
+include @peripherals/AT32F403A_System.cs
+include @peripherals/AT32F403A_Timer.cs
+include @tests/TimerFrequencyTests.cs
+mach create
+machine LoadPlatformDescription @tests/timer-frequency.repl
+cpu IsHalted true
+sysbus.checks Prepare
+emulation RunFor "0.000025"
+sysbus.checks BeforeCompare
+emulation RunFor "0.000050"
+sysbus.checks AfterCompare
+emulation RunFor "0.000050"
+sysbus.checks BeforeChangedCompare
+emulation RunFor "0.000075"
+sysbus.checks Finish
+quit

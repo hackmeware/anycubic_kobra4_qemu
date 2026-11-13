@@ -1,0 +1,8 @@
+// Observed config_tmcuart: OID0 PA3 RX/TX, 1800 ticks at 72MHz (40kbaud).
+extruderTmc: Nozzle.VirtualNozzleTmc2209 @ sysbus
+    port: gpioA
+    pin: 3
+    baud: 40000
+    address: 0
+gpioA:
+    3 -> extruderTmc@0

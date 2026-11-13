@@ -1,0 +1,53 @@
+// ISOLATED DEMONSTRATION, NOT the printer's discovered board configuration.
+// No connection to MCU ADC1/2/3 or GPIO pins. The separate sandbox ADC is host-only.
+sandboxADC: AT32.AT32ADC @ sysbus
+
+virtualHotend: AT32.VirtualPrinterThermal @ sysbus
+    adc: sandboxADC
+    channel: 0
+    heaterPowerWatts: 40
+    heatCapacityJoulesPerKelvin: 20
+    conductanceWattsPerKelvin: 0.2
+    ambientCelsius: 25
+    nominalResistanceOhms: 100000
+    betaKelvin: 3950
+    pullResistanceOhms: 4700
+
+virtualBed: AT32.VirtualPrinterThermal @ sysbus
+    adc: sandboxADC
+    channel: 1
+    heaterPowerWatts: 200
+    heatCapacityJoulesPerKelvin: 600
+    conductanceWattsPerKelvin: 1.5
+    ambientCelsius: 25
+    nominalResistanceOhms: 100000
+    betaKelvin: 3950
+    pullResistanceOhms: 4700
+    maximumCelsius: 150
+
+virtualX: AT32.VirtualPrinterAxis @ sysbus
+    stepsPerMillimeter: 80
+    maximumMillimeters: 250
+    initialMillimeters: 10
+
+virtualY: AT32.VirtualPrinterAxis @ sysbus
+    stepsPerMillimeter: 80
+    maximumMillimeters: 250
+    initialMillimeters: 10
+
+virtualZ: AT32.VirtualPrinterAxis @ sysbus
+    stepsPerMillimeter: 400
+    maximumMillimeters: 250
+    initialMillimeters: 10
+
+virtualFilamentPresent: AT32.VirtualPrinterSwitch @ sysbus
+    activeLow: false
+    initialAsserted: true
+
+virtualDoorClosed: AT32.VirtualPrinterSwitch @ sysbus
+    activeLow: false
+    initialAsserted: true
+
+virtualProbe: AT32.VirtualPrinterSwitch @ sysbus
+    activeLow: false
+    initialAsserted: false

@@ -1,0 +1,8 @@
+ram: Memory.MappedMemory @ sysbus 0x20000000
+    size: 0x1000
+dma: AT32.AT32DMA @ sysbus 0x40020000
+dma2: AT32.AT32DMA @ sysbus 0x40020400
+    secondController: true
+dmaTests: AT32Tests.DMATests @ sysbus 0x60000000
+    dma: dma
+    dma2: dma2

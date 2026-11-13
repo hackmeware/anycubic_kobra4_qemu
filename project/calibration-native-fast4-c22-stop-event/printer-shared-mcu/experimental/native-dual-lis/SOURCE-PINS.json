@@ -1,0 +1,14 @@
+{
+  "TimedLis2dw12CrossBoard.cs": "32d268d4a3cbbc8305a48e4a2a74ba08a9d17c38e27ac1525c6e0300abc2cce0",
+  "RigidTranslationConfiguration.cs": "8dae728213dbf56256ae3ba660c4d07ca3a744da21c80875ba793fab7fdc02f0",
+  "DualBoardSensorBinding.cs": "2f35d21af06bd209ffddf623cda715ca9997ce470f0b46f05d1da42e6ecdda17",
+  "MECHANICAL-HYPOTHESIS.json": "decb3c2c430cc29a9080bdec281dcb79fbc1e31fa4c6bbc418d5627b3933e186",
+  "Tmr8PublicSnapshotPublisher.cs": "be86d307b155dde21ec95f9c8ff4913e08fb6eef8c3c4e52bc8a41c14eca959f",
+  "PublishedSnapshotAccelerationInput.cs": "0e24352f6d04d3d9c1d4204be3866923bd43d86521ce46a8288a63dbf91ead86",
+  "main/GpioMode3Lis2dw12Bridge.cs": "c3ede1eef58e6090dedeae67673068800c6a628e54a557ec702c4b5ed87f80bf",
+  "main/AT32F403A_IO.cs": "81dbd0ddf33d8094912fb310fb8c724b100a803e0f454df4394171d53331459b",
+  "nozzle/GpioMode3Lis2dw12Bridge.cs": "7f3cd4e1eeac5eb8cb84309f34ac882ca76ef86d09f1a2abfdeaafc49fae5671",
+  "nozzle/AT32F403A_IO.cs": "af51f5d33a585689682ddda8acd8dfe5de5a140bfa5dd1b584b0b106bdd7933e",
+  "NativeDualSensorAttachment.cs": "04d9c44ffeeb9a492f91ab3692e07974140620acccb80fc5080669d953769013",
+  "BoundedStatusRunLimits.cs": "6345c4c8ffa6d44db8dede71fbe18fb10ae27f8a201543e03fa1225014576b9c"
+}

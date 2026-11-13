@@ -1,0 +1,2 @@
+include @scripts/virtual-nozzle-ntc.resc
+include @scripts/virtual-tmc2209.resc

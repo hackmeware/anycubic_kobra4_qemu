@@ -1,0 +1,1119 @@
+include @scripts/load.resc
+include @scripts/board-clock-and-rtc.resc
+include @scripts/generic-stationary-rl.resc
+include @peripherals/AT32F403A_VirtualSerialWire.cs
+include @tests/CurrentLoopTrace.cs
+machine LoadPlatformDescriptionFromString "wire: AT32.AT32VirtualSerialWire @ sysbus { uart: usart2; baud: 576000 }"
+machine LoadPlatformDescriptionFromString "trace: AT32Tests.CurrentLoopTrace @ sysbus { plant: rlPlant; tmr1: tmr1; tmr3: tmr3; tmr4: tmr4; tmr8: tmr8 }"
+sysbus LoadBinary @/workspace/shared/kobra4-firmware/payload/motor_firmware_v1.6.01_20260313.bin 0x08008000
+cpu VectorTableOffset 0x08008000
+sysbus.usart2 CreateFileBackend @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/responses.bin
+emulation RunFor "1"
+sysbus.trace Start
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 37
+sysbus.wire WriteChar 231
+sysbus.wire WriteChar 20
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-000.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-000.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 128
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 192
+sysbus.wire WriteChar 149
+sysbus.wire WriteChar 220
+sysbus.wire WriteChar 65
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-001.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-001.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 37
+sysbus.wire WriteChar 136
+sysbus.wire WriteChar 31
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-002.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-002.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 131
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 46
+sysbus.wire WriteChar 140
+sysbus.wire WriteChar 97
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-003.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-003.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 4
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 37
+sysbus.wire WriteChar 57
+sysbus.wire WriteChar 2
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-004.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-004.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 236
+sysbus.wire WriteChar 52
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 80
+sysbus.wire WriteChar 170
+sysbus.wire WriteChar 22
+sysbus.wire WriteChar 164
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-005.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-005.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 6
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 37
+sysbus.wire WriteChar 86
+sysbus.wire WriteChar 9
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-006.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-006.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 7
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 144
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 29
+sysbus.wire WriteChar 19
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 56
+sysbus.wire WriteChar 119
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-007.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-007.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 37
+sysbus.wire WriteChar 91
+sysbus.wire WriteChar 57
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-008.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-008.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 147
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 15
+sysbus.wire WriteChar 255
+sysbus.wire WriteChar 255
+sysbus.wire WriteChar 36
+sysbus.wire WriteChar 67
+sysbus.wire WriteChar 186
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-009.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-009.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 10
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 37
+sysbus.wire WriteChar 52
+sysbus.wire WriteChar 50
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-010.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-010.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 11
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 148
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 87
+sysbus.wire WriteChar 255
+sysbus.wire WriteChar 110
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-011.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-011.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 12
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 37
+sysbus.wire WriteChar 133
+sysbus.wire WriteChar 47
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-012.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-012.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 13
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 194
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 38
+sysbus.wire WriteChar 167
+sysbus.wire WriteChar 83
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-013.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-013.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 14
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 37
+sysbus.wire WriteChar 234
+sysbus.wire WriteChar 36
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-014.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-014.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 15
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 240
+sysbus.wire WriteChar 200
+sysbus.wire WriteChar 13
+sysbus.wire WriteChar 14
+sysbus.wire WriteChar 36
+sysbus.wire WriteChar 145
+sysbus.wire WriteChar 62
+sysbus.wire WriteChar 145
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-015.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-015.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 16
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 37
+sysbus.wire WriteChar 159
+sysbus.wire WriteChar 79
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-016.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-016.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 17
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 145
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 20
+sysbus.wire WriteChar 124
+sysbus.wire WriteChar 215
+sysbus.wire WriteChar 10
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-017.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-017.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 18
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 37
+sysbus.wire WriteChar 240
+sysbus.wire WriteChar 68
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-018.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-018.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 19
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 192
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 255
+sysbus.wire WriteChar 29
+sysbus.wire WriteChar 152
+sysbus.wire WriteChar 51
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-019.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-019.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 20
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 37
+sysbus.wire WriteChar 65
+sysbus.wire WriteChar 89
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-020.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-020.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 21
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 16
+sysbus.wire WriteChar 129
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-021.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-021.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 22
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 128
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 192
+sysbus.wire WriteChar 227
+sysbus.wire WriteChar 150
+sysbus.wire WriteChar 247
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-022.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-022.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 23
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 127
+sysbus.wire WriteChar 138
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-023.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-023.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 24
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 131
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 88
+sysbus.wire WriteChar 92
+sysbus.wire WriteChar 216
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-024.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-024.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 25
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 114
+sysbus.wire WriteChar 186
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-025.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-025.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 26
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 236
+sysbus.wire WriteChar 52
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 80
+sysbus.wire WriteChar 90
+sysbus.wire WriteChar 248
+sysbus.wire WriteChar 192
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-026.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-026.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 27
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 29
+sysbus.wire WriteChar 177
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-027.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-027.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 28
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 144
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 22
+sysbus.wire WriteChar 12
+sysbus.wire WriteChar 42
+sysbus.wire WriteChar 254
+sysbus.wire WriteChar 105
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-028.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-028.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 29
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 172
+sysbus.wire WriteChar 172
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-029.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-029.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 30
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 147
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 15
+sysbus.wire WriteChar 255
+sysbus.wire WriteChar 255
+sysbus.wire WriteChar 82
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 12
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-030.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-030.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 31
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 195
+sysbus.wire WriteChar 167
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-031.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-031.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 32
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 148
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 33
+sysbus.wire WriteChar 71
+sysbus.wire WriteChar 233
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-032.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-032.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 33
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 70
+sysbus.wire WriteChar 122
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-033.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-033.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 34
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 194
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 80
+sysbus.wire WriteChar 105
+sysbus.wire WriteChar 209
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-034.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-034.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 35
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 41
+sysbus.wire WriteChar 113
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-035.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-035.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 36
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 240
+sysbus.wire WriteChar 200
+sysbus.wire WriteChar 13
+sysbus.wire WriteChar 14
+sysbus.wire WriteChar 36
+sysbus.wire WriteChar 231
+sysbus.wire WriteChar 134
+sysbus.wire WriteChar 22
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-036.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-036.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 37
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 152
+sysbus.wire WriteChar 108
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-037.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-037.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 38
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 145
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 20
+sysbus.wire WriteChar 10
+sysbus.wire WriteChar 45
+sysbus.wire WriteChar 151
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-038.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-038.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 39
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 247
+sysbus.wire WriteChar 103
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-039.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-039.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 40
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 192
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 246
+sysbus.wire WriteChar 146
+sysbus.wire WriteChar 174
+sysbus.wire WriteChar 28
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-040.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-040.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 41
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 250
+sysbus.wire WriteChar 87
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-041.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-041.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 42
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 147
+sysbus.wire WriteChar 165
+sysbus.wire WriteChar 14
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-042.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-042.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 43
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 128
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 192
+sysbus.wire WriteChar 207
+sysbus.wire WriteChar 237
+sysbus.wire WriteChar 90
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-043.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-043.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 44
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 147
+sysbus.wire WriteChar 20
+sysbus.wire WriteChar 19
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-044.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-044.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 45
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 131
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 194
+sysbus.wire WriteChar 170
+sysbus.wire WriteChar 245
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-045.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-045.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 46
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 147
+sysbus.wire WriteChar 123
+sysbus.wire WriteChar 24
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-046.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-046.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 47
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 236
+sysbus.wire WriteChar 52
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 80
+sysbus.wire WriteChar 70
+sysbus.wire WriteChar 70
+sysbus.wire WriteChar 53
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-047.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-047.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 48
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 147
+sysbus.wire WriteChar 14
+sysbus.wire WriteChar 115
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-048.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-048.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 49
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 144
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 17
+sysbus.wire WriteChar 14
+sysbus.wire WriteChar 52
+sysbus.wire WriteChar 165
+sysbus.wire WriteChar 38
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-049.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-049.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 50
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 147
+sysbus.wire WriteChar 97
+sysbus.wire WriteChar 120
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-050.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-050.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 51
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 147
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 128
+sysbus.wire WriteChar 77
+sysbus.wire WriteChar 123
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-051.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-051.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 52
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 147
+sysbus.wire WriteChar 208
+sysbus.wire WriteChar 101
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-052.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-052.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 53
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 148
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 187
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 239
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-053.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-053.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 54
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 147
+sysbus.wire WriteChar 191
+sysbus.wire WriteChar 110
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-054.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-054.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 55
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 194
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 202
+sysbus.wire WriteChar 47
+sysbus.wire WriteChar 215
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-055.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-055.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 56
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 147
+sysbus.wire WriteChar 178
+sysbus.wire WriteChar 94
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-056.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-056.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 57
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 240
+sysbus.wire WriteChar 200
+sysbus.wire WriteChar 13
+sysbus.wire WriteChar 14
+sysbus.wire WriteChar 36
+sysbus.wire WriteChar 125
+sysbus.wire WriteChar 44
+sysbus.wire WriteChar 26
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-057.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-057.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 58
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 147
+sysbus.wire WriteChar 221
+sysbus.wire WriteChar 85
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-058.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-058.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 59
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 145
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 20
+sysbus.wire WriteChar 144
+sysbus.wire WriteChar 135
+sysbus.wire WriteChar 155
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-059.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-059.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 60
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 147
+sysbus.wire WriteChar 108
+sysbus.wire WriteChar 72
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-060.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-060.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 61
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 9
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 192
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 106
+sysbus.wire WriteChar 157
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-061.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-061.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 62
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 147
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 67
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-062.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-062.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 63
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 3
+sysbus.wire WriteChar 106
+sysbus.wire WriteChar 71
+sysbus.wire WriteChar 92
+sysbus.wire WriteChar 163
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-063.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-063.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 64
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 106
+sysbus.wire WriteChar 28
+sysbus.wire WriteChar 121
+sysbus.wire WriteChar 195
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-064.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-064.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 65
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 245
+sysbus.wire WriteChar 2
+sysbus.wire WriteChar 106
+sysbus.wire WriteChar 241
+sysbus.wire WriteChar 73
+sysbus.wire WriteChar 145
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-065.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-065.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 66
+sysbus.wire WriteChar 34
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 89
+sysbus.wire WriteChar 196
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-066.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-066.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 67
+sysbus.wire WriteChar 34
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 226
+sysbus.wire WriteChar 216
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-067.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-067.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 68
+sysbus.wire WriteChar 23
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 17
+sysbus.wire WriteChar 216
+sysbus.wire WriteChar 49
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-068.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-068.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 69
+sysbus.wire WriteChar 46
+sysbus.wire WriteChar 8
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 5
+sysbus.wire WriteChar 78
+sysbus.wire WriteChar 70
+sysbus.wire WriteChar 48
+sysbus.wire WriteChar 50
+sysbus.wire WriteChar 54
+sysbus.wire WriteChar 203
+sysbus.wire WriteChar 80
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-069.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-069.bin
+sysbus.wire WriteChar 126
+sysbus.wire WriteChar 70
+sysbus.wire WriteChar 47
+sysbus.wire WriteChar 1
+sysbus.wire WriteChar 0
+sysbus.wire WriteChar 202
+sysbus.wire WriteChar 73
+emulation RunFor "0.002"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-070.bin
+dump_file 0x2000070c 96 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/config-070.bin
+emulation RunFor "1.2"
+dump_file 0x20000c00 48 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/faults-final.bin
+sysbus.trace Save "/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/currents.csv"
+dump_file 0x20004180 324 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/control-final.bin
+dump_file 0x20002038 1500 @/workspace/scratch/ca95ca5f55d9/motor-renode/tests/results/current-loop-long/measurement-final.bin
+quit

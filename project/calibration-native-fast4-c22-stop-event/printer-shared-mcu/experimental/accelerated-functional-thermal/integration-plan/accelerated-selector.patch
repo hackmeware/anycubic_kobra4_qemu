@@ -1,0 +1,193 @@
+--- /dev/null
++++ b/printer-shared-mcu/experimental/accelerated-functional-thermal/integration-reviewed-sources.json
+@@ -0,0 +1,10 @@
++{
++  "printer-shared-mcu/experimental/accelerated-functional-thermal/generate.py": "28051dd6e37b807247b251aa4db6e9543bea3f82af243261a3a602f65a531ad7",
++  "printer-shared-mcu/experimental/accelerated-functional-thermal/profiles/2x/bed.repl": "a08dd0aca270991b8c0d4f0046ae3165085cb5b34b50ede2282486c3426d7ecd",
++  "printer-shared-mcu/experimental/accelerated-functional-thermal/profiles/2x/nozzle.repl": "ed930a528eb7f6b05433bdc6b3d304f8e7c051e217f608a902c145b82a5ba245",
++  "printer-shared-mcu/experimental/accelerated-functional-thermal/profiles/2x/parameters.json": "714b4747c62508b54922338e2ebc778ed674a3cf218c430d3d52ee345a6e95fe",
++  "printer-shared-mcu/experimental/accelerated-functional-thermal/profiles/4x/bed.repl": "42fb16dbc666bf5eedd95ce9c4469c95ba15910b56cf418c3ac73f8278ba6310",
++  "printer-shared-mcu/experimental/accelerated-functional-thermal/profiles/4x/nozzle.repl": "8bafb042cf740b105e196002022b6ba93bbcc68d0cf0bcbc45ff74d7e6ae5690",
++  "printer-shared-mcu/experimental/accelerated-functional-thermal/profiles/4x/parameters.json": "5b1e64798fad982eaec5c80a037154b061256a465222c0123cb5e562ccf98723",
++  "rv1106-at32-link/scripts/thermal_profile_selection.py": "c29df632dbb22b096c2577c2793bfc03307b811ad3c8d573b9782c9c82c51979"
++}
+--- /dev/null
++++ b/rv1106-at32-link/scripts/accelerated_thermal_profile_selection.py
+@@ -0,0 +1,121 @@
++"""Explicit capacity-scaled functional fixture; legacy selections delegate unchanged.
++
++No native run, runtime clock scaling, PID retuning, or realistic calibration claim.
++"""
++import copy
++import json
++from pathlib import Path
++import re
++
++import thermal_profile_selection as baseline
++
++EXPERIMENT = 'printer-shared-mcu/experimental/accelerated-functional-thermal'
++PROFILES = {'accelerated-functional-4x': 4, 'accelerated-functional-2x': 2}
++
++
++def add_arguments(parser):
++    parser.add_argument('--thermal-profile', choices=['none', baseline.PROFILE, *PROFILES], default='none',
++                        help='Explicit hypothetical thermal fixture; accelerated choices are capacity-only functional tests, never real PID validation')
++
++
++def baseline_args(args):
++    if args.thermal_profile not in PROFILES:
++        return args
++    result = copy.copy(args)
++    result.thermal_profile = baseline.PROFILE
++    return result
++
++
++def validate(args):
++    # The original helper remains byte-for-byte untouched. Its requirements,
++    # setup ownership, diagnostics policy, original clocks and guards all apply.
++    baseline.validate(baseline_args(args))
++
++
++def verify_accelerated_sources(root, selection):
++    if selection not in PROFILES:
++        raise ValueError('Unreviewed accelerated thermal selection')
++    hashes = json.loads((root / EXPERIMENT / 'integration-reviewed-sources.json').read_text())
++    for relative, expected in hashes.items():
++        if baseline.sha(root / relative) != expected:
++            raise ValueError('Reviewed accelerated thermal dependency changed: ' + relative)
++    factor = PROFILES[selection]
++    selected = root / EXPERIMENT / 'profiles' / (str(factor) + 'x')
++    parameters = json.loads((selected / 'parameters.json').read_text())
++    required = {'factor': factor, 'synthetic': True, 'realistic': False, 'clock_scale': 1,
++                'native_firmware_and_guards_unchanged': True, 'pb9_thermally_unbound': True}
++    if any(parameters.get(key) != value for key, value in required.items()):
++        raise ValueError('Invalid accelerated functional scenario declarations')
++    # Independent of the hash list, permit exactly one changed physical parameter
++    # per heater. Ignore comments/empty lines only, not REPL definitions or values.
++    for heater, capacity in [('nozzle', 20 / factor), ('bed', 600 / factor)]:
++        original = (root / baseline.EXPERIMENT / (heater + '.repl')).read_text()
++        expected, count = re.subn(r'(?m)^(    heatCapacityJoulesPerKelvin:) [^\n]+$',
++                                  lambda m: m[1] + ' ' + format(capacity, '.12g'), original)
++        significant = lambda text: [line for line in text.splitlines() if line.strip() and not line.lstrip().startswith('//')]
++        if count != 1 or significant((selected / (heater + '.repl')).read_text()) != significant(expected):
++            raise ValueError('Accelerated profile must change heat capacity only: ' + heater)
++        source = baseline.PARAMETERS[heater]
++        required_values = {'power_w': source['heater_power_w'], 'capacity_j_per_k': capacity,
++                           'conductance_w_per_k': source['conductance_w_per_k'], 'ambient_c': 25,
++                           'model_maximum_c': source['environment_maximum_c'], 'update_microseconds': 10000}
++        if any(parameters['sensors'][heater].get(key) != value for key, value in required_values.items()):
++            raise ValueError('Accelerated parameter manifest differs from its selected fixed fixture: ' + heater)
++    return hashes, parameters, selected
++
++
++def prepare_setup(root, args, main, nozzle, motor):
++    if args.thermal_profile in PROFILES:
++        verify_accelerated_sources(root, args.thermal_profile)
++    return baseline.prepare_setup(root, baseline_args(args), main, nozzle, motor)
++
++
++def select(root, generated, args):
++    if args.thermal_profile not in PROFILES:
++        # No new files, fields, hashes, naming, profile parameters or command
++        # ordering for none/synthetic-calibration. Their output is byte-identical.
++        return baseline.select(root, generated, args)
++    validate(args)
++    accelerated_hashes, scenario, selected = verify_accelerated_sources(root, args.thermal_profile)
++    selection = baseline.select(root, generated, baseline_args(args))
++    extra = generated / 'thermal-profile'
++    manifest_path = generated / 'manifest.json'
++    manifest = json.loads(manifest_path.read_text())
++    factor = PROFILES[args.thermal_profile]
++    # This is generation only: replace the sole selected platform description
++    # BEFORE the generated setup is executed. Never stack or hot-swap ADC writers.
++    for heater, namespace in [('bed', 'PrinterMain'), ('nozzle', 'PrinterNozzle')]:
++        source = selected / (heater + '.repl')
++        dest = extra / (heater + '.repl')
++        text = source.read_text().replace('Antmicro.Renode.Peripherals.AT32', 'Antmicro.Renode.Peripherals.' + namespace)
++        text = re.sub(r'\bAT32\.', namespace + '.', text)
++        dest.write_text(text)
++        matches = [entry for entry in manifest if entry['generated'] == str(dest.relative_to(generated))]
++        if len(matches) != 1:
++            raise ValueError('Expected exactly one generated thermal platform: ' + heater)
++        matches[0].update(source=str(source.relative_to(root)), source_sha256=baseline.sha(source),
++                          generated_sha256=baseline.sha(dest))
++    for entry in manifest:
++        if entry.get('experimental_thermal_profile') == baseline.PROFILE:
++            entry['experimental_thermal_profile'] = args.thermal_profile
++    manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
++    info = selection['profile']
++    info['selection'] = args.thermal_profile
++    info['parameters'] = copy.deepcopy(info['parameters'])
++    for heater in ('nozzle', 'bed'):
++        info['parameters'][heater]['heat_capacity_j_per_k'] /= factor
++    info.update(functional_acceleration_factor=factor, unrealistic_dynamics=True, real_pid_validation=False,
++                purpose='Explicit accelerated functional command/GPIO/ADC/shutdown test, not physical printer calibration or real PID validation',
++                capacity_scaling_only=True, native_pid_and_sensor_smoothing_unchanged=True,
++                emulation_clock_scale=1, automatic_factor_fallback=False,
++                accelerated_scenario=scenario,
++                baseline_integration_helper_sha256=info['integration_helper_sha256'],
++                integration_helper_sha256=baseline.sha(Path(__file__)))
++    info['source_sha256'].update(accelerated_hashes)
++    info['files'] = {str(path.relative_to(generated)): baseline.sha(path) for path in sorted(extra.iterdir())}
++    (args.log_dir / 'thermal-profile.json').write_text(json.dumps(info, indent=2) + '\n')
++    return selection
++
++
++def final_commands(args):
++    return baseline.final_commands(baseline_args(args))
+--- a/rv1106-at32-link/scripts/run_link.py
++++ b/rv1106-at32-link/scripts/run_link.py
+@@ -42,7 +42,7 @@
+     p.add_argument('--motor-setup-commands',type=pathlib.Path,help='Explicit shared motor model setup before original firmware runs')
+     from z_probe_selection import add_arguments
+     add_arguments(p)
+-    from thermal_profile_selection import add_arguments as add_thermal_arguments
++    from accelerated_thermal_profile_selection import add_arguments as add_thermal_arguments
+     add_thermal_arguments(p)
+     p.add_argument('--nozzle-tmc-model',choices=['fixed','autobaud'],default='fixed',help='Explicit experimental external UART model; firmware unchanged')
+     p.add_argument('--motor-enable-wiring',choices=['direct-bridge-gate','mcu-control-only'],default='direct-bridge-gate',help='Explicit generic wiring assumption; no PCB verification')
+@@ -73,7 +73,7 @@
+ def execution_args(a):
+     from z_probe_selection import validate
+     validate(a)
+-    from thermal_profile_selection import validate as validate_thermal
++    from accelerated_thermal_profile_selection import validate as validate_thermal
+     validate_thermal(a)
+     if a.nozzle_tmc_model!='fixed' and not a.shared_mcus:
+         raise ValueError('Experimental nozzle TMC selection requires shared MCUs')
+@@ -125,7 +125,7 @@
+         from z_probe_selection import final_commands as z_final_commands
+         final_commands=(final_commands or b'')+z_final_commands(a).encode()
+     if a.thermal_profile!='none':
+-        from thermal_profile_selection import final_commands as thermal_final_commands
++        from accelerated_thermal_profile_selection import final_commands as thermal_final_commands
+         final_commands=(final_commands or b'')+thermal_final_commands(a).encode()
+     mcu_setup=a.mcu_setup_commands.read_text().splitlines() if a.mcu_setup_commands else []
+     nozzle_setup=a.nozzle_setup_commands.read_text().splitlines() if a.nozzle_setup_commands else []
+--- a/rv1106-at32-link/scripts/run_native_event_fixture.sh
++++ b/rv1106-at32-link/scripts/run_native_event_fixture.sh
+@@ -25,11 +25,11 @@
+ THERMAL_PROFILE=${THERMAL_PROFILE:-none}
+ case "$THERMAL_PROFILE" in
+  none) ;;
+- synthetic-calibration)
++ synthetic-calibration|accelerated-functional-4x|accelerated-functional-2x)
+   [[ "$GLOBAL_QUANTUM_US" == 1 ]] || { echo 'Synthetic thermal profile requires explicit GLOBAL_QUANTUM_US=1' >&2; exit 1; }
+   [[ "${NATIVE_NOZZLE_HEATER:-0}" == 0 ]] || { echo 'THERMAL_PROFILE owns the heater bindings; do not add NATIVE_NOZZLE_HEATER' >&2; exit 1; }
+   ;;
+- *) echo 'THERMAL_PROFILE must be none or synthetic-calibration' >&2; exit 1 ;;
++ *) echo 'THERMAL_PROFILE must be none, synthetic-calibration, accelerated-functional-4x or accelerated-functional-2x' >&2; exit 1 ;;
+ esac
+ Z_PARAMETERS=(BED_RELATIVE_MM OPPOSITE_STOP_RELATIVE_MM BED_SIDE STIFFNESS_N_PER_MM DAMPING_NS_PER_MM BASELINE_COUNTS COUNTS_PER_N SIGNAL_POLARITY HISTORY_CAPACITY QUERY_TRACE_ROWS)
+ for PARAM in "${Z_PARAMETERS[@]}"; do
+--- a/rv1106-at32-link/scripts/shared_mcu.py
++++ b/rv1106-at32-link/scripts/shared_mcu.py
+@@ -3,7 +3,7 @@
+ 
+ def prepare(a,tmp,main_setup,nozzle_setup):
+     root=pathlib.Path(__file__).resolve().parents[2]
+-    from thermal_profile_selection import prepare_setup as prepare_thermal_setup, select as select_thermal
++    from accelerated_thermal_profile_selection import prepare_setup as prepare_thermal_setup, select as select_thermal
+     motor_setup=a.motor_setup_commands.read_text().splitlines() if a.motor_setup_commands else []
+     main_setup,nozzle_setup,motor_setup=prepare_thermal_setup(root,a,main_setup,nozzle_setup,motor_setup)
+     if a.nozzle_tmc_model=='autobaud':

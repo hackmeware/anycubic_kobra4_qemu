@@ -1,0 +1,82 @@
+{
+  "source_elf_sha256": "5ab198028c4b64a5f8a77ca41fb74f074070b0681cb68ace3ff29b7209953c06",
+  "source_size": 22668612,
+  "method": "/applink.AppLinkService/HotbedPreheating",
+  "canonical_target_60_hex": "103c",
+  "canonical_target_zero_hex": "",
+  "request_fields": {
+    "1": "bool default false at offset8; false direct setter, true callback; NOT enable",
+    "2": "uint32 Celsius at offset12; handler vcvt.f64.u32"
+  },
+  "response": "field1 length-delimited ErrorMessage; nested code field1 uint32, message field2 UTF8",
+  "handler": "0x115d83c",
+  "direct_setter_call": "0x115dacc..0x115dadc \u2192 0xdad924",
+  "error_code_65535_store": "0x115dbbc..0x115dbc4",
+  "service_vtable_slot": "0x13952e4 contains0x115d83c",
+  "regions": [
+    {
+      "name": "registration",
+      "va_start": "0x107ac44",
+      "va_end_exclusive": "0x107ad0c",
+      "file_offset": "0x106ac44",
+      "sha256": "28b6071a95c11c7a62bb73d19f824fb4a8b3ad74e463abeae0cd62e172543aa0"
+    },
+    {
+      "name": "dispatch",
+      "va_start": "0x1069884",
+      "va_end_exclusive": "0x10698e4",
+      "file_offset": "0x1059884",
+      "sha256": "8b9838d2c581cca67443f1380b2880056dedbcb319facebaa6ccb51af362096d"
+    },
+    {
+      "name": "request_clear",
+      "va_start": "0x10c428c",
+      "va_end_exclusive": "0x10c42ac",
+      "file_offset": "0x10b428c",
+      "sha256": "3e2e9207ee7a4aa6714b4094341a4e89498c95c0e5e8a76fcd1efac27625b3d4"
+    },
+    {
+      "name": "request_parser",
+      "va_start": "0x110e74c",
+      "va_end_exclusive": "0x110e8b8",
+      "file_offset": "0x10fe74c",
+      "sha256": "0173a62e97d4e44e73b75cac80a4298ed0cab2939b5e764375870005e3524f10"
+    },
+    {
+      "name": "request_serializer",
+      "va_start": "0x10da8d0",
+      "va_end_exclusive": "0x10da984",
+      "file_offset": "0x10ca8d0",
+      "sha256": "bef2c37bef96c70440d80271d4f182ef64606cae44f6fdcb3274318e72d54d88"
+    },
+    {
+      "name": "response_parser",
+      "va_start": "0x110e8b8",
+      "va_end_exclusive": "0x110ea18",
+      "file_offset": "0x10fe8b8",
+      "sha256": "76e95718d3569c9179fd81ad8b438ca2fb6ac4047f407b6ab3e190b030c1c924"
+    },
+    {
+      "name": "response_serializer",
+      "va_start": "0x10d3884",
+      "va_end_exclusive": "0x10d38f8",
+      "file_offset": "0x10c3884",
+      "sha256": "5495840c2d67578ac69c7d2dcceaa35de31e26f021d2ba7634ca536daa1b4c1c"
+    },
+    {
+      "name": "handler",
+      "va_start": "0x115d83c",
+      "va_end_exclusive": "0x115dd0c",
+      "file_offset": "0x114d83c",
+      "sha256": "404a222f28d4f63f851711fcac6a786d6cedb9587b22ad35300b1144235421a6"
+    },
+    {
+      "name": "bed_setter",
+      "va_start": "0xdad924",
+      "va_end_exclusive": "0xdadbb4",
+      "file_offset": "0xd9d924",
+      "sha256": "916d64bf3db1c1c862c047eb455566501bf1b6275ce331798b2d6120d4dffb47"
+    }
+  ],
+  "same_guarded_setter_chain": "0xdad924\u21920xdba084\u21920xdb9b98 (same native limits/locking/target setter as nozzle)"
+}

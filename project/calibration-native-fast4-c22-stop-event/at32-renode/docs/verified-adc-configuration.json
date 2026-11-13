@@ -1,0 +1,24 @@
+{
+  "firmware": "main_v1.3.3",
+  "oid_count": 21,
+  "oid_table": "0x20002920",
+  "adc_objects": [
+    {
+      "oid": 18,
+      "address": "0x20002a58",
+      "callback": "0x8005e5d",
+      "adc": "0x40012400",
+      "channel": 8,
+      "pin": "PB0",
+      "sample_sum": 0,
+      "minimum_sum": 15205,
+      "maximum_sum": 32309,
+      "error_count": 0,
+      "error_limit": 4,
+      "sample_index": 9,
+      "sample_count": 8,
+      "sample_ticks": 120000,
+      "rest_ticks": 36000000
+    }
+  ]
+}

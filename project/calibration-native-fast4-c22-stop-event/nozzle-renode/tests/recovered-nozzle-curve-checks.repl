@@ -1,0 +1,3 @@
+thermalChecks: AT32Tests.RecoveredNozzleCurveTests @ sysbus 0x60000000
+    adc: adc1
+    thermal: virtualNozzleNTC

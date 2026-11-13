@@ -1,0 +1,8 @@
+include @peripherals/AT32F403A_Timer.cs
+include @tests/MainTimerSemanticsTests.cs
+mach create
+machine LoadPlatformDescriptionFromString "tmr2: AT32.AT32Timer @ sysbus 0x40000000 { supports32Bits: true; frequency: 1000000 }; tmr3: AT32.AT32Timer @ sysbus 0x40000400 { frequency: 1000000 }; tmr5: AT32.AT32Timer @ sysbus 0x40000C00 { supports32Bits: true; frequency: 1000000 }; checks: AT32Tests.MainTimerSemanticsTests @ sysbus { tmr2: tmr2; tmr3: tmr3; tmr5: tmr5 }"
+sysbus.checks Prepare
+emulation RunFor "0.000005"
+sysbus.checks Finish
+quit

@@ -1,0 +1,2 @@
+adc1: AT32.AT32ADC @ sysbus 0x40012400
+gpioB: AT32.AT32GPIO @ sysbus 0x40010c00

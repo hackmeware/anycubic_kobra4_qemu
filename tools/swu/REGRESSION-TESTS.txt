@@ -1,0 +1,10 @@
+test_app_rejects_unrecognized_archive (test_preparation.GuardTests.test_app_rejects_unrecognized_archive) ... ok
+test_layout_pin (test_preparation.GuardTests.test_layout_pin) ... ok
+test_layout_rejected_before_output (test_preparation.GuardTests.test_layout_rejected_before_output) ... ok
+test_setup_rejected_before_output (test_preparation.GuardTests.test_setup_rejected_before_output) ... ok
+test_system_rejected_before_output (test_preparation.GuardTests.test_system_rejected_before_output) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.002s
+
+OK

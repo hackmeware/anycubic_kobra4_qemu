@@ -1,0 +1,12 @@
+{
+  "returncode": 0,
+  "input_unchanged": true,
+  "outer_stop_reason": null,
+  "host_seconds": 367.34341270599907,
+  "namespace_wrapper_exited": true,
+  "supervisor_evidence_present": true,
+  "calibration_proven": false,
+  "subprocess_returncode": 0,
+  "guest_userspace_ready": true,
+  "starter_returncode": 0
+}

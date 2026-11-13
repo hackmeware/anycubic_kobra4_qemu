@@ -1,0 +1,5 @@
+// Load AFTER virtual-bed-ntc.repl. Purely simulated feedback, never physical control.
+// Native-host M140 S35/0 probe + runtime heater_pin=PA0 establish this output.
+// See docs/THERMAL-BINDINGS.md. Thermal/NTC calibration remains illustrative.
+gpioA:
+    0 -> virtualBedNTC@0

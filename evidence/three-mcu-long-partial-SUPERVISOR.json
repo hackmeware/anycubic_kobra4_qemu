@@ -1,0 +1,9 @@
+{
+  "returncode": 1,
+  "stop_reason": null,
+  "host_seconds": 327.6687807369999,
+  "peak_namespace_rss_bytes": 2130087936,
+  "pid_namespace": "pid:[4026532224]",
+  "network_namespace": "net:[4026532225]",
+  "owned_child_exited": true
+}

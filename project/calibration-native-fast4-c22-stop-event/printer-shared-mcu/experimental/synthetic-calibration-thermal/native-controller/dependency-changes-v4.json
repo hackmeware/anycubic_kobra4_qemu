@@ -1,0 +1,27 @@
+[
+  {
+    "path": "printer-shared-mcu/experimental/synthetic-calibration-thermal/native-controller/controller.py",
+    "before_sha256": "0fa9ea6bb5ce5ec3457cdd020c0781f28a3dacd35a962d6eae2c8b7725213770",
+    "after_sha256": "ce90b6550e64d2461bc920136ee2130c65f1aebdb314d53a10f651426602247e"
+  },
+  {
+    "path": "printer-shared-mcu/experimental/synthetic-calibration-thermal/native-controller/analyze_trace.py",
+    "before_sha256": "a8d95f368afa9129eeabe5a36b909e1a1e0eee54535f155ae2d2a136ac9cb3a3",
+    "after_sha256": "7c69f08bad6db4964ebdfe61112e40c86645d7ae08c330147aa0f28a67fa2b7e"
+  },
+  {
+    "path": "rv1106-at32-link/scripts/run_native_event_fixture.sh",
+    "before_sha256": "60c6eaa8539ef55a5ad57729b47ba35076819c5e1f61ed70c32c501b0414f2dd",
+    "after_sha256": "b217f781f1e431164242c39b685f580c0af177a50675f81d29d2305f7473c9c9"
+  },
+  {
+    "path": "rv1106-at32-link/scripts/run_link.py",
+    "before_sha256": "7ef4ba83b1fb15a0f4e56d6464aa5a45a9402dae93d0d7dbd70f6a355f995d8d",
+    "after_sha256": "3ab9db71419758e22697981b0e6c8572899a4c218348ea77bf022fe20889ca7c"
+  },
+  {
+    "path": "rv1106-at32-link/scripts/shared_mcu.py",
+    "before_sha256": "6e897e0ad6341a0daba838c6300078b6376175aecf149e6ca3ec0645ba29db58",
+    "after_sha256": "eebfb40e8f549cf178b3faab36f8a0bf1e450c554f907c4c7160c109f0bc3acb"
+  }
+]

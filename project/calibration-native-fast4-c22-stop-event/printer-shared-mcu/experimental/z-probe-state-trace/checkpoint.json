@@ -1,0 +1,7 @@
+{
+  "file": "printer-shared-mcu/experimental/z-probe-state-trace/z-probe-state-trace-checkpoint.tar.gz",
+  "bytes": 66445,
+  "sha256": "7146719053aa14d7c70f331a6156a15db22e9ca529bc70928be099a7d0e358ac",
+  "members": 55,
+  "scope": "Restore at snapshot root. Only new z-probe-state-trace directory members; excludes dependency firmware/models and any integration changes."
+}

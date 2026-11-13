@@ -1,0 +1,5 @@
+physicalTimingTests: AT32Tests.GenericElectromechanicalTimingTests @ sysbus
+    plant: electromechanicalPlant
+    tmr3: tmr3
+    tmr8: tmr8
+    adc1: adc1

@@ -1,0 +1,65 @@
+include @/tmp/rv-at32-link-gd0x25p0/shared-models/shared-load.resc
+mach set "main"
+sysbus LoadBinary @/workspace/scratch/ca95ca5f55d9/native-clock-integration/inputs/mcu.bin 0x8004000
+cpu VectorTableOffset 0x8004000
+cpu SP 0x20008000
+cpu PC 0x8008099
+sysbus.crm HextFrequency 24000000
+include @/tmp/rv-at32-link-gd0x25p0/shared-models/main/scripts/virtual-bed-ntc.resc
+machine LoadPlatformDescriptionFromString "serialWire: PrinterMain.AT32VirtualSerialWire @ sysbus { uart: usart1; baud: 576000 }"
+emulation CreateUartPtyTerminal "mainHost" "/tmp/rv-at32-link-gd0x25p0/uart"
+connector Connect sysbus.serialWire mainHost
+sysbus.usart1 CreateFileBackend @/tmp/rv-at32-link-gd0x25p0/mcu-tx.bin
+sysbus.usart2 CreateFileBackend @/tmp/rv-at32-link-gd0x25p0/main-motor-tx.bin
+mach set "nozzle"
+sysbus LoadBinary @/workspace/scratch/ca95ca5f55d9/native-clock-integration/inputs/nozzle.bin 0x8004000
+cpu VectorTableOffset 0x8004000
+cpu SP 0x20005000
+cpu PC 0x8008565
+include @/tmp/rv-at32-link-gd0x25p0/shared-models/nozzle/scripts/virtual-nozzle-recovered-ntc.resc
+include @/tmp/rv-at32-link-gd0x25p0/shared-models/nozzle/scripts/virtual-tmc2209.resc
+include @/tmp/rv-at32-link-gd0x25p0/shared-models/nozzle/scripts/passive-nozzle-thermal-observer.resc
+sysbus.passiveNozzleThermalObserver Start "/workspace/scratch/ca95ca5f55d9/native-clock-integration/runs/startup-stop-scalar-30s-r3/nozzle-thermal-live.csv"
+include @/tmp/rv-at32-link-gd0x25p0/shared-models/nozzle/scripts/passive-tmc-timing-observer.resc
+emulation SetGlobalQuantum "0.000001"
+include @/tmp/rv-at32-link-gd0x25p0/shared-models/nozzle/peripherals/AT32F403A_VirtualSerialWire.cs
+machine LoadPlatformDescriptionFromString "serialWire: PrinterNozzle.AT32VirtualSerialWire @ sysbus { uart: usart1; baud: 576000 }"
+emulation CreateUartPtyTerminal "nozzleHost" "/tmp/rv-at32-link-gd0x25p0/nozzle-uart"
+connector Connect sysbus.serialWire nozzleHost
+sysbus.usart1 CreateFileBackend @/tmp/rv-at32-link-gd0x25p0/nozzle-tx.bin
+mach set "motor"
+sysbus LoadBinary @/workspace/scratch/ca95ca5f55d9/native-clock-integration/inputs/motor.bin 0x8008000
+cpu VectorTableOffset 0x8008000
+cpu SP 0x20015ec0
+cpu PC 0x8008199
+# Explicit scenario only. Original software limits: X -18.5..280, Y -7.5..272.5 mm.
+# Assume initial physical carriages at each software-range midpoint, not known real positions.
+# Relative half spans: X 149.25 mm, Y 140 mm. No coordinate or homed flag is written.
+# Stops generate torque in physical rotor kernel, never synthetic DIAG/endstop levels.
+sysbus.electromechanicalPlant ConfigureRelativeContact 0 -149.25 149.25 10 0.01
+sysbus.electromechanicalPlant ConfigureRelativeContact 1 -140 140 10 0.01
+include @/tmp/rv-at32-link-gd0x25p0/shared-models/motor/peripherals/PassiveMotorStateTrace.cs
+machine LoadPlatformDescription @/tmp/rv-at32-link-gd0x25p0/shared-models/motor/platforms/passive-motor-state-trace.repl
+sysbus.passiveMotorStateTrace Start "/workspace/scratch/ca95ca5f55d9/native-clock-integration/runs/startup-stop-scalar-30s-r3/motor-state.csv"
+sysbus.usart2 CreateFileBackend @/tmp/rv-at32-link-gd0x25p0/motor-tx.bin
+include @/workspace/scratch/ca95ca5f55d9/native-clock-integration/printer-shared-mcu/peripherals/PassiveGpioEdgeTrace.cs
+mach set "main"
+machine LoadPlatformDescriptionFromString "homingEdges: PrinterShared.PassiveGpioEdgeTrace @ sysbus { maximumRows: 100000 }"
+sysbus.homingEdges Observe sysbus.gpioA 6 "main_PA6_X"
+sysbus.homingEdges Observe sysbus.gpioA 15 "main_PA15_Y"
+sysbus.homingEdges Observe sysbus.gpioC 13 "main_PC13"
+sysbus.homingEdges Start "/workspace/scratch/ca95ca5f55d9/native-clock-integration/runs/startup-stop-scalar-30s-r3/main-homing-edges.csv"
+mach set "motor"
+machine LoadPlatformDescriptionFromString "homingEdges: PrinterShared.PassiveGpioEdgeTrace @ sysbus { maximumRows: 100000 }"
+sysbus.homingEdges Observe sysbus.gpioB 5 "motor_PB5_X"
+sysbus.homingEdges Observe sysbus.gpioB 4 "motor_PB4_Y"
+sysbus.homingEdges Observe sysbus.gpioB 2 "motor_PB2"
+sysbus.homingEdges Start "/workspace/scratch/ca95ca5f55d9/native-clock-integration/runs/startup-stop-scalar-30s-r3/motor-homing-edges.csv"
+mach set "main"
+include @/workspace/scratch/ca95ca5f55d9/native-clock-integration/printer-shared-mcu/peripherals/VirtualTimeTelemetry.cs
+machine LoadPlatformDescriptionFromString "timeTelemetry: PrinterShared.VirtualTimeTelemetry @ sysbus { periodMicroseconds: 1000 }"
+sysbus.timeTelemetry Enable "/workspace/scratch/ca95ca5f55d9/native-clock-integration/runs/startup-stop-scalar-30s-r3/virtual-time.json"
+emulation SetGlobalQuantum "0.000001"
+emulation RunFor "1"
+mach set "main"
+sysbus.timeTelemetry PublishStep "/workspace/scratch/ca95ca5f55d9/native-clock-integration/runs/startup-stop-scalar-30s-r3/renode-step.json" 0

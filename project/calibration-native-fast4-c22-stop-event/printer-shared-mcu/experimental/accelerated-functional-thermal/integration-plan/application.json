@@ -1,0 +1,10 @@
+{
+  "authorization": "Root confirmed old native run stopped and final export complete; incomplete zero/off evidence preserved. Central application and focused tests authorized; no native run by this worker.",
+  "applied_files": [
+    "printer-shared-mcu/experimental/accelerated-functional-thermal/integration-reviewed-sources.json",
+    "rv1106-at32-link/scripts/accelerated_thermal_profile_selection.py",
+    "rv1106-at32-link/scripts/run_link.py",
+    "rv1106-at32-link/scripts/run_native_event_fixture.sh",
+    "rv1106-at32-link/scripts/shared_mcu.py"
+  ]
+}

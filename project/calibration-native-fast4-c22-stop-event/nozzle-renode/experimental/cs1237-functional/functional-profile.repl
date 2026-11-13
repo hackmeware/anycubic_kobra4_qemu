@@ -1,0 +1,7 @@
+// EXPLICIT OPT-IN. Requires experimental Cs1237NativeGpio as gpioA.
+// No production default or firmware is changed. No force provider or PB2 bridge.
+functionalSensor: NozzleExperimental.Cs1237FunctionalAdapter @ sysbus
+    port: gpioA
+    syntheticBaseline: 0
+    outputDelayNanoseconds: 500
+    idealizedElectricalSemantics: true

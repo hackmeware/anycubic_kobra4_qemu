@@ -1,0 +1,14 @@
+adc: AT32.AT32ADC @ sysbus
+thermal: AT32.VirtualPrinterThermal @ sysbus
+    adc: adc
+    channel: 0
+axis: AT32.VirtualPrinterAxis @ sysbus
+observer: AT32.VirtualPrinterObserver @ sysbus
+    axisA: axis
+    hotend: thermal
+    maximumSamples: 12
+    sourceLabel: "SYNTHETIC TEST: commanded virtual GPIO and illustrative heater, not product print"
+tests: AT32Tests.ObserverTests @ sysbus
+    observer: observer
+    axis: axis
+    thermal: thermal

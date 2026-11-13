@@ -1,0 +1,20 @@
+--- a/motor-renode/peripherals/GenericStepperElectromechanical.cs
++++ b/motor-renode/peripherals/GenericStepperElectromechanical.cs
+@@ -42,6 +42,8 @@
+             if(!Finite(minimumAngle)||!Finite(maximumAngle)||minimumAngle>=maximumAngle||!Positive(stiffness)||!Nonnegative(contactDamping))throw new ArgumentException("Invalid contact model");
+             min=minimumAngle;max=maximumAngle;spring=stiffness;dashpot=contactDamping;ContactEnabled=true;
+         }
++        // External fixture removal; preserves rotor/current/velocity state.
++        public void DisableContact(){ContactEnabled=false;}
+         // Explicit scenario initial conditions. Never called on an MCU reset.
+         public void SetInitialState(double currentA,double currentB,double angle,double velocity)
+         {
+@@ -162,6 +164,8 @@
+         public void SetLoadTorque(int axis,double torque){Check(axis);if(!Finite(torque))throw new ArgumentException();AdvanceAxisToNow(axis);rotors[axis].LoadTorque=torque;}
+         public void ConfigureRelativeContact(int axis,double minimumMillimeters,double maximumMillimeters,double stiffness=10,double damping=0.01)
+         {Check(axis);AdvanceAxisToNow(axis);double k=2*Math.PI/(axis==2?8:39);rotors[axis].ConfigureContact(minimumMillimeters*k,maximumMillimeters*k,stiffness,damping);}
++        // Integrate the previous contact through now before removing the external fixture.
++        public void DisableRelativeContact(int axis){Check(axis);AdvanceAxisToNow(axis);rotors[axis].DisableContact();}
+         public ulong TriggerCount{get;private set;}public ulong ClippedSamples{get;private set;}
+         public bool TraceCapacityReached{get;private set;}
+         public int TraceSamples=>trace.Count;

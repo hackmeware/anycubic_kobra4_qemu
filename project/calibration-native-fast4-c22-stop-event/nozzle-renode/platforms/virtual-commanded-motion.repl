@@ -1,0 +1,9 @@
+// Passive extruder STEP/DIR observation. Does not assert enabled motion or deposition.
+commandedE: AT32.VirtualStepperCommandObserver @ sysbus
+    bothEdges: true
+    stepPort: gpioA
+    stepPin: 12
+    directionPort: gpioA
+    directionPin: 11
+    stepsPerMillimeter: 719.2627556754327
+    invertDirection: true

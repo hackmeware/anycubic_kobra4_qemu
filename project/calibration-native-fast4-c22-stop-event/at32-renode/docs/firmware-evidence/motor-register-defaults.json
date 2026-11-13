@@ -1,0 +1,207 @@
+{
+  "source": "Original motor v1.6.01, SRAM 0x20000340, captured after 0.01s; before callback registration",
+  "image_sha256": "76b439293ab08207317007f5179243a0684c1b27668442781bcb2e201ff62661",
+  "table_sha256": "4e4cf505804ecbba55b2ddb798ada6d8e94675b60fc5dd2c405b6202b8cd2519",
+  "registers": [
+    {
+      "register": "0x0",
+      "bank_defaults": [
+        "0x101",
+        "0x101",
+        "0x101"
+      ]
+    },
+    {
+      "register": "0x1",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x2",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x3",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x4",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x5",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x6",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x7",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x10",
+      "bank_defaults": [
+        "0x1f00",
+        "0x1f00",
+        "0x1f00"
+      ]
+    },
+    {
+      "register": "0x11",
+      "bank_defaults": [
+        "0x14",
+        "0x14",
+        "0x14"
+      ]
+    },
+    {
+      "register": "0x12",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x13",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x22",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x14",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x40",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x41",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x42",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x6a",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x6b",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x6c",
+      "bank_defaults": [
+        "0x10000053",
+        "0x10000053",
+        "0x10000053"
+      ]
+    },
+    {
+      "register": "0x6f",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x70",
+      "bank_defaults": [
+        "0xc10d0024",
+        "0xc10d0024",
+        "0xc10d0024"
+      ]
+    },
+    {
+      "register": "0x71",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x72",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "register": "0x30",
+      "bank_defaults": [
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    }
+  ]
+}

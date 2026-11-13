@@ -1,0 +1,4 @@
+# Load after the nozzle platform and before starting firmware.
+# Use INSTEAD OF scripts/virtual-nozzle-ntc.resc. Does not connect heater/fan.
+include @peripherals/VirtualPrinterThermal.cs
+machine LoadPlatformDescription @platforms/virtual-nozzle-recovered-ntc.repl

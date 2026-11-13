@@ -1,0 +1,39 @@
+{
+  "scope": "Independent analysis of CPU-free actual C# trace and recovered conversion data. No native high-temperature success claim.",
+  "trace_rows": 1391,
+  "sensor_readings_checked": 2782,
+  "theory": {
+    "nozzle": {
+      "power_w": 60,
+      "capacity_j_per_k": 20,
+      "conductance_w_per_k": 0.2,
+      "ambient_c": 25,
+      "target_c": 230,
+      "target_adc_code": 468,
+      "initial_full_power_rate_c_per_s": 3.0,
+      "unclamped_full_duty_equilibrium_c": 325.0,
+      "time_constant_s": 100.0,
+      "full_power_time_from_ambient_s": 114.99055830556604,
+      "steady_target_duty": 0.6833333333333333,
+      "target_inside_original_adc_guard": true
+    },
+    "bed": {
+      "power_w": 200,
+      "capacity_j_per_k": 600,
+      "conductance_w_per_k": 1.5,
+      "ambient_c": 25,
+      "target_c": 60,
+      "target_adc_code": 3444,
+      "initial_full_power_rate_c_per_s": 0.3333333333333333,
+      "unclamped_full_duty_equilibrium_c": 158.33333333333334,
+      "time_constant_s": 400.0,
+      "full_power_time_from_ambient_s": 121.79567630726484,
+      "steady_target_duty": 0.2625,
+      "target_inside_original_adc_guard": true
+    }
+  },
+  "recovered_curve_evidence_sha256": "053b132399301dee0a8094caaeb27ab4649ba0e55a21e419e28e5b9a03ad1f46",
+  "trace_sha256": "e123b645d222162f0c1d48b8f86e708f1beaf2050f449b12eefc11e186bbab6b",
+  "native_firmware_run": false,
+  "fan_thermal_coupling_modeled": false
+}

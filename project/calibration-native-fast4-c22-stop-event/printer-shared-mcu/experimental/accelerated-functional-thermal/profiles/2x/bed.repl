@@ -1,0 +1,28 @@
+// SYNTHETIC ACCELERATED FUNCTIONAL TEST ONLY: 2x capacity scaling.
+// NOT physical-printer calibration, PID validation, stable regulation, or print readiness.
+// Only heat capacity differs from the optional synthetic baseline.
+// EXPLICIT HYPOTHETICAL SCENARIO, not measured printer characteristics.
+// Same thermal/sensor constants and guards as the ordinary bed fixture.
+// Fresh paused setup only, INSTEAD OF virtual-bed-ntc/virtual-commanded-bed.
+// Shared namespace generation must replace AT32 with PrinterMain.
+virtualBedNTC: AT32.VirtualPrinterThermal @ sysbus
+    adc: adc1
+    channel: 8
+    heaterPowerWatts: 200
+    heatCapacityJoulesPerKelvin: 300
+    conductanceWattsPerKelvin: 1.5
+    ambientCelsius: 25
+    nominalResistanceOhms: 100000
+    betaKelvin: 3950
+    nominalCelsius: 25
+    pullResistanceOhms: 4700
+    adcMaximum: 4095
+    thermistorToGround: true
+    maximumCelsius: 150
+    stopHeaterAtMaximum: true
+    updateMicroseconds: 10000
+    heaterActiveHigh: true
+
+syntheticBedHeaterBinding: ThermalExperimental.ResolvedBedHeaterBinding @ sysbus
+    portA: gpioA
+    thermal: virtualBedNTC

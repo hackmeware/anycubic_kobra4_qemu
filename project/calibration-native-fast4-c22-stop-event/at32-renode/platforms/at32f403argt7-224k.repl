@@ -1,0 +1,7 @@
+// Select instead of base platform when the device's SRAM option is configured for 224 KiB.
+using "at32f403argt7.repl"
+sram:
+    size: 0x38000
+
+bitbandSramExtended: Miscellaneous.BitBanding @ sysbus <0x22300000, +0x400000>
+    peripheralBase: 0x20018000

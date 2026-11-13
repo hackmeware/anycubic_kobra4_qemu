@@ -1,0 +1,151 @@
+{
+  "firmware_sha256": "9bd702c8a076f29c0ac019cc7c8ea6c7afa52d13580fea04e977e3dce0a5d517",
+  "load_base": "0x8004000",
+  "table_address": "0x0800CD14",
+  "adc_config_handler": "0x08006520",
+  "pin_encoding": "high nibble port, low nibble pin",
+  "adc_capabilities": [
+    {
+      "encoded_pin": 0,
+      "pin": "PA0",
+      "adc": "ADC1",
+      "channel": 0,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 1,
+      "pin": "PA1",
+      "adc": "ADC1",
+      "channel": 1,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 2,
+      "pin": "PA2",
+      "adc": "ADC1",
+      "channel": 2,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 3,
+      "pin": "PA3",
+      "adc": "ADC1",
+      "channel": 3,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 4,
+      "pin": "PA4",
+      "adc": "ADC1",
+      "channel": 4,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 5,
+      "pin": "PA5",
+      "adc": "ADC1",
+      "channel": 5,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 6,
+      "pin": "PA6",
+      "adc": "ADC1",
+      "channel": 6,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 7,
+      "pin": "PA7",
+      "adc": "ADC1",
+      "channel": 7,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 16,
+      "pin": "PB0",
+      "adc": "ADC1",
+      "channel": 8,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 17,
+      "pin": "PB1",
+      "adc": "ADC1",
+      "channel": 9,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 32,
+      "pin": "PC0",
+      "adc": "ADC1",
+      "channel": 10,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 33,
+      "pin": "PC1",
+      "adc": "ADC1",
+      "channel": 11,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 34,
+      "pin": "PC2",
+      "adc": "ADC1",
+      "channel": 12,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 35,
+      "pin": "PC3",
+      "adc": "ADC1",
+      "channel": 13,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 36,
+      "pin": "PC4",
+      "adc": "ADC1",
+      "channel": 14,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 37,
+      "pin": "PC5",
+      "adc": "ADC1",
+      "channel": 15,
+      "role": "capability only; no heater/bed assignment"
+    },
+    {
+      "encoded_pin": 254,
+      "pin": "internal_temperature",
+      "adc": "ADC1",
+      "channel": 16,
+      "role": "capability only; no heater/bed assignment"
+    }
+  ],
+  "fixed_startup_outputs": [
+    {
+      "pin": "PB7",
+      "level": 1,
+      "meaning": "unknown"
+    },
+    {
+      "pin": "PA8",
+      "level": 1,
+      "meaning": "unknown"
+    }
+  ],
+  "fixed_uarts": {
+    "USART1": {
+      "tx": "PA9",
+      "rx": "PA10"
+    },
+    "USART2": {
+      "tx": "PA2",
+      "rx": "PA3"
+    }
+  },
+  "automatic_sensor_bindings": []
+}

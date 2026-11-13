@@ -1,0 +1,8 @@
+// Optional electrical driver assumptions. Load after electromechanical plant.
+genericDriver: AT32.GenericMotorDriver @ sysbus
+    plant: electromechanicalPlant
+    gpioA: gpioA
+    gpioB: gpioB
+    gpioC: gpioC
+    supplyVoltage: 24
+    minimumSupplyVoltage: 8

@@ -1,0 +1,391 @@
+// Experimental AT32-compatible register hypothesis only; actual motor silicon unconfirmed.
+// AT32F403ARGT7, Cortex-M4F, 1 MiB flash / default 96 KiB SRAM.
+// GPIO registers for unbonded pads are not proof of package pin availability.
+// No boot ROM, external memory, USB, CAN, SDIO or XMC emulation.
+flash: Memory.MappedMemory @ { sysbus 0x08000000; sysbus 0x00000000 }
+    size: 0x100000
+
+sram: Memory.MappedMemory @ sysbus 0x20000000
+    size: 0x18000
+
+nvic: IRQControllers.NVIC @ sysbus 0xE000E000
+    priorityMask: 0xF0
+    systickFrequency: 8000000
+    IRQ -> cpu@0
+
+cpu: CPU.CortexM @ sysbus
+    cpuType: "cortex-m4"
+    nvic: nvic
+
+crm: AT32.AT32CRM @ sysbus 0x40021000
+    nvic: nvic
+    hextFrequency: 8000000
+    IRQ -> nvic@5
+
+flashController: AT32.AT32FlashController @ sysbus 0x40022000
+    IRQ -> nvic@4
+
+power: AT32.AT32BackupPower @ sysbus 0x40007000
+    power: true
+
+backup: AT32.AT32BackupPower @ sysbus 0x40006C00
+    IRQ -> nvic@2
+    powerControl: power
+
+crc: AT32.AT32CRC @ sysbus 0x40023000
+
+iomux: AT32.AT32IOMUX @ sysbus 0x40010000
+    [0-15] -> exint@[0-15]
+
+exint: AT32.AT32EXINT @ sysbus 0x40010400
+    [0-4] -> nvic@[6-10]
+    IRQ5_9 -> nvic@23
+    IRQ10_15 -> nvic@40
+    17 -> nvic@41
+
+gpioA: AT32.AT32GPIO @ sysbus 0x40010800
+    iomux: iomux
+    portIndex: 0
+
+gpioB: AT32.AT32GPIO @ sysbus 0x40010C00
+    iomux: iomux
+    portIndex: 1
+
+gpioC: AT32.AT32GPIO @ sysbus 0x40011000
+    iomux: iomux
+    portIndex: 2
+
+gpioD: AT32.AT32GPIO @ sysbus 0x40011400
+    iomux: iomux
+    portIndex: 3
+
+gpioE: AT32.AT32GPIO @ sysbus 0x40011800
+    iomux: iomux
+    portIndex: 4
+
+usart1: AT32.AT32UART @ sysbus 0x40013800
+    IRQ -> nvic@37
+
+usart2: AT32.AT32UART @ sysbus 0x40004400
+    IRQ -> nvic@38
+
+usart3: AT32.AT32UART @ sysbus 0x40004800
+    IRQ -> nvic@39
+
+uart4: AT32.AT32UART @ sysbus 0x40004C00
+    IRQ -> nvic@52
+
+uart5: AT32.AT32UART @ sysbus 0x40005000
+    IRQ -> nvic@53
+
+usart6: AT32.AT32UART @ sysbus 0x40016000
+    IRQ -> nvic@76
+
+uart7: AT32.AT32UART @ sysbus 0x40016400
+    IRQ -> nvic@77
+
+uart8: AT32.AT32UART @ sysbus 0x40016800
+    IRQ -> nvic@78
+
+spi1: AT32.AT32SPI @ sysbus 0x40013000
+    IRQ -> nvic@35
+
+spi2: AT32.AT32SPI @ sysbus 0x40003800
+    IRQ -> nvic@36
+
+spi3: AT32.AT32SPI @ sysbus 0x40003C00
+    IRQ -> nvic@51
+
+spi4: AT32.AT32SPI @ sysbus 0x40004000
+    IRQ -> nvic@63
+
+i2c1: AT32.AT32I2C @ sysbus 0x40005400
+    EventIRQ -> nvic@31
+    ErrorIRQ -> nvic@32
+
+i2c2: AT32.AT32I2C @ sysbus 0x40005800
+    EventIRQ -> nvic@33
+    ErrorIRQ -> nvic@34
+
+i2c3: AT32.AT32I2C @ sysbus 0x40015C00
+    EventIRQ -> nvic@61
+    ErrorIRQ -> nvic@62
+
+adcSharedIRQ: Miscellaneous.CombinedInput @ none
+    numberOfInputs: 2
+    -> nvic@18
+
+adc1: AT32.AT32ADC @ sysbus 0x40012400
+    IRQ -> adcSharedIRQ@0
+    DMARequest -> dma1@101 | dma2@101
+
+adc2: AT32.AT32ADC @ sysbus 0x40012800
+    IRQ -> adcSharedIRQ@1
+
+adc3: AT32.AT32ADC @ sysbus 0x40013C00
+    IRQ -> nvic@47
+    DMARequest -> dma1@103 | dma2@103
+
+dma1: AT32.AT32DMA @ sysbus 0x40020000
+    [0-6] -> nvic@[11-17]
+
+dma2: AT32.AT32DMA @ sysbus 0x40020400
+    secondController: true
+    [0-2] -> nvic@[56-58]
+    [3-4] -> dma2Ch45IRQ@[0-1]
+    [5-6] -> dma2Ch67IRQ@[0-1]
+
+dma2Ch45IRQ: Miscellaneous.CombinedInput @ none
+    numberOfInputs: 2
+    -> nvic@59
+
+dma2Ch67IRQ: Miscellaneous.CombinedInput @ none
+    numberOfInputs: 2
+    -> nvic@75
+
+timerSharedIRQ24: Miscellaneous.CombinedInput @ none
+    numberOfInputs: 3
+    -> nvic@24
+
+timerSharedIRQ25: Miscellaneous.CombinedInput @ none
+    numberOfInputs: 3
+    -> nvic@25
+
+timerSharedIRQ26: Miscellaneous.CombinedInput @ none
+    numberOfInputs: 3
+    -> nvic@26
+
+timerSharedIRQ43: Miscellaneous.CombinedInput @ none
+    numberOfInputs: 3
+    -> nvic@43
+
+timerSharedIRQ44: Miscellaneous.CombinedInput @ none
+    numberOfInputs: 3
+    -> nvic@44
+
+timerSharedIRQ45: Miscellaneous.CombinedInput @ none
+    numberOfInputs: 3
+    -> nvic@45
+
+tmr1: AT32.AT32Timer @ sysbus 0x40012C00
+    frequency: 8000000
+    BreakInterrupt -> timerSharedIRQ24@0
+    UpdateInterrupt -> timerSharedIRQ25@0
+    TriggerInterrupt -> timerSharedIRQ26@0
+    CommutationInterrupt -> timerSharedIRQ26@1
+    CaptureCompareInterrupt -> nvic@27
+
+tmr2: AT32.AT32Timer @ sysbus 0x40000000
+    supports32Bits: true
+    frequency: 8000000
+    IRQ -> nvic@28
+
+tmr3: AT32.AT32Timer @ sysbus 0x40000400
+    frequency: 8000000
+    IRQ -> nvic@29
+
+tmr4: AT32.AT32Timer @ sysbus 0x40000800
+    frequency: 8000000
+    IRQ -> nvic@30
+
+tmr5: AT32.AT32Timer @ sysbus 0x40000C00
+    supports32Bits: true
+    frequency: 8000000
+    IRQ -> nvic@50
+
+tmr6: AT32.AT32Timer @ sysbus 0x40001000
+    frequency: 8000000
+    IRQ -> nvic@54
+
+tmr7: AT32.AT32Timer @ sysbus 0x40001400
+    frequency: 8000000
+    IRQ -> nvic@55
+
+tmr8: AT32.AT32Timer @ sysbus 0x40013400
+    frequency: 8000000
+    BreakInterrupt -> timerSharedIRQ43@0
+    UpdateInterrupt -> timerSharedIRQ44@0
+    TriggerInterrupt -> timerSharedIRQ45@0
+    CommutationInterrupt -> timerSharedIRQ45@1
+    CaptureCompareInterrupt -> nvic@46
+
+tmr9: AT32.AT32Timer @ sysbus 0x40014C00
+    frequency: 8000000
+    IRQ -> timerSharedIRQ24@2
+
+tmr10: AT32.AT32Timer @ sysbus 0x40015000
+    frequency: 8000000
+    IRQ -> timerSharedIRQ25@2
+
+tmr11: AT32.AT32Timer @ sysbus 0x40015400
+    frequency: 8000000
+    IRQ -> timerSharedIRQ26@2
+
+tmr12: AT32.AT32Timer @ sysbus 0x40001800
+    frequency: 8000000
+    IRQ -> timerSharedIRQ43@2
+
+tmr13: AT32.AT32Timer @ sysbus 0x40001C00
+    frequency: 8000000
+    IRQ -> timerSharedIRQ44@2
+
+tmr14: AT32.AT32Timer @ sysbus 0x40002000
+    frequency: 8000000
+    IRQ -> timerSharedIRQ45@2
+
+sysbus:
+    init:
+        Tag <0x1FFFF7E0, 0x1FFFF7E3> "ASSUMED_MODEL_FLASH_SIZE_KIB" 0x00000400
+
+crm:
+    init:
+        AttachCoreClock dwt
+        AttachRTC rtc
+        AttachBackup backup
+        AttachClock wwdt false
+        AttachReset wwdt 0x10 11
+        AttachReset dac 0x10 29
+        AttachClock usart1 true
+        AttachClock usart2 false
+        AttachClock usart3 false
+        AttachClock uart4 false
+        AttachClock uart5 false
+        AttachClock usart6 true
+        AttachClock uart7 true
+        AttachClock uart8 true
+        AttachTimer tmr1 true
+        AttachTimer tmr2 false
+        AttachTimer tmr3 false
+        AttachTimer tmr4 false
+        AttachTimer tmr5 false
+        AttachTimer tmr6 false
+        AttachTimer tmr7 false
+        AttachTimer tmr8 true
+        AttachTimer tmr9 true
+        AttachTimer tmr10 true
+        AttachTimer tmr11 true
+        AttachTimer tmr12 false
+        AttachTimer tmr13 false
+        AttachTimer tmr14 false
+        AttachReset tmr9 0xC 19
+        AttachReset tmr10 0xC 20
+        AttachReset tmr11 0xC 21
+        AttachReset i2c3 0xC 23
+        AttachReset usart6 0xC 24
+        AttachReset uart7 0xC 25
+        AttachReset uart8 0xC 26
+        AttachReset iomux 0xC 0
+        AttachReset gpioA 0xC 2
+        AttachReset gpioB 0xC 3
+        AttachReset gpioC 0xC 4
+        AttachReset gpioD 0xC 5
+        AttachReset gpioE 0xC 6
+        AttachReset adc1 0xC 9
+        AttachReset adc2 0xC 10
+        AttachReset adc3 0xC 15
+        AttachReset tmr1 0xC 11
+        AttachReset tmr8 0xC 13
+        AttachReset spi1 0xC 12
+        AttachReset usart1 0xC 14
+        AttachReset spi2 0x10 14
+        AttachReset spi3 0x10 15
+        AttachReset spi4 0x10 16
+        AttachReset usart2 0x10 17
+        AttachReset usart3 0x10 18
+        AttachReset uart4 0x10 19
+        AttachReset uart5 0x10 20
+        AttachReset i2c1 0x10 21
+        AttachReset i2c2 0x10 22
+        AttachReset tmr2 0x10 0
+        AttachReset tmr3 0x10 1
+        AttachReset tmr4 0x10 2
+        AttachReset tmr5 0x10 3
+        AttachReset tmr6 0x10 4
+        AttachReset tmr7 0x10 5
+        AttachReset tmr12 0x10 6
+        AttachReset tmr13 0x10 7
+        AttachReset tmr14 0x10 8
+
+bitbandPeripherals: Miscellaneous.BitBanding @ sysbus <0x42000000, +0x2000000>
+    peripheralBase: 0x40000000
+
+bitbandSram: Miscellaneous.BitBanding @ sysbus <0x22000000, +0x300000>
+    peripheralBase: 0x20000000
+
+dwt: AT32.AT32DWT @ sysbus 0xE0001000
+    frequency: 8000000
+
+rtc: AT32.AT32RTC @ sysbus 0x40002800
+    IRQ -> nvic@3
+    AlarmIRQ -> exint@17
+
+wwdt: AT32.AT32Watchdog @ sysbus 0x40002C00
+    windowed: true
+    IRQ -> nvic@0
+
+wdt: AT32.AT32Watchdog @ sysbus 0x40003000
+
+dac: AT32.AT32DAC @ sysbus 0x40007400
+
+// DMA source input number = 100 + official AT32 request source ID.
+// Each DMA controller performs its own fixed/flexible routing and source OR.
+usart1:
+    RxDMA -> dma1@125 | dma2@125
+    TxDMA -> dma1@126 | dma2@126
+
+usart2:
+    RxDMA -> dma1@127 | dma2@127
+    TxDMA -> dma1@128 | dma2@128
+
+usart3:
+    RxDMA -> dma1@129 | dma2@129
+    TxDMA -> dma1@130 | dma2@130
+
+uart4:
+    RxDMA -> dma1@131 | dma2@131
+    TxDMA -> dma1@132 | dma2@132
+
+uart5:
+    RxDMA -> dma1@133 | dma2@133
+    TxDMA -> dma1@134 | dma2@134
+
+usart6:
+    RxDMA -> dma1@135 | dma2@135
+    TxDMA -> dma1@136 | dma2@136
+
+uart7:
+    RxDMA -> dma1@137 | dma2@137
+    TxDMA -> dma1@138 | dma2@138
+
+uart8:
+    RxDMA -> dma1@139 | dma2@139
+    TxDMA -> dma1@140 | dma2@140
+
+spi1:
+    DMAReceive -> dma1@109 | dma2@109
+    DMASend -> dma1@110 | dma2@110
+
+spi2:
+    DMAReceive -> dma1@111 | dma2@111
+    DMASend -> dma1@112 | dma2@112
+
+spi3:
+    DMAReceive -> dma1@113 | dma2@113
+    DMASend -> dma1@114 | dma2@114
+
+spi4:
+    DMAReceive -> dma1@115 | dma2@115
+    DMASend -> dma1@116 | dma2@116
+
+i2c1:
+    DMAReceive -> dma1@141 | dma2@141
+    DMASend -> dma1@142 | dma2@142
+
+i2c2:
+    DMAReceive -> dma1@143 | dma2@143
+    DMASend -> dma1@144 | dma2@144
+
+i2c3:
+    DMAReceive -> dma1@145 | dma2@145
+    DMASend -> dma1@146 | dma2@146
+

@@ -1,0 +1,11 @@
+spi: AT32.AT32SPI @ sysbus 0x40013000
+spiEcho: AT32Tests.SPIEcho @ spi
+i2c: AT32.AT32I2C @ sysbus 0x40005400
+memory: AT32Tests.I2CMemory @ i2c 0x50
+memory10: AT32Tests.I2CMemory @ i2c 0x250
+crc: AT32.AT32CRC @ sysbus 0x40023000
+busTests: AT32Tests.BusTests @ sysbus 0x60000000
+    spi: spi
+    i2c: i2c
+    crc: crc
+    memory: memory

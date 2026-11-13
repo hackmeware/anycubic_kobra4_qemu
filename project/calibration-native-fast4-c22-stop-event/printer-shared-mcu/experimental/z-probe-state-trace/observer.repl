@@ -1,0 +1,8 @@
+// Optional overlay in the ORIGINAL NOZZLE machine after its actual devices exist.
+// These references must be the loaded nozzle image/SRAM and the active sensor.
+probeStateTrace: PrinterExperimental.PassiveZProbeStateTrace @ sysbus
+    port: gpioA
+    sensor: sensor
+    sram: sram
+    flash: flash
+    maximumRows: 4096

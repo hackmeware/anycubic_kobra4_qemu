@@ -1,0 +1,5 @@
+$bin?=@firmware/nozzle_firmware_v1.2.9_20260120.bin
+include @scripts/load.resc
+sysbus LoadBinary $bin 0x08004000
+cpu VectorTableOffset 0x08004000
+# Attach host transport to sysbus.usart1, then start.

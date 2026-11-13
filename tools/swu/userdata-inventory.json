@@ -1,0 +1,51 @@
+{
+  "partition": {
+    "partition": 12,
+    "name": "userdata",
+    "start_sector": 241664,
+    "sectors": 32768,
+    "source": "userdata.ext4",
+    "sha256": "89303f7e83bd6f87bfadf0935ea966596622c01c29e9743ec9fc22e9f3074ea9"
+  },
+  "superblock": {
+    "block_size": 1024,
+    "blocks": 16384,
+    "inode_size": 256,
+    "inodes": 4096,
+    "features_compat": "0x103c",
+    "features_incompat": "0x242",
+    "features_ro": "0x6b",
+    "uuid": "9fab32ad97034d17b3f0b5453a03ff73",
+    "label": "userdata",
+    "created_time": 1793824351,
+    "last_write_time": 1793824351,
+    "mount_count": 0,
+    "state": 1
+  },
+  "entries": [
+    {
+      "ino": 2,
+      "mode": 16877,
+      "size": 1024,
+      "flags": 524288,
+      "uid": 0,
+      "gid": 0,
+      "mtime": 1793824351,
+      "links": 3,
+      "path": "",
+      "type": "dir"
+    },
+    {
+      "ino": 11,
+      "mode": 16832,
+      "size": 12288,
+      "flags": 524288,
+      "uid": 0,
+      "gid": 0,
+      "mtime": 1793824351,
+      "links": 2,
+      "path": "lost+found",
+      "type": "dir"
+    }
+  ]
+}

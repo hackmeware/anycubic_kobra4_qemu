@@ -1,0 +1,13 @@
+include @scripts/load.resc
+include @scripts/board-clock-and-rtc.resc
+include @scripts/stationary-current-plant.resc
+include @scripts/pwm-trigger-wiring.resc
+sysbus LoadBinary @/workspace/shared/kobra4-firmware/payload/motor_firmware_v1.6.01_20260313.bin 0x08008000
+cpu VectorTableOffset 0x08008000
+emulation RunFor "0.3"
+sysbus ReadBytes 0x2000073e 36
+sysbus ReadBytes 0x40012c00 72
+sysbus ReadBytes 0x40000400 72
+sysbus ReadBytes 0x40000800 72
+sysbus ReadBytes 0x2000070c 12
+quit

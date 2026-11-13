@@ -1,0 +1,70 @@
+{
+  "scope": "CPU-free actual C# GPIO/thermal/ADC tests only. No native firmware, shared launcher edit, direct duty, temperature injection, native control-loop or calibration claim.",
+  "wall_seconds": 15.468621999003517,
+  "profile_value_checks": 28,
+  "result": {
+    "completed_stages": [
+      "SYNTHETIC THERMAL PREPARED",
+      "SYNTHETIC THERMAL GPIO PWM PASS",
+      "SYNTHETIC THERMAL INITIAL RATE PASS",
+      "SYNTHETIC THERMAL TARGET CROSSING PASS",
+      "SYNTHETIC THERMAL COOLING PASS",
+      "SYNTHETIC THERMAL FAULT RESET PASS",
+      "SYNTHETIC THERMAL RESET RECOVERY PREPARED",
+      "SYNTHETIC THERMAL RESET RECOVERY PASS",
+      "SYNTHETIC THERMAL OUT OF TABLE PASS",
+      "SYNTHETIC THERMAL LONG NEGATIVES PASS",
+      "SYNTHETIC THERMAL TESTS PASS: 93"
+    ],
+    "assertions": 93,
+    "native_firmware_run": false,
+    "direct_duty_used": false,
+    "temperature_injection_used": false,
+    "full_power_start_s": 1,
+    "nozzle_target_crossing_s": 115.75,
+    "bed_target_crossing_s": 122.55,
+    "nozzle_first_full_second_delta_c": 2.977624439618239,
+    "bed_first_full_second_delta_c": 0.33270920041285024,
+    "new_nozzle_equilibrium_final_c": 324.99842927428324,
+    "unchanged_default_final_c": 224.998952849521,
+    "dropped_rows": 0
+  },
+  "source_sha256": {
+    "at32-renode/peripherals/AT32F403A_System.cs": "8482269788fe359d2dca43caf24b80012b5a14f1c5afb8d2e3de7f8ca50dd6d5",
+    "at32-renode/peripherals/AT32F403A_IO.cs": "55e232cafb4047b06cac51184153941ca976b36b761bcacb4cb92a8ecfc9f520",
+    "at32-renode/peripherals/VirtualPrinterThermal.cs": "035789c4de321a111205fd753fb5bed6ccb639cc720dca97480b872eccf24ae5",
+    "nozzle-renode/peripherals/AT32F403A_System.cs": "8482269788fe359d2dca43caf24b80012b5a14f1c5afb8d2e3de7f8ca50dd6d5",
+    "nozzle-renode/peripherals/AT32F403A_IO.cs": "55e232cafb4047b06cac51184153941ca976b36b761bcacb4cb92a8ecfc9f520",
+    "nozzle-renode/peripherals/VirtualPrinterThermal.cs": "feecda52cccaa21875b14148fb7112a9694997ca70625ecbac424a34ece0b708",
+    "nozzle-renode/peripherals/NativeNozzleHeaterBinding.cs": "072e8dde94c6659942520b956a4384eb9cf7c2f26c926d900008c0bb4eb278a9",
+    "printer-shared-mcu/experimental/synthetic-calibration-thermal/ResolvedBedHeaterBinding.cs": "3192079324188143bc8e0adedd603c38b5c3267ffcc33e35b1ce2e92b8e86cd5",
+    "printer-shared-mcu/experimental/synthetic-calibration-thermal/SyntheticThermalTests.cs": "2e0e436e012af4e36d15ef466ccc162625dda735b8a34454c3eb813bd0944c47",
+    "inputs/mcu.bin": "9bd702c8a076f29c0ac019cc7c8ea6c7afa52d13580fea04e977e3dce0a5d517",
+    "inputs/nozzle.bin": "ae09264667ff4a72905706026b1591bdede91e1f250755319fec531328e54e2f",
+    "inputs/motor.bin": "76b439293ab08207317007f5179243a0684c1b27668442781bcb2e201ff62661",
+    "at32-renode/docs/THERMAL-BINDINGS.md": "4ae9b16b9f3f246781acf42fa234dac430bf35b9c7ddafd6295466ad48f2ece1",
+    "at32-renode/platforms/virtual-bed-ntc.repl": "ccdf82208b0fe6f19f9e38fb2e8eb97c8a9fa64710e1cc2af50641af1ef8bfc8",
+    "at32-renode/platforms/virtual-commanded-bed.repl": "02094e789205e0b9c3b65caaf5289f2cd0e12b5029c8f2ddaeb5b007011d63bd",
+    "nozzle-renode/platforms/virtual-nozzle-recovered-ntc.repl": "0aeee03190f1f0bd7284af8ef17708d07b949328df76451bf15134bbf248f408",
+    "printer-shared-mcu/experimental/synthetic-calibration-thermal/nozzle.repl": "880c4c71572e7c9fab62c0137916991fa9fafea1364c5d356b70005536b9548b",
+    "printer-shared-mcu/experimental/synthetic-calibration-thermal/bed.repl": "15d7091b13c7e776932ad8245e4e1d7c42a664833766e6ac997b6b19b0094b51",
+    "printer-shared-mcu/experimental/synthetic-calibration-thermal/run_tests.py": "d1cab2bddb7c4624e6e36bec6e3ddf0324d4035fa8b42432a03a98f928376c3a",
+    "printer-shared-mcu/experimental/synthetic-calibration-thermal/analyze.py": "839da8059e32e1ba540d3c6d11f89fbf29c6f386af97f0b90e349ec54ececda5"
+  },
+  "compiled_source_sha256": {
+    "at32-renode/peripherals/AT32F403A_System.cs": "179c85ca231af92a862fcea5d1afbc1332a08e0c77ad097954f9b1f3ea45cd97",
+    "at32-renode/peripherals/AT32F403A_IO.cs": "ad9239941678a6acb44bcaec0393e85cc102147b64c72c7e47b8bd70d41a4c72",
+    "at32-renode/peripherals/VirtualPrinterThermal.cs": "5a2db893fa31db7336b9734b62d9919cf3ae9f7b035b8bbbf301e0b7c6e12e75",
+    "nozzle-renode/peripherals/AT32F403A_System.cs": "a546324c4f3d341a00766d460c14dade9b447955108e89989fe5e6f6bc9238ee",
+    "nozzle-renode/peripherals/AT32F403A_IO.cs": "f08b7eeb08f2f790c1c976bb5d6aaff4d926adc7335231f8a7cea086bcfd2664",
+    "nozzle-renode/peripherals/VirtualPrinterThermal.cs": "a55be20d332a1221a59fc3e305e4776deea947951bbe114997d5f8f7956ca1bf",
+    "nozzle-renode/peripherals/NativeNozzleHeaterBinding.cs": "0557e7eff228c67ae95830a8f82703489e99c034453eba89393a5b618f493940",
+    "printer-shared-mcu/experimental/synthetic-calibration-thermal/ResolvedBedHeaterBinding.cs": "a481cbd18db8e72efe427e24b4d429354b7b51c1fbc9d4ee053d34e0cf508f07",
+    "printer-shared-mcu/experimental/synthetic-calibration-thermal/SyntheticThermalTests.cs": "2e0e436e012af4e36d15ef466ccc162625dda735b8a34454c3eb813bd0944c47"
+  },
+  "profiles_sha256": {
+    "nozzle.repl": "880c4c71572e7c9fab62c0137916991fa9fafea1364c5d356b70005536b9548b",
+    "bed.repl": "15d7091b13c7e776932ad8245e4e1d7c42a664833766e6ac997b6b19b0094b51"
+  },
+  "inputs_unchanged": true
+}

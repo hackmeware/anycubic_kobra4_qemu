@@ -1,0 +1,49 @@
+{
+  "test": "true shipped release-v2/prepare.py local SWU entrypoint",
+  "exit_code": 0,
+  "status": "PREPARED_DIAGNOSTIC_INPUTS_BOOT_UNTESTED",
+  "password_handling": "interactive getpass, no value stored or echoed",
+  "firmware_executed": false,
+  "boot_tested_in_this_test": false,
+  "input_files_hash_verified": [
+    "motor.bin",
+    "offline-emmc.img",
+    "kernel-zImage",
+    "nozzle.bin",
+    "kernel-board-dtb.dtb",
+    "disk-layout.json",
+    "mcu.bin"
+  ],
+  "fsck": {
+    "app": {
+      "bytes": 268435456,
+      "sha256": "b10630875a9ed6333ce9baf5a2e6e42c4322f5aa9b560b29582cf2ec18226501",
+      "paths": 309,
+      "content_mode_uid_gid_matches_r9": true,
+      "metadata_identical_to_r9": false,
+      "fsck_readonly_clean": true
+    },
+    "userdata": {
+      "bytes": 16777216,
+      "sha256": "d3b1482425aba79c1885190d18206fa07c6d3e909b7a4217fe8011f547893ecf",
+      "paths": 2,
+      "content_mode_uid_gid_matches_r9": true,
+      "metadata_identical_to_r9": false,
+      "fsck_readonly_clean": true
+    },
+    "data": {
+      "bytes": 67108864,
+      "sha256": "ebe9d6c28724aa37b307dc9ca0a16b5de2290c3a4366158fffdf6d6da5609017",
+      "paths": 2,
+      "content_mode_uid_gid_matches_r9": true,
+      "metadata_identical_to_r9": false,
+      "fsck_readonly_clean": true
+    },
+    "boot_tested": false,
+    "profile": "kobra-rebuilt-v1",
+    "warning": "Synthetic guest images only. Never flash physical hardware."
+  },
+  "source_modified": false,
+  "source_entrypoint_sha256": "f8b205c883d0b07574ef44d0a98237439b56ac2d6902a7b848f5544886d220c9",
+  "prepared_disk_sha256": "b857f8bea92198f20761c6f3e5e4de813aca33be0ea6a9a2f34f7f0d1a14fa97"
+}

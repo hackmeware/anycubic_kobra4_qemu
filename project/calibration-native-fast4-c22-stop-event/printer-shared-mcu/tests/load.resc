@@ -1,0 +1,22 @@
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/main/scripts/load.resc
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/main/peripherals/AT32F403A_VirtualSerialWire.cs
+sysbus.crm HextFrequency 24000000
+machine LoadPlatformDescriptionFromString "motorWire: PrinterMain.AT32VirtualSerialWire @ sysbus { uart: usart2; baud: 576000 }"
+emulation CreateUARTHub "motorHub"
+connector Connect sysbus.motorWire motorHub
+emulation CreateGPIOConnector "motorSync"
+connector Connect sysbus.gpioA motorSync
+motorSync SelectSourcePin sysbus.gpioA 8
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/motor/scripts/load.resc
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/motor/scripts/board-clock-and-rtc.resc
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/motor/scripts/generic-stationary-rl.resc
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/motor/peripherals/AT32F403A_VirtualSerialWire.cs
+machine LoadPlatformDescriptionFromString "mainWire: PrinterMotor.AT32VirtualSerialWire @ sysbus { uart: usart2; baud: 576000 }"
+connector Connect sysbus.mainWire motorHub
+connector Connect sysbus.tmr2 motorSync
+motorSync SelectDestinationPin sysbus.tmr2 0
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/nozzle/scripts/load.resc
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/nozzle/scripts/virtual-nozzle-ntc.resc
+include @/workspace/scratch/ca95ca5f55d9/printer-shared-mcu/generated/nozzle/scripts/virtual-tmc2209.resc
+log "SHARED LOAD PASS"
+quit

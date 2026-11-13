@@ -1,0 +1,9 @@
+{
+  "scope": "c19-to-c20 exact capture-generator path identity only; thermal contract unchanged",
+  "files": {
+    "rv1106-at32-link/experimental/native-ui-resonance/prepare_capture_commands.py": {
+      "c19": "988527d13e761a85ff5d564100912c160fb9feb764b2a424d443009e6fc63928",
+      "c20": "69467ccea17d8b9c1d466509dc1e6ddd7b6b7f8e44b40162a36b44ce095ca02f"
+    }
+  }
+}

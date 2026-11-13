@@ -1,0 +1,5 @@
+// Optional digital drive timer wiring. No electrical model.
+pwmTriggers: AT32.VirtualMotorPWMTriggers @ sysbus
+    tmr2: tmr2
+    tmr3: tmr3
+    tmr4: tmr4

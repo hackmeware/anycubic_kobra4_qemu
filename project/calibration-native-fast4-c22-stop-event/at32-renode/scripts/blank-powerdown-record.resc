@@ -1,0 +1,3 @@
+# Explicit synthetic blank saved power-down record, not a homing/position claim.
+# Requires virtual-tmc-gateway.resc first.
+sysbus.tmcGateway BlankPowerDownRecord true

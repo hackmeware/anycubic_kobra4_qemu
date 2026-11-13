@@ -1,0 +1,83 @@
+# Guest-only RAM /tmp preparation before hooks, no original image writes.
+if ! grep -q ' /tmp tmpfs ' /proc/mounts; then mount -t tmpfs -o size=16m,mode=1777 tmpfs /tmp; fi
+umask 077; mkdir -p /tmp/k4-usb-net; rm -f /tmp/k4-usb-net/lease-ready
+printf '%s\n' isolated > /tmp/k4-usb-net/mode
+if : > /tmp/k4-usb-net/hook.sh; then echo K4_NET_TMP_READY; else echo K4_NET_ERROR_TMP; fi
+printf '%s\n' '#!/bin/sh' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '# Diagnostic guest-only DHCP hook; never changes host networking.' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' 'set -eu' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '[ "${interface:-}" = eth0 ] || { echo K4_NET_ERROR_INTERFACE; exit 1; }' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' work=/tmp/k4-usb-net >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' 'mode=$(cat "$work/mode")' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' 'case "$mode" in isolated|internet) ;; *) echo K4_NET_ERROR_MODE; exit 1;; esac' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' 'valid_ip() {' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    case "$1" in '"'"''"'"'|*[!0-9.]*|.*|*.) return 1;; esac' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    oldifs=$IFS; IFS=.; set -- $1; IFS=$oldifs' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    [ "$#" -eq 4 ] || return 1' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    for part do' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        [ "${#part}" -le 3 ] && [ "$part" -le 255 ] 2>/dev/null || return 1' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    done' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '}' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' 'case "${1:-}" in' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' ' deconfig)' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    ifconfig eth0 0.0.0.0' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    ;;' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' ' bound|renew)' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    valid_ip "${ip:-}" && valid_ip "${subnet:-}" || { echo K4_NET_ERROR_ADDRESS; exit 1; }' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    ifconfig eth0 "$ip" netmask "$subnet" up' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    # Restrict to this interface; a missing old route is normal on first lease.' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    route del default dev eth0 2>/dev/null || :' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    gateway=' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    for address in ${router:-}; do' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        valid_ip "$address" || { echo K4_NET_ERROR_ROUTER; exit 1; }' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        [ -n "$gateway" ] || gateway=$address' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    done' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    if [ -n "$gateway" ]; then' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        route add default gw "$gateway" dev eth0' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        echo K4_NET_ROUTE_CONFIGURED' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    elif [ "$mode" = internet ]; then' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        echo K4_NET_ERROR_NO_ROUTER; exit 1' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    else' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        echo K4_NET_ROUTE_UNAVAILABLE_LOCAL_ONLY' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    fi' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    : > "$work/resolv.conf"' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    count=0' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    for address in ${dns:-}; do' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        valid_ip "$address" || { echo K4_NET_ERROR_DNS; exit 1; }' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        count=$((count+1)); [ "$count" -le 3 ] || continue' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        printf '"'"'nameserver %s\n'"'"' "$address" >> "$work/resolv.conf"' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    done' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    if [ "$count" -eq 0 ]; then' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        if [ "$mode" = internet ]; then echo K4_NET_ERROR_NO_DNS; exit 1; fi' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        echo K4_NET_RESOLVER_UNAVAILABLE_LOCAL_ONLY' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    else' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    # R9 vendor /etc/resolv.conf is a dangling symlink to ../tmp/resolv.conf.' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    # Preserve it and write only its verified RAM-backed target.' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    if [ -L /etc/resolv.conf ]; then' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        [ "$(readlink /etc/resolv.conf)" = ../tmp/resolv.conf ] || { echo K4_NET_ERROR_RESOLVER_SYMLINK; exit 1; }' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        [ ! -L /tmp/resolv.conf ] || { echo K4_NET_ERROR_RESOLVER_TMP_SYMLINK; exit 1; }' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        cat "$work/resolv.conf" > /tmp/resolv.conf' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    else' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        [ -f /etc/resolv.conf ] || { echo K4_NET_ERROR_RESOLVER_TARGET; exit 1; }' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        if [ ! -f "$work/resolver-bound" ]; then' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '            mount -o bind "$work/resolv.conf" /etc/resolv.conf' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '            : > "$work/resolver-bound"' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '        fi' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    fi' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    cmp "$work/resolv.conf" /etc/resolv.conf || { echo K4_NET_ERROR_RESOLVER_READBACK; exit 1; }' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    echo K4_NET_RESOLVER_CONFIGURED' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    fi' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    if [ "$mode" = isolated ]; then echo K4_NET_LOCAL_ONLY_READY; else echo K4_NET_INTERNET_CONFIGURATION_READY_UNTESTED; fi' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    printf '"'"'K4_NET_LEASE_READY ip=%s gateway=%s\n'"'"' "$ip" "$gateway"' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    : > "$work/lease-ready"' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' '    ;;' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' ' *) echo K4_NET_ERROR_DHCP_EVENT; exit 1;;' >> /tmp/k4-usb-net/hook.sh
+printf '%s\n' esac >> /tmp/k4-usb-net/hook.sh
+chmod 700 /tmp/k4-usb-net/hook.sh
+ifconfig lo up
+n=0; while [ ! -d /sys/class/net/eth0 ] && [ "$n" -lt 20 ]; do sleep 1; n=$((n+1)); done
+if [ -d /sys/class/net/eth0 ]; then ifconfig eth0 up && udhcpc -i eth0 -s /tmp/k4-usb-net/hook.sh -t 5 -T 2 -n -q; else echo K4_NET_ERROR_NO_ETH0; fi
+if [ -f /tmp/k4-usb-net/lease-ready ]; then echo K4_NET_CONFIG_READY; else echo K4_NET_CONFIG_FAILED; fi
+ifconfig eth0
+route -n
+cat /etc/resolv.conf

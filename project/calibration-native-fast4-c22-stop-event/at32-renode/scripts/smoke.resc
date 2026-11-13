@@ -1,0 +1,5 @@
+include @scripts/load.resc
+sysbus LoadBinary @firmware/smoke.bin 0x08000000
+sysbus.cpu VectorTableOffset 0x08000000
+showAnalyzer sysbus.usart1
+start

@@ -1,0 +1,116 @@
+{
+  "warning": "Synthetic geometry for emulation only, NOT a real-device flashing image. Missing env/idblock/misc remain zero. Original boot scripts may format guest filesystems; use disposable copies/snapshots.",
+  "sector_size": 512,
+  "disk_size": 536870912,
+  "partitions": [
+    {
+      "partition": 1,
+      "name": "env",
+      "start_sector": 2048,
+      "sectors": 2048,
+      "source": null
+    },
+    {
+      "partition": 2,
+      "name": "idblock",
+      "start_sector": 4096,
+      "sectors": 2048,
+      "source": null
+    },
+    {
+      "partition": 3,
+      "name": "uboot_a",
+      "start_sector": 6144,
+      "sectors": 2048,
+      "source": "uboot.img",
+      "sha256": "0d6877f7c4a0646b510e68617c9eef9c6b98fd8ed3bd841e99bf30aae536ace1"
+    },
+    {
+      "partition": 4,
+      "name": "uboot_b",
+      "start_sector": 8192,
+      "sectors": 2048,
+      "source": "uboot.img",
+      "sha256": "0d6877f7c4a0646b510e68617c9eef9c6b98fd8ed3bd841e99bf30aae536ace1"
+    },
+    {
+      "partition": 5,
+      "name": "misc",
+      "start_sector": 10240,
+      "sectors": 2048,
+      "source": null
+    },
+    {
+      "partition": 6,
+      "name": "boot_a",
+      "start_sector": 12288,
+      "sectors": 16384,
+      "source": "boot.img",
+      "sha256": "e6045f5e3acf2a135ea0355adf8e4fea0a773b55ae1012705ebf6cc24ccf0792"
+    },
+    {
+      "partition": 7,
+      "name": "boot_b",
+      "start_sector": 28672,
+      "sectors": 16384,
+      "source": "boot.img",
+      "sha256": "e6045f5e3acf2a135ea0355adf8e4fea0a773b55ae1012705ebf6cc24ccf0792"
+    },
+    {
+      "partition": 8,
+      "name": "system_a",
+      "start_sector": 45056,
+      "sectors": 32768,
+      "source": "system.img",
+      "sha256": "f4c0032b5d201ca43ce5b220e7a1fb90a4ffcc8120bb67839486b970e75ffcc4"
+    },
+    {
+      "partition": 9,
+      "name": "system_b",
+      "start_sector": 77824,
+      "sectors": 32768,
+      "source": "system.img",
+      "sha256": "f4c0032b5d201ca43ce5b220e7a1fb90a4ffcc8120bb67839486b970e75ffcc4"
+    },
+    {
+      "partition": 10,
+      "name": "oem_a",
+      "start_sector": 110592,
+      "sectors": 65536,
+      "source": "oem.img",
+      "sha256": "3adb7a76c96b9cc1e078d898e500cce685d6a320fefb9db5a46fe78263cbd8aa"
+    },
+    {
+      "partition": 11,
+      "name": "oem_b",
+      "start_sector": 176128,
+      "sectors": 65536,
+      "source": "oem.img",
+      "sha256": "3adb7a76c96b9cc1e078d898e500cce685d6a320fefb9db5a46fe78263cbd8aa"
+    },
+    {
+      "partition": 12,
+      "name": "userdata",
+      "start_sector": 241664,
+      "sectors": 32768,
+      "source": "userdata.ext4",
+      "sha256": "89303f7e83bd6f87bfadf0935ea966596622c01c29e9743ec9fc22e9f3074ea9"
+    },
+    {
+      "partition": 13,
+      "name": "app",
+      "start_sector": 274432,
+      "sectors": 524288,
+      "source": "app.ext4",
+      "sha256": "9cec81215497cbc15be1f9d71fbe72c0dc5978dc827af23979cb87cd35798094"
+    },
+    {
+      "partition": 14,
+      "name": "data",
+      "start_sector": 798720,
+      "sectors": 131072,
+      "source": "data.ext4",
+      "sha256": "c0076818bfa351411feb8b2fc7aeb229fe40e16f36370f89f781d1426e8188b6"
+    }
+  ]
+}

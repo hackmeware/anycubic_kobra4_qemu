@@ -1,0 +1,8 @@
+{
+  "reconstructed": true,
+  "readiness_source": "kobra_recovery_20261112/restored/Kobra4-Emulator/project/calibration-native-fast4-c22-stop-event/rv1106-at32-link/experimental/native-ui-resonance/startup_readiness.py",
+  "readiness_sha256": "2ea0cc41c5416821cdb7da076a6084a80a8aee9821a87055232b991d3a24b2e0",
+  "classification_source": "kobra_recovery_20261112/restored/Kobra4-Emulator/project/calibration-native-fast4-c22-stop-event/rv1106-at32-link/experimental/sensor30-observation/observer.py",
+  "classification_sha256": "04311b970f4f1d250cb4d7ac2cc340275a616f1568a7ace9e81108d0d0723db9",
+  "guest_tested": false
+}

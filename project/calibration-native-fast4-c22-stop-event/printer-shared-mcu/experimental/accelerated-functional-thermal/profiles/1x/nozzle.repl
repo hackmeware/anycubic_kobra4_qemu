@@ -1,0 +1,27 @@
+// SYNTHETIC ACCELERATED FUNCTIONAL TEST ONLY: 1x capacity scaling.
+// NOT physical-printer calibration, PID validation, stable regulation, or print readiness.
+// Only heat capacity differs from the optional synthetic baseline.
+// EXPLICIT HYPOTHETICAL SCENARIO, not measured printer characteristics.
+// Fresh paused setup only, INSTEAD OF the ordinary nozzle thermal fixture.
+// Requires unchanged nozzle VirtualPrinterThermal and NativeNozzleHeaterBinding.
+// Shared namespace generation must replace AT32 with PrinterNozzle.
+virtualNozzleNTC: AT32.VirtualPrinterThermal @ sysbus
+    adc: adc1
+    channel: 0
+    heaterPowerWatts: 60
+    heatCapacityJoulesPerKelvin: 20
+    conductanceWattsPerKelvin: 0.2
+    ambientCelsius: 25
+    pullResistanceOhms: 4700
+    adcMaximum: 4095
+    thermistorToGround: true
+    useRecoveredNozzleCurve: true
+    maximumCelsius: 400
+    stopHeaterAtMaximum: true
+    updateMicroseconds: 10000
+    heaterActiveHigh: true
+
+nativeNozzleHeaterBinding: AT32.NativeNozzleHeaterBinding @ sysbus
+    portB: gpioB
+    thermal: virtualNozzleNTC
+// PB9 intentionally unbound. Existing passive observer may still record it.

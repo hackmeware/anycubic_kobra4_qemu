@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "ports": {
+    "main-gpioA-edges.csv": {
+      "maximum_rows": 3000000,
+      "maximum_bytes": 268435456
+    },
+    "main-gpioB-edges.csv": {
+      "maximum_rows": 3000000,
+      "maximum_bytes": 268435456
+    },
+    "main-gpioC-edges.csv": {
+      "maximum_rows": 3000000,
+      "maximum_bytes": 268435456
+    },
+    "main-gpioD-edges.csv": {
+      "maximum_rows": 3000000,
+      "maximum_bytes": 268435456
+    },
+    "main-gpioE-edges.csv": {
+      "maximum_rows": 3000000,
+      "maximum_bytes": 268435456
+    },
+    "nozzle-gpioA-edges.csv": {
+      "maximum_rows": 3000000,
+      "maximum_bytes": 268435456
+    },
+    "nozzle-gpioB-edges.csv": {
+      "maximum_rows": 3000000,
+      "maximum_bytes": 268435456
+    },
+    "nozzle-gpioC-edges.csv": {
+      "maximum_rows": 3000000,
+      "maximum_bytes": 268435456
+    },
+    "nozzle-gpioD-edges.csv": {
+      "maximum_rows": 3000000,
+      "maximum_bytes": 268435456
+    },
+    "nozzle-gpioE-edges.csv": {
+      "maximum_rows": 3000000,
+      "maximum_bytes": 268435456
+    },
+    "motor-gpioA-edges.csv": {
+      "maximum_rows": 3000000,
+      "maximum_bytes": 268435456
+    },
+    "motor-gpioB-edges.csv": {
+      "maximum_rows": 3000000,
+      "maximum_bytes": 268435456
+    },
+    "motor-gpioC-edges.csv": {
+      "maximum_rows": 3000000,
+      "maximum_bytes": 268435456
+    },
+    "motor-gpioD-edges.csv": {
+      "maximum_rows": 3000000,
+      "maximum_bytes": 268435456
+    },
+    "motor-gpioE-edges.csv": {
+      "maximum_rows": 3000000,
+      "maximum_bytes": 268435456
+    }
+  },
+  "checkpoint_copies": 2,
+  "total_gpio_disk_bytes": 12884901888,
+  "max_wall_seconds": 86400,
+  "max_process_rss_bytes": 4294967296
+}

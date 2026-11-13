@@ -1,0 +1,3 @@
+# Separate opt-in generic dynamics. Do not combine with stationary/current plants.
+include @peripherals/GenericStepperElectromechanical.cs
+machine LoadPlatformDescription @platforms/generic-electromechanical.repl

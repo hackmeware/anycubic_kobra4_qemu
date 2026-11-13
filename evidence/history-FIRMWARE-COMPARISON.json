@@ -1,0 +1,47 @@
+{
+  "original": {
+    "samples": 999,
+    "coordinator_wall_s": 204.96618923799906,
+    "total_wall_s": 341.8559256539993,
+    "step_mean_ms": 205.16592770870847,
+    "step_median_ms": 187.3315820012067,
+    "max_lead_ns": 1,
+    "max_lag_ns": 1000000,
+    "clock_error": "R9 shared virtual-time bound reached; requested step not executed",
+    "sensor_verified": true,
+    "inputs_unchanged": true,
+    "persistence_finalized": true,
+    "disk_hash": "2c2589c28b69a39638f079b1a1f8350ad3f23eb9d5b47110003ac1a3e853c43a",
+    "elf_hash": "77c56d14e04e9557a280369b7e575ca629c79d811b1e67bf4a713a701bfcba35"
+  },
+  "candidate": {
+    "samples": 999,
+    "coordinator_wall_s": 103.73137961500106,
+    "total_wall_s": 228.28353967799922,
+    "step_mean_ms": 103.82571636336405,
+    "step_median_ms": 100.8532110026863,
+    "max_lead_ns": 1,
+    "max_lag_ns": 1000000,
+    "clock_error": "R9 shared virtual-time bound reached; requested step not executed",
+    "sensor_verified": true,
+    "inputs_unchanged": true,
+    "persistence_finalized": true,
+    "disk_hash": "2c2589c28b69a39638f079b1a1f8350ad3f23eb9d5b47110003ac1a3e853c43a",
+    "elf_hash": "77c56d14e04e9557a280369b7e575ca629c79d811b1e67bf4a713a701bfcba35"
+  },
+  "parity": {
+    "all999clock_samples_equal_excluding_wall": true,
+    "sensor_final_differences": {
+      "last_source_ns": {
+        "original": 1998969000,
+        "candidate": 1998968630
+      }
+    },
+    "input_hashes_equal": true,
+    "journal_exact999_RunFor_intents": true,
+    "firmware_ui_calibration_verified": false,
+    "coordinator_speed_ratio": 1.975932355269263,
+    "same_disk_after": true,
+    "same_elf": true
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "source": "rv1106-linux-emmc/app-ram.bin",
+  "sha256": "915424f5dc77b05510509d78b9eab3ad602e6ed6ea2ae707df67bbc02d1ecfaa",
+  "method": "Page-local STL string nodes; firmware/application runtime data, not physical board calibration",
+  "bed": [
+    {
+      "key": "heater_pin",
+      "value": "PA0",
+      "node_virtual": "0x1b5b208",
+      "node_file_offset": "0x1d7b208"
+    },
+    {
+      "key": "sensor_type",
+      "value": "NTC 100K beta 3950",
+      "node_virtual": "0x1b5b280",
+      "node_file_offset": "0x1d7b280"
+    },
+    {
+      "key": "sensor_pin",
+      "value": "PB0",
+      "node_virtual": "0x1b5b2e0",
+      "node_file_offset": "0x1d7b2e0"
+    },
+    {
+      "key": "max_safe_temp",
+      "value": "100",
+      "node_virtual": "0x1b5b778",
+      "node_file_offset": "0x1d7b778"
+    },
+    {
+      "key": "max_temp",
+      "value": "120",
+      "node_virtual": "0x1b5b7d8",
+      "node_file_offset": "0x1d7b7d8"
+    }
+  ],
+  "nozzle": [
+    {
+      "key": "heater_pin",
+      "value": "nozzle_mcu:PB8",
+      "node_virtual": "0x1b5acb0",
+      "node_file_offset": "0x15d6cb0"
+    },
+    {
+      "key": "sensor_type",
+      "value": "NTC ZM3863 HNS112HC4570G0",
+      "node_virtual": "0x1b5ad50",
+      "node_file_offset": "0x15d6d50"
+    },
+    {
+      "key": "sensor_pin",
+      "value": "nozzle_mcu:PA0",
+      "node_virtual": "0x1b5ad90",
+      "node_file_offset": "0x15d6d90"
+    }
+  ],
+  "limitations": [
+    "Section identification is corroborated by bed/nozzle pin and sensor names, with tree reconstruction performed separately.",
+    "No thermistor coefficients for the custom nozzle NTC or board pullup resistance are recovered here.",
+    "Causal command-to-GPIO validation is still required before connecting a thermal plant."
+  ]
+}

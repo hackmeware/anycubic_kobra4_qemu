@@ -1,0 +1,15 @@
+// Assumed generic electrical parameters, not identified board values.
+rlPlant: AT32.GenericStationaryMotorRL @ sysbus
+    tmr2: tmr2
+    tmr1: tmr1
+    tmr3: tmr3
+    tmr4: tmr4
+    tmr8: tmr8
+    adc1: adc1
+    adc2: adc2
+    adc3: adc3
+    supplyVoltage: 24
+    resistanceOhms: 2
+    inductanceHenries: 0.003
+    adcCountsPerAmp: 500
+    adcOffset: 2048

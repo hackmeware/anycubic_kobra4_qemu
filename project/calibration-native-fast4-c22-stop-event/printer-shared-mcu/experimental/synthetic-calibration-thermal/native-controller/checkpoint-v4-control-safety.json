@@ -1,0 +1,49 @@
+{
+  "revision": 4,
+  "scope": "Serialized console ownership, graceful normal-zero intent, explicit4x functional dual-band-and-off test",
+  "native_runs_started": 0,
+  "total_passed_tests": 107,
+  "passed_tests": {
+    "controller-tests-v4.log": 60,
+    "temperature-tests-v4.log": 5,
+    "unary-transport-tests-v4.log": 28,
+    "unary-heater-tests-v4.log": 14
+  },
+  "reviewed_dependency_count": 41,
+  "controller_sha256": "ce90b6550e64d2461bc920136ee2130c65f1aebdb314d53a10f651426602247e",
+  "replay_sha256": "7c69f08bad6db4964ebdfe61112e40c86645d7ae08c330147aa0f28a67fa2b7e",
+  "graceful_intent_helper_sha256": "bec5a4eb7a54c0835398450c9ae9775dbb8107584137945feac9c531f1815a56",
+  "dependency_manifest_sha256": "cf1848600e0d1829c93762ff89002134376c140bf54199c76e3b2b62140c29a6",
+  "preserved_prior_archives": {
+    "native-controller-source-checkpoint.tar.gz": "09d0acd2142f79fd65f9a719088e34e93f9429875de713dc008ff485f469be5d",
+    "native-controller-source-checkpoint-v2-startup.tar.gz": "dceac59a58e7fd33ffbf15151bd9e0b5b08030b820d36cb22137a253dd051b17",
+    "native-controller-source-checkpoint-v3-streaming.tar.gz": "72747ee54e368a76ac07a3fac85683ed868de4c1dd23d521693e5cfed520d02b"
+  },
+  "r3_and_safe_stop_artifacts_hash_verified_unchanged": true,
+  "original_r3_incomplete_zero_off_cooling_unverified": true,
+  "strict_transport_and_octaldump_decoders_unchanged": true,
+  "getstatus_elf_unchanged_from_r3_native_guest": "94bacb120ff6378771ab0ece268b69614406ca97058d9683e4317bc471701216",
+  "new_console_wrapper_live_validated": false,
+  "new_controller_scheduling_tests": "mocked delayed output plus actual status019 corruption negative; no native launch",
+  "shell_validation": "syntax-only POSIX sh; no generated client execution",
+  "accelerated_mode": {
+    "selection": "accelerated-functional-4x",
+    "band_tolerance_c": 2,
+    "physical_and_fresh_native_band_seconds": 5,
+    "heat_cap_virtual_seconds": 60,
+    "zero_lead_virtual_seconds": 52,
+    "nozzle_cap_c": 250,
+    "bed_cap_c": 75,
+    "real_pid_validation": false,
+    "pid_calibration_completed": false,
+    "automatic_factor_fallback": false
+  },
+  "original_mode_limits_unchanged": {
+    "physical_and_native_band_seconds": 30,
+    "heat_cap_virtual_seconds": 240,
+    "zero_lead_virtual_seconds": 232
+  },
+  "graceful_intent_file": "graceful-stop-request.json",
+  "graceful_stop_command": "python3 printer-shared-mcu/experimental/synthetic-calibration-thermal/native-controller/request_graceful_stop.py native-nozzle-230-functional4x-r1 --reason 'User requested stopping this test'",
+  "nozzle_invocation": "python3 printer-shared-mcu/experimental/synthetic-calibration-thermal/native-controller/controller.py native-nozzle-230-functional4x-r1 --thermal-profile accelerated-functional-4x --heater nozzle --nozzle-tmc-model autobaud --execute --seconds 10800 --cleanup-seconds 120"
+}

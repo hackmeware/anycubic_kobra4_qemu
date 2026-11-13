@@ -1,0 +1,68 @@
+{
+  "firmware_sha256": "9bd702c8a076f29c0ac019cc7c8ea6c7afa52d13580fea04e977e3dce0a5d517",
+  "sram_sha256": "dde3f90c283caa0f3256e10aeb427e89d0b6402a8b0f83cdf3a9c48830799232",
+  "oid_count": 21,
+  "stepper_objects": [
+    {
+      "oid": 9,
+      "address": "0x20002b48",
+      "step": {
+        "pin": "PG5",
+        "gpio": "0x40012000",
+        "mask": "0x20",
+        "bonded_in_assumed_RGT7": false
+      },
+      "direction": {
+        "pin": "PG4",
+        "gpio": "0x40012000",
+        "mask": "0x10",
+        "bonded_in_assumed_RGT7": false
+      },
+      "flags": 24,
+      "semantic_axis": null,
+      "steps_per_mm": null,
+      "enable_pin": null
+    },
+    {
+      "oid": 12,
+      "address": "0x20002c24",
+      "step": {
+        "pin": "PC4",
+        "gpio": "0x40011000",
+        "mask": "0x10",
+        "bonded_in_assumed_RGT7": true
+      },
+      "direction": {
+        "pin": "PA7",
+        "gpio": "0x40010800",
+        "mask": "0x80",
+        "bonded_in_assumed_RGT7": true
+      },
+      "flags": 24,
+      "semantic_axis": null,
+      "steps_per_mm": null,
+      "enable_pin": null
+    },
+    {
+      "oid": 15,
+      "address": "0x20002ccc",
+      "step": {
+        "pin": "PC9",
+        "gpio": "0x40011000",
+        "mask": "0x200",
+        "bonded_in_assumed_RGT7": true
+      },
+      "direction": {
+        "pin": "PB1",
+        "gpio": "0x40010c00",
+        "mask": "0x2",
+        "bonded_in_assumed_RGT7": true
+      },
+      "flags": 24,
+      "semantic_axis": null,
+      "steps_per_mm": null,
+      "enable_pin": null
+    }
+  ],
+  "scope": "Configured software GPIO identities; not verified physical board wiring or axis semantics"
+}

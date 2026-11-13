@@ -1,0 +1,127 @@
+[
+  {
+    "path": "ACTUAL-PREPARATION-TEST.json",
+    "bytes": 2897,
+    "sha256": "9f1648b3e7e1170e62ff83a7717bc19c7635ff0aca4fd7b6e97afe6edf0b194a"
+  },
+  {
+    "path": "GPT-VALIDATION.json",
+    "bytes": 111,
+    "sha256": "1640ff9106469722bef69198d105fccb783c9a1ca9dfd9d6f43ab03671d3db28"
+  },
+  {
+    "path": "HOST-TOOLS-SHA256.txt",
+    "bytes": 507,
+    "sha256": "68ceaf84324dd1f11b4edc8ad59450aca538ed29dd86c259a7479e2037b5576f"
+  },
+  {
+    "path": "README-PREPARATION.de.txt",
+    "bytes": 4302,
+    "sha256": "3dc39ffca327a0f21cddda25f44fa8342dbc679912147a7bc1a314363aa74676"
+  },
+  {
+    "path": "REGRESSION-TESTS.txt",
+    "bytes": 599,
+    "sha256": "c9286c5b98fa0a2620ef4ae3d342fed53df9c73953a5a4b9068f4f237440b7c7"
+  },
+  {
+    "path": "app-inventory.json",
+    "bytes": 96710,
+    "sha256": "7004d155d5be214fd65fb6eef19153d0c93b88314e988a2fdf4bc704008b4f21"
+  },
+  {
+    "path": "build_app.py",
+    "bytes": 5779,
+    "sha256": "b53262909ff4c3013ef59fea53612c87265013c8cbe848bf4d6a9563e4dcd677"
+  },
+  {
+    "path": "build_disk.py",
+    "bytes": 3366,
+    "sha256": "5879dc02ca910867e4324f32a4045df6b5f6f6ad45f0b38fb9096c0d26d56c8b"
+  },
+  {
+    "path": "build_system.py",
+    "bytes": 3113,
+    "sha256": "485864c54bf3a956c28fb857b4f5f7a1488b57c679c40db0afe093f1ccc92b17"
+  },
+  {
+    "path": "data-inventory.json",
+    "bytes": 1051,
+    "sha256": "611d0eed019eccff2151be22cf7895592d508c6d95636a08ba65e7655a65f086"
+  },
+  {
+    "path": "diagnostic-S80_wifi_connect.txt",
+    "bytes": 150,
+    "sha256": "3ba6f9cdd9edeccfa55f9f48de3288a9dd5876073accaff9e82ef2c866b945cb"
+  },
+  {
+    "path": "firmware-profile.json",
+    "bytes": 1580,
+    "sha256": "95eec1117232c9d978f90676aa435296b2c828cb18cc177fffcec3267dcac0fe"
+  },
+  {
+    "path": "import_swu.py",
+    "bytes": 20206,
+    "sha256": "921db988f9b7e46746c74467beb8f10560f201ebd3a5690b3aa29d969b7d126d"
+  },
+  {
+    "path": "inspect_ext.py",
+    "bytes": 6526,
+    "sha256": "deae9d08c20be1a58586b3855a0add40185b4e655c527314be982e83369d99e7"
+  },
+  {
+    "path": "inspect_squash.py",
+    "bytes": 5953,
+    "sha256": "74d1454e13d4255038cabfa44370dcbbd0ac6702b5cb8ed358dd4c20e56bd6c3"
+  },
+  {
+    "path": "original-app-tree-inventory.json",
+    "bytes": 72807,
+    "sha256": "8f77dbdf80a95fa901a14b9a7dbdf995a1d101f51835dbcb45ed5756e96f59bb"
+  },
+  {
+    "path": "original-diagnostic-emulation-init.sh.txt",
+    "bytes": 394,
+    "sha256": "212befcdc7ffe2ad7eb51d7202483d006e587e35049cd0a67a360246e802c059"
+  },
+  {
+    "path": "prepare_setup.py",
+    "bytes": 3494,
+    "sha256": "5f1041cb7ef6cb20d68475fea06d09b6309e43e8a953e5f627d45f6d14853e19"
+  },
+  {
+    "path": "prepare_swu.py",
+    "bytes": 2082,
+    "sha256": "6dffb2abdf7aeacf2cf08ada0b00a46b276c488dbb0f65fbff316db4fe032a63"
+  },
+  {
+    "path": "reference-disk-layout.json",
+    "bytes": 3147,
+    "sha256": "021394b8b297d0de21d2db32069b68011c773811cd7988aaed3f55fa19621d43"
+  },
+  {
+    "path": "rv1106_fit.py",
+    "bytes": 7144,
+    "sha256": "8358732c41ae29166a872d85f59e63958ef4b50babc6d99184ec37842f144dbb"
+  },
+  {
+    "path": "system-original-inventory.json",
+    "bytes": 123403,
+    "sha256": "28d60d27e2257f2ae690855b1defd82f00d81395d0eec434d0aa3129bfe8ae26"
+  },
+  {
+    "path": "system-r9-inventory.json",
+    "bytes": 123241,
+    "sha256": "f32b8c41693928e2b3b571727a0ead5a9b6f7ea9c492bc81dcd1e5fdad59785e"
+  },
+  {
+    "path": "test_preparation.py",
+    "bytes": 1472,
+    "sha256": "1c419e035ee125169e15593090096c2c3d329e8224b033735e66db5d7af593ad"
+  },
+  {
+    "path": "userdata-inventory.json",
+    "bytes": 1061,
+    "sha256": "2a38250d2b14f9f6075db04dca411f79ba02ad58a15f94410cf8f0ded7d1865d"
+  }
+]

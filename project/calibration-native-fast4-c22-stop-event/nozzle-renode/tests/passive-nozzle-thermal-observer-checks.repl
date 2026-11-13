@@ -1,0 +1,4 @@
+observerChecks: AT32Tests.PassiveNozzleThermalObserverTests @ sysbus 0x60000000
+    portB: gpioB
+    thermal: virtualNozzleNTC
+    observer: passiveNozzleThermalObserver

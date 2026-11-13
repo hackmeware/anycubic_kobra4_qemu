@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-11-12T23:18:45.422874+00:00",
+  "source_base": "verified restored private version1",
+  "changes": [
+    "merge UI reconstructed starter without altering original project/runtime",
+    "merge optional instance disk and inherited descriptor across writer chain",
+    "independent exclusive reacquisition before final disk hash/state",
+    "run-specific UI logs, preserve earlier guest logs"
+  ],
+  "tests": {
+    "swu": 31,
+    "starter_and_persistence": 46,
+    "network": 19,
+    "ui": 20
+  },
+  "guest_run_this_candidate": false,
+  "no_firmware_added": true
+}

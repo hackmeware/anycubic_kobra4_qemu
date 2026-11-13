@@ -1,0 +1,17 @@
+{
+  "status": "explicit hypothetical rigid-carrier model, not physical Kobra4 mounting evidence",
+  "source": "existing registered motor.sysbus.electromechanicalPlant",
+  "source_axes": {"0": "X rotor", "1": "Y rotor", "2": "Z rotor"},
+  "plant_travel": {"XY_m_per_revolution": 0.039, "Z_m_per_revolution": 0.008},
+  "main_bed": {"selected_axes": [1], "world_m_per_rad": [[0], [0.006207042780583919], [0]], "carrier_sign": "hypothetical positive world Y for positive Y rotor"},
+  "nozzle": {"selected_axes": [0], "world_m_per_rad": [[0.006207042780583919], [0], [0]], "carrier_sign": "hypothetical positive world X for positive X rotor"},
+  "both_world_to_sensor_proper_rotation": [[0,1,0],[1,0,0],[0,0,-1]],
+  "physical_rotation_determinant": 1,
+  "physical_rotation_description": "180 degrees about world axis (1,1,0); an explicit assumption, not recovered mounting",
+  "gravity_world_m_per_s2": [0,0,-9.80665],
+  "g0_m_per_s2_per_g": 9.80665,
+  "maximum_age_ns_inclusive": 624999,
+  "maximum_derivative_interval_ns_inclusive": 625000,
+  "host_mapping": "Original host y,x,z applies once, after bytes. Its determinant -1 is not the physical rotation.",
+  "signal_claims": {"rigid_translation": true, "identified_belt_frame_mount_resonance": false, "physical_filter_response": false, "physical_noise": false, "native_full_flow_proven": false}
+}

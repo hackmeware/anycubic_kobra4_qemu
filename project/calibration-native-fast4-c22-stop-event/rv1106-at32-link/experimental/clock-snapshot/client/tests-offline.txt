@@ -1,0 +1,36 @@
+test_batch_cannot_mutate (test_snapshot_clock.InheritedTests.test_batch_cannot_mutate) ... ok
+test_concurrent_owner_rejected (test_snapshot_clock.InheritedTests.test_concurrent_owner_rejected) ... ok
+test_consumed_stop_still_respects_expired_deadline (test_snapshot_clock.InheritedTests.test_consumed_stop_still_respects_expired_deadline) ... ok
+test_disconnect_and_malformed_json_invalidate (test_snapshot_clock.InheritedTests.test_disconnect_and_malformed_json_invalidate) ... ok
+test_failed_connection_rejects_regular_commands_but_allows_stop (test_snapshot_clock.InheritedTests.test_failed_connection_rejects_regular_commands_but_allows_stop) ... ok
+test_flood_cannot_extend_absolute_deadline (test_snapshot_clock.InheritedTests.test_flood_cannot_extend_absolute_deadline) ... ok
+test_full_pipe_write_is_bounded (test_snapshot_clock.InheritedTests.test_full_pipe_write_is_bounded) ... ok
+test_invalid_deadlines_do_not_send (test_snapshot_clock.InheritedTests.test_invalid_deadlines_do_not_send) ... ok
+test_lifecycle_events_invalidate (test_snapshot_clock.InheritedTests.test_lifecycle_events_invalidate) ... ok
+test_missing_resume_rejected (test_snapshot_clock.InheritedTests.test_missing_resume_rejected) ... ok
+test_non_object_malformed_and_unexpected_wait_reply (test_snapshot_clock.InheritedTests.test_non_object_malformed_and_unexpected_wait_reply) ... ok
+test_old_stop_before_resume_is_not_completion (test_snapshot_clock.InheritedTests.test_old_stop_before_resume_is_not_completion) ... ok
+test_partial_write_invalidates_without_cont (test_snapshot_clock.InheritedTests.test_partial_write_invalidates_without_cont) ... ok
+test_run_holds_owner_lock_while_waiting (test_snapshot_clock.InheritedTests.test_run_holds_owner_lock_while_waiting) ... ok
+test_several_cycles_do_not_reuse_old_stop (test_snapshot_clock.InheritedTests.test_several_cycles_do_not_reuse_old_stop) ... ok
+test_unchanged_coordinator_lead_lag_guards (test_snapshot_clock.InheritedTests.test_unchanged_coordinator_lead_lag_guards) ... ok
+test_unrelated_events_allowed (test_snapshot_clock.InheritedTests.test_unrelated_events_allowed) ... ok
+test_wait_after_cont_reply_lifecycle_and_timeout (test_snapshot_clock.InheritedTests.test_wait_after_cont_reply_lifecycle_and_timeout) ... ok
+test_bad_armed_snapshots_never_continue (test_snapshot_clock.Tests.test_bad_armed_snapshots_never_continue) ... ok
+test_bad_schema_lifecycle_epoch_and_ranges (test_snapshot_clock.Tests.test_bad_schema_lifecycle_epoch_and_ranges) ... ok
+test_failed_final_snapshot_and_cleanup_preserve_error (test_snapshot_clock.Tests.test_failed_final_snapshot_and_cleanup_preserve_error) ... ok
+test_final_snapshot_guards (test_snapshot_clock.Tests.test_final_snapshot_guards) ... ok
+test_initial_invalid_and_unsupported_never_fallback (test_snapshot_clock.Tests.test_initial_invalid_and_unsupported_never_fallback) ... ok
+test_partial_stale_and_missing_replies (test_snapshot_clock.Tests.test_partial_stale_and_missing_replies) ... ok
+test_paused_now_invalidates_running (test_snapshot_clock.Tests.test_paused_now_invalidates_running) ... ok
+test_prearm_running_or_armed_never_continues (test_snapshot_clock.Tests.test_prearm_running_or_armed_never_continues) ... ok
+test_schema_missing_every_field (test_snapshot_clock.Tests.test_schema_missing_every_field) ... ok
+test_snapshot_nonobject_and_reversed_time (test_snapshot_clock.Tests.test_snapshot_nonobject_and_reversed_time) ... ok
+test_strict_types_for_every_field (test_snapshot_clock.Tests.test_strict_types_for_every_field) ... ok
+test_successive_runs_and_only_three_snapshot_reads (test_snapshot_clock.Tests.test_successive_runs_and_only_three_snapshot_reads) ... ok
+test_unsupported_snapshot_command_does_not_fallback (test_snapshot_clock.Tests.test_unsupported_snapshot_command_does_not_fallback) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.052s
+
+OK

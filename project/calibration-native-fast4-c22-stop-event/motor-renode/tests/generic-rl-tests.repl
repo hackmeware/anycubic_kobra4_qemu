@@ -1,0 +1,8 @@
+rlChecks: AT32Tests.GenericMotorRLTests @ sysbus
+    plant: rlPlant
+    tmr1: tmr1
+    tmr2: tmr2
+    tmr3: tmr3
+    tmr4: tmr4
+    tmr8: tmr8
+    adc1: adc1

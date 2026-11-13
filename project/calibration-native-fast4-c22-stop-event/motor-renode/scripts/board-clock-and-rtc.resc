@@ -1,0 +1,6 @@
+# Explicit board/boot-state hypotheses, NOT independently measured PCB values.
+# 24MHz HEXT -> firmware PLL240MHz, USART2~576923, matching connected mainlink.
+sysbus.crm HextFrequency 24000000
+# Original application selects internal40k RTC but does not enable it before wait.
+# Supply bootloader-state hypothesis of already running LICK; do not force readybits.
+sysbus WriteDoubleWord 0x40021024 1

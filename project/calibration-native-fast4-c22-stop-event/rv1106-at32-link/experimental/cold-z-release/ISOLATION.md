@@ -1,0 +1,11 @@
+# Separate cold release attempt c1
+
+This is not a continuation or proof of termination of the old unavailable r4 process. The new source profile is an independent copy at calibration-cold-release-c1; old regular files share no inode, and all old r7 source hashes remain unchanged. Only sixteen generated pkg-config paths differ among the copied files, with the new cold experiment and additive physical tracer stored separately.
+
+One future attempt is named cold-z-release-4800s-c1. Its profile/runs destination and evidence destination are fresh. The top-level launch script claims a create-exclusive attempt marker before entering the original owned-process guard; an existing marker prevents an automatic second attempt. Source imports use the pinned Python3.12 runtime, -I, -B and a fresh absent run-specific cache prefix. Full reviewed source closure is verified before entry and independently rehashed after teardown.
+
+The unchanged link launcher creates an unpredictable rv-at32-link-* temporary directory for PTYs and QMP pipes. There is no fixed host TCP listener in this launch path. AppLink RPC targets 127.0.0.1:50051 inside the newly booted emulated guest. Disk writes use QEMU snapshot=on against this independent profile's disk image. Headless mode avoids a live display shared-RAM mapping and extra screenshot monitor operations. This does not assert anything about a different execution namespace's old process.
+
+Outer4800 / inner4780 / active4768 / observerwork4760 host seconds and shared45 seconds are fixed before launch. Shared stop is a sampled stop request, not a pre-step clamp. Ready and each XYZ stage have fixed sub-budgets; release has600 host /5 shared seconds. Summed owned-process RSS is limited to4GiB, available memory must remain at least2GiB, free disk at least512MiB. The unchanged subreaper/pidfd/process-group cleanup owns only this attempt. Forced cleanup or unresolved children prevent success.
+
+Exactly ten RPCs and one fixed relative1mm Z release are permitted; no automatic fallback, second command, heating, StartPrint, firmware/model/clock retuning or real-printer access. Legacy thermic provenance gate remains closed. Every physical claim is limited to the fixed synthetic virtual fixture and complete retained trace resolution. Preflight and tests are not evidence that native calibration or release succeeded.

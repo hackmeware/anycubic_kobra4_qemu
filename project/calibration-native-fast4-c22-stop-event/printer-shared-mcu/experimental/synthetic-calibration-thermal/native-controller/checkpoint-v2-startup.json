@@ -1,0 +1,25 @@
+{
+  "revision": 2,
+  "scope": "Exact source/capture-verified optional startup error classification, no central or firmware change",
+  "native_runs_started_by_this_revision": 0,
+  "failed_r1_preserved": true,
+  "original_checkpoint_unchanged_sha256": "09d0acd2142f79fd65f9a719088e34e93f9429875de713dc008ff485f469be5d",
+  "controller_tests_passed": 26,
+  "native_temperature_schema_tests_passed": 5,
+  "reviewed_dependencies": 24,
+  "changed_preexisting_dependencies": [
+    {
+      "path": "printer-shared-mcu/experimental/synthetic-calibration-thermal/native-controller/controller.py",
+      "before_sha256": "9cf279ff988e64b4c6b1083050bb8fc47ccccbcd15f9f43236a7c1b85bfcce34",
+      "after_sha256": "94b85d09b6e7df0bba6c7d07962c2246e05eefcc755bebe4a4d81dc74ebfe937"
+    }
+  ],
+  "controller_sha256": "94b85d09b6e7df0bba6c7d07962c2246e05eefcc755bebe4a4d81dc74ebfe937",
+  "dependency_manifest_sha256": "868591c506eb2a40737356479ed34a901f2ac6870b61977b6e232c9bdc4493a1",
+  "nozzle_invocation": "python3 printer-shared-mcu/experimental/synthetic-calibration-thermal/native-controller/controller.py native-nozzle-230-synthetic-r2 --thermal-profile synthetic-calibration --heater nozzle --nozzle-tmc-model autobaud --execute --seconds 28800 --cleanup-seconds 120",
+  "reviewed_exceptions": 5,
+  "independent_readiness_and_baseline_still_required": true,
+  "unknown_motion_thermal_shutdown_and_corruption_remain_blocking": true,
+  "no_generic_timestamp_error_discard": true,
+  "no_console_transport_tty_changes": true
+}
